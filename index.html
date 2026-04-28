@@ -4,6 +4,13 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BoyoPrep — JAMB & WAEC CBT Practice</title>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#f5c842"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="BoyoPrep"/>
+  <link rel="apple-touch-icon" href="icon-192.png"/>
   <meta name="google-adsense-account" content="ca-pub-7817098768283961">
   <meta name="description" content="Free JAMB and WAEC CBT practice for Nigerian students. 100 questions per subject with instant results and answer reviews."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,6 +286,15 @@
 <script>
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show');}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
+</script>
+<script>
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/boyoprep/service-worker.js")
+      .then(reg => console.log("BoyoPrep SW registered:", reg.scope))
+      .catch(err => console.log("SW error:", err));
+  });
+}
 </script>
 </body>
 </html>

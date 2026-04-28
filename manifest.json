@@ -1,0 +1,51 @@
+{
+  "name": "BoyoPrep — JAMB & WAEC CBT Practice",
+  "short_name": "BoyoPrep",
+  "description": "Free JAMB and WAEC CBT practice for Nigerian students. 100 questions per subject with instant results.",
+  "start_url": "/boyoprep/",
+  "scope": "/boyoprep/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#f5c842",
+  "categories": ["education", "productivity"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "English Language",
+      "short_name": "English",
+      "description": "Practice English Language",
+      "url": "/boyoprep/english.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Mathematics",
+      "short_name": "Maths",
+      "description": "Practice Mathematics",
+      "url": "/boyoprep/mathematics.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Biology",
+      "short_name": "Biology",
+      "description": "Practice Biology",
+      "url": "/boyoprep/biology.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
