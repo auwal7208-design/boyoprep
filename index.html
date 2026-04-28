@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BoyoPrep — JAMB & WAEC CBT Practice</title>
+  <meta name="google-adsense-account" content="ca-pub-7817098768283961">
+  <meta name="description" content="Free JAMB and WAEC CBT practice for Nigerian students. 100 questions per subject with instant results and answer reviews."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7817098768283961" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--gold-glow:rgba(245,200,66,0.12);--gold-soft:rgba(245,200,66,0.07);--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--blue:#4a90e2;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar-w:260px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;overflow-x:hidden;}
+    .app{display:flex;min-height:100vh;}
+    .sidebar{width:var(--sidebar-w);background:rgba(10,10,10,0.97);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:200;overflow-y:auto;transition:transform .3s ease;}
+    .sidebar-logo{padding:28px 22px 20px;border-bottom:1px solid var(--border);}
+    .logo-text{font-family:var(--font);font-size:1.6rem;font-weight:900;letter-spacing:-0.5px;}
+    .logo-text span{color:var(--gold);}
+    .logo-sub{font-size:0.7rem;color:var(--muted);margin-top:3px;font-family:var(--font);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+    .sidebar-nav{flex:1;padding:18px 14px;}
+    .nav-label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;font-family:var(--font);font-weight:700;padding:8px 10px 5px;}
+    .nav-item{display:flex;align-items:center;gap:11px;padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.88rem;transition:all .18s;margin-bottom:2px;}
+    .nav-item:hover{background:rgba(245,200,66,0.07);color:var(--text);}
+    .nav-item.active{background:rgba(245,200,66,0.12);color:var(--gold);border:1px solid rgba(245,200,66,0.2);}
+    .nav-icon{width:32px;height:32px;border-radius:8px;background:var(--black3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .nav-item.active .nav-icon{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.3);}
+    .sidebar-footer{padding:18px 14px;border-top:1px solid var(--border);}
+    .footer-link{color:var(--muted);text-decoration:none;font-size:0.8rem;font-family:var(--font);font-weight:600;padding:6px 10px;border-radius:8px;transition:color .2s;display:block;}
+    .footer-link:hover{color:var(--gold);}
+    .main{margin-left:var(--sidebar-w);flex:1;}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 36px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.9);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .topbar-title{font-family:var(--font);font-size:1rem;font-weight:900;}
+    .topbar-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.78rem;display:flex;align-items:center;gap:7px;}
+    .live-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+    .hero{padding:52px 36px 40px;border-bottom:1px solid var(--border);}
+    .hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--gold-glow);border:1px solid rgba(245,200,66,0.25);color:var(--gold);font-size:0.75rem;font-weight:800;font-family:var(--font);padding:6px 14px;border-radius:100px;margin-bottom:22px;letter-spacing:0.3px;}
+    .hero h1{font-family:var(--font);font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-1.5px;max-width:700px;margin-bottom:16px;}
+    .hero h1 span{color:var(--gold);}
+    .hero p{color:var(--muted);font-size:1rem;max-width:560px;line-height:1.75;margin-bottom:32px;}
+    .hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+    .h-stat{display:flex;align-items:center;gap:10px;}
+    .h-stat-icon{width:38px;height:38px;border-radius:9px;background:var(--gold-soft);border:1px solid rgba(245,200,66,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+    .h-stat-info .num{font-family:var(--font);font-weight:900;font-size:1.1rem;}
+    .h-stat-info .lab{font-size:0.72rem;color:var(--muted);font-weight:600;}
+    .ad-banner-wrap{padding:20px 36px 0;}
+    .ad-banner{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:12px;padding:6px;text-align:center;}
+    .ad-label{font-size:0.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    .subjects-section{padding:36px 36px 60px;}
+    .section-header{margin-bottom:26px;}
+    .section-title{font-family:var(--font);font-size:1.3rem;font-weight:900;letter-spacing:-0.3px;margin-bottom:4px;}
+    .section-sub{color:var(--muted);font-size:0.88rem;}
+    .subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+    .subject-card{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 22px;text-decoration:none;color:var(--text);transition:all .25s;position:relative;overflow:hidden;display:block;}
+    .subject-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-glow) 0%,transparent 60%);opacity:0;transition:opacity .3s;}
+    .subject-card:hover{border-color:rgba(245,200,66,0.4);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4);}
+    .subject-card:hover::before{opacity:1;}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+    .card-icon{width:52px;height:52px;border-radius:12px;background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.15);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+    .card-badges{display:flex;flex-direction:column;gap:4px;align-items:flex-end;}
+    .badge{font-size:0.62rem;font-weight:800;font-family:var(--font);padding:3px 8px;border-radius:4px;letter-spacing:0.4px;text-transform:uppercase;}
+    .badge-jamb{background:rgba(245,200,66,0.12);color:var(--gold);}
+    .badge-waec{background:rgba(74,144,226,0.12);color:var(--blue);}
+    .badge-both{background:rgba(76,175,130,0.12);color:var(--green);}
+    .card-name{font-family:var(--font);font-weight:900;font-size:1.05rem;margin-bottom:5px;}
+    .card-meta{font-size:0.8rem;color:var(--muted);margin-bottom:16px;}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;}
+    .card-info{font-size:0.78rem;color:var(--muted);}
+    .card-btn{background:var(--gold);color:var(--black);padding:8px 18px;border-radius:8px;font-family:var(--font);font-weight:800;font-size:0.8rem;border:none;cursor:pointer;transition:all .2s;}
+    .card-btn:hover{background:var(--gold2);}
+    .how-section{padding:0 36px 60px;}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:24px;}
+    .step-card{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 20px;}
+    .step-num{width:36px;height:36px;border-radius:9px;background:rgba(245,200,66,0.12);border:1px solid rgba(245,200,66,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;color:var(--gold);font-size:0.95rem;margin-bottom:14px;}
+    .step-title{font-family:var(--font);font-weight:800;font-size:0.95rem;margin-bottom:6px;}
+    .step-desc{font-size:0.83rem;color:var(--muted);line-height:1.6;}
+    .mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;}
+    .mobile-nav-inner{display:flex;background:rgba(10,10,10,0.98);border-top:1px solid var(--border);padding:10px 0;}
+    .mob-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--muted);font-size:0.65rem;font-family:var(--font);font-weight:700;padding:4px 0;transition:color .2s;}
+    .mob-nav-item.active,.mob-nav-item:hover{color:var(--gold);}
+    .mob-icon{font-size:1.3rem;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+    .hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;}
+    .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:199;}
+    .sidebar-overlay.show{display:block;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+    .hero,.subjects-section,.how-section{animation:fadeUp .6s ease both;}
+    @media(max-width:900px){
+      .sidebar{transform:translateX(-100%);}
+      .sidebar.open{transform:translateX(0);}
+      .main{margin-left:0;}
+      .topbar{padding:14px 18px;}
+      .hero{padding:32px 18px 28px;}
+      .subjects-section,.how-section,.ad-banner-wrap{padding-left:18px;padding-right:18px;}
+      .hamburger{display:flex;}
+      .mobile-nav{display:block;}
+      .main{padding-bottom:80px;}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Boyo<span>Prep</span></div>
+      <div class="logo-sub">JAMB & WAEC Practice</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Menu</div>
+      <a href="index.html" class="nav-item active"><span class="nav-icon">🏠</span> Home</a>
+      <a href="about.html" class="nav-item"><span class="nav-icon">👤</span> About Us</a>
+      <a href="contact.html" class="nav-item"><span class="nav-icon">✉️</span> Contact</a>
+      <a href="privacy.html" class="nav-item"><span class="nav-icon">🔒</span> Privacy Policy</a>
+      <div class="nav-label" style="margin-top:12px;">Subjects</div>
+      <a href="english.html" class="nav-item"><span class="nav-icon">📖</span> English Language</a>
+      <a href="mathematics.html" class="nav-item"><span class="nav-icon">📐</span> Mathematics</a>
+      <a href="biology.html" class="nav-item"><span class="nav-icon">🧬</span> Biology</a>
+      <a href="physics.html" class="nav-item"><span class="nav-icon">⚡</span> Physics</a>
+      <a href="chemistry.html" class="nav-item"><span class="nav-icon">🧪</span> Chemistry</a>
+      <a href="economics.html" class="nav-item"><span class="nav-icon">📊</span> Economics</a>
+      <a href="government.html" class="nav-item"><span class="nav-icon">🏛️</span> Government</a>
+      <a href="geography.html" class="nav-item"><span class="nav-icon">🌍</span> Geography</a>
+      <a href="literature.html" class="nav-item"><span class="nav-icon">📚</span> Literature</a>
+      <a href="crk.html" class="nav-item"><span class="nav-icon">✝️</span> CRK</a>
+      <a href="agriculture.html" class="nav-item"><span class="nav-icon">🌾</span> Agriculture</a>
+      <a href="commerce.html" class="nav-item"><span class="nav-icon">💼</span> Commerce</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="about.html" class="footer-link">About BoyoPrep</a>
+      <a href="contact.html" class="footer-link">Contact Us</a>
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <div style="margin-top:12px;font-size:0.72rem;color:var(--muted);padding:0 10px;">© 2026 BoyoPrep · Founded by Boyo Presido</div>
+    </div>
+  </div>
+  <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <button class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+        <div class="topbar-title">BoyoPrep CBT Platform</div>
+      </div>
+      <div class="topbar-badge"><span class="live-dot"></span>Free Practice · No Sign-up</div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-tag">🎯 JAMB & WAEC Standard Questions</div>
+      <h1>Practice Smarter,<br><span>Pass Your Exams</span></h1>
+      <p>100 randomised questions per subject. JAMB & WAEC standard. 30-minute timer. Instant results with full answer review. 100% free for every Nigerian student.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-icon">📝</div><div class="h-stat-info"><div class="num">1,200+</div><div class="lab">Total Questions</div></div></div>
+        <div class="h-stat"><div class="h-stat-icon">📚</div><div class="h-stat-info"><div class="num">12</div><div class="lab">Subjects</div></div></div>
+        <div class="h-stat"><div class="h-stat-icon">⏱️</div><div class="h-stat-info"><div class="num">30 Min</div><div class="lab">Per Test</div></div></div>
+        <div class="h-stat"><div class="h-stat-icon">🆓</div><div class="h-stat-info"><div class="num">Free</div><div class="lab">Always</div></div></div>
+      </div>
+    </section>
+
+    <div class="ad-banner-wrap">
+      <div class="ad-banner">
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7817098768283961" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      </div>
+    </div>
+
+    <section class="subjects-section">
+      <div class="section-header">
+        <div class="section-title">Choose a Subject 📚</div>
+        <div class="section-sub">Click any subject to start a timed 100-question practice test</div>
+      </div>
+      <div class="subjects-grid">
+        <a href="english.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">📖</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">English Language</div>
+          <div class="card-meta">Grammar · Vocabulary · Comprehension · Oral English</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="mathematics.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">📐</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Mathematics</div>
+          <div class="card-meta">Algebra · Geometry · Statistics · Trigonometry</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="biology.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">🧬</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Biology</div>
+          <div class="card-meta">Cell Biology · Genetics · Ecology · Physiology</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="physics.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">⚡</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Physics</div>
+          <div class="card-meta">Motion · Energy · Electricity · Waves · Modern Physics</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="chemistry.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">🧪</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Chemistry</div>
+          <div class="card-meta">Atomic Structure · Bonding · Reactions · Organic Chemistry</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="economics.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">📊</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Economics</div>
+          <div class="card-meta">Demand & Supply · National Income · Money & Banking</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="government.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">🏛️</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Government</div>
+          <div class="card-meta">Nigerian Constitution · Democracy · International Relations</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="geography.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">🌍</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Geography</div>
+          <div class="card-meta">Physical Geography · Nigeria · Climate · Population</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="literature.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">📚</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Literature in English</div>
+          <div class="card-meta">Poetry · Prose · Drama · African Literature · Shakespeare</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="crk.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">✝️</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Christian R.K. (CRK)</div>
+          <div class="card-meta">Old Testament · New Testament · Church History · Christian Living</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="agriculture.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">🌾</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Agriculture</div>
+          <div class="card-meta">Soil Science · Crop Production · Animal Husbandry · Farm Management</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+        <a href="commerce.html" class="subject-card">
+          <div class="card-top"><div class="card-icon">💼</div><div class="card-badges"><span class="badge badge-jamb">JAMB</span><span class="badge badge-waec">WAEC</span></div></div>
+          <div class="card-name">Commerce</div>
+          <div class="card-meta">Trade · Banking · Insurance · Transport · Business Ownership</div>
+          <div class="card-footer"><div class="card-info">100 questions · 30 min</div><button class="card-btn">Start →</button></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <div class="section-header">
+        <div class="section-title">How BoyoPrep Works 🎯</div>
+        <div class="section-sub">Simple, fast, and effective exam preparation</div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><div class="step-title">Pick a Subject</div><div class="step-desc">Choose from 12 JAMB and WAEC subjects. Each test has 100 questions.</div></div>
+        <div class="step-card"><div class="step-num">2</div><div class="step-title">Answer Questions</div><div class="step-desc">Questions are randomised every session. A 30-minute countdown timer keeps you sharp.</div></div>
+        <div class="step-card"><div class="step-num">3</div><div class="step-title">See Your Score</div><div class="step-desc">Instant results showing your score, correct answers, wrong answers, and skipped questions.</div></div>
+        <div class="step-card"><div class="step-num">4</div><div class="step-title">Review & Learn</div><div class="step-desc">Every question is reviewed with the correct answer and explanation so you learn from mistakes.</div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mob-nav-item active"><span class="mob-icon">🏠</span>Home</a>
+    <a href="about.html" class="mob-nav-item"><span class="mob-icon">👤</span>About</a>
+    <a href="contact.html" class="mob-nav-item"><span class="mob-icon">✉️</span>Contact</a>
+    <a href="privacy.html" class="mob-nav-item"><span class="mob-icon">🔒</span>Privacy</a>
+  </div>
+</div>
+
+<script>
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show');}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
+</script>
+</body>
+</html>
