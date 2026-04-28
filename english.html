@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Language CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <!-- Google AdSense — replace with your publisher ID -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <!-- Google Analytics — replace with your GA4 ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-8ZZE3WYFVN');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:  #0a0a0a;
+      --black2: #111111;
+      --black3: #1a1a1a;
+      --black4: #222222;
+      --gold:   #f5c842;
+      --gold2:  #e6b800;
+      --gold-glow: rgba(245,200,66,0.10);
+      --text:   #f0ead6;
+      --muted:  #9a8a60;
+      --border: rgba(245,200,66,0.12);
+      --border2: rgba(255,255,255,0.06);
+      --green:  #4caf82;
+      --red:    #ff5252;
+      --font:      'Nunito', sans-serif;
+      --font-body: 'Nunito Sans', sans-serif;
+      --radius: 16px;
+      --sidebar: 240px;
+    }
+
+    html, body { height: 100%; font-family: var(--font-body); background: var(--black); color: var(--text); }
+
+    body {
+      background-image:
+        url("https://www.transparenttextures.com/patterns/chalkboard.png"),
+        linear-gradient(160deg, #0a0a0a 60%, #141008 100%);
+      background-blend-mode: overlay;
+    }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 4%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .logo { font-family: var(--font); font-size: 1.4rem; font-weight: 900; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--gold); }
+    .back-btn {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--muted); text-decoration: none;
+      font-family: var(--font); font-weight: 700; font-size: 0.85rem;
+      transition: color .2s;
+    }
+    .back-btn:hover { color: var(--gold); }
+    .subject-badge {
+      background: rgba(245,200,66,0.1); border: 1px solid rgba(245,200,66,0.25);
+      color: var(--gold); padding: 6px 16px; border-radius: 100px;
+      font-family: var(--font); font-weight: 800; font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* MAIN LAYOUT */
+    .app-layout {
+      display: grid;
+      grid-template-columns: var(--sidebar) 1fr 200px;
+      gap: 0;
+      min-height: calc(100vh - 57px);
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: rgba(17,17,17,0.95);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: sticky; top: 57px;
+      height: calc(100vh - 57px);
+      overflow-y: auto;
+    }
+    .sidebar-title {
+      font-family: var(--font); font-size: 0.7rem; font-weight: 800;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 14px; padding: 0 4px;
+    }
+    .question-nav {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+    }
+    .q-dot {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 7px; border: 1.5px solid var(--border2);
+      background: var(--black3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font); font-size: 0.7rem; font-weight: 700;
+      cursor: pointer; transition: all .15s; color: var(--muted);
+    }
+    .q-dot:hover { border-color: rgba(245,200,66,0.3); color: var(--text); }
+    .q-dot.answered { background: rgba(245,200,66,0.15); border-color: rgba(245,200,66,0.4); color: var(--gold); }
+    .q-dot.current { background: var(--gold); border-color: var(--gold); color: var(--black); }
+    .q-dot.correct { background: rgba(76,175,130,0.2); border-color: var(--green); color: var(--green); }
+    .q-dot.wrong { background: rgba(255,82,82,0.2); border-color: var(--red); color: var(--red); }
+
+    .sidebar-stats { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .stat-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; padding: 8px 10px;
+      background: var(--black3); border-radius: 8px;
+      border: 1px solid var(--border2);
+    }
+    .stat-row .label { color: var(--muted); font-family: var(--font); font-weight: 600; }
+    .stat-row .val { font-family: var(--font); font-weight: 800; color: var(--text); }
+
+    /* MAIN CONTENT */
+    .main-content { padding: 28px 32px; max-width: 780px; }
+
+    /* HEADER */
+    .quiz-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+    }
+    .quiz-title { font-family: var(--font); font-size: 1.2rem; font-weight: 900; }
+    .timer-box {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,82,82,0.1); border: 1px solid rgba(255,82,82,0.25);
+      color: var(--red); padding: 8px 16px; border-radius: 10px;
+      font-family: var(--font); font-weight: 900; font-size: 1rem;
+    }
+    .timer-box.warning { animation: timerPulse 1s infinite; }
+
+    .progress-wrap { margin-bottom: 24px; }
+    .progress-info {
+      display: flex; justify-content: space-between;
+      font-size: 0.78rem; color: var(--muted); font-family: var(--font);
+      font-weight: 700; margin-bottom: 7px;
+    }
+    .progress-bar { height: 6px; background: var(--black4); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold2), var(--gold)); border-radius: 99px; transition: width .4s ease; }
+
+    /* QUESTION CARD */
+    .question-card {
+      background: rgba(17,17,17,0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 30px;
+      margin-bottom: 20px;
+      animation: fadeUp .3s ease;
+    }
+    .q-number {
+      font-family: var(--font); font-size: 0.72rem; font-weight: 800;
+      color: var(--gold); text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .q-text { font-size: 1rem; line-height: 1.75; font-weight: 400; margin-bottom: 24px; }
+    .q-text strong { color: var(--gold); }
+
+    .options-list { display: flex; flex-direction: column; gap: 10px; }
+    .option {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1.5px solid var(--border2);
+      border-radius: 11px; padding: 13px 16px;
+      cursor: pointer; transition: all .18s;
+      font-size: 0.95rem; line-height: 1.5;
+    }
+    .option:hover:not(.disabled) { border-color: rgba(245,200,66,0.35); background: rgba(245,200,66,0.05); }
+    .option.selected { border-color: var(--gold); background: rgba(245,200,66,0.08); }
+    .option.correct { border-color: var(--green); background: rgba(76,175,130,0.1); }
+    .option.wrong { border-color: var(--red); background: rgba(255,82,82,0.08); }
+    .option.disabled { cursor: default; }
+    .opt-letter {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--black4); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font); font-weight: 900; font-size: 0.78rem;
+      flex-shrink: 0; transition: all .18s; color: var(--muted);
+    }
+    .option.selected .opt-letter { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .option.correct .opt-letter { background: var(--green); color: #fff; border-color: var(--green); }
+    .option.wrong .opt-letter { background: var(--red); color: #fff; border-color: var(--red); }
+
+    .explanation {
+      display: none; margin-top: 16px;
+      background: rgba(245,200,66,0.06);
+      border: 1px solid rgba(245,200,66,0.2);
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 0.88rem; line-height: 1.7; color: var(--text);
+    }
+    .explanation strong { color: var(--gold); }
+
+    /* ACTIONS */
+    .quiz-actions {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 26px; border-radius: 10px;
+      font-family: var(--font); font-weight: 800; font-size: 0.9rem;
+      cursor: pointer; border: none; transition: all .2s;
+    }
+    .btn-gold { background: var(--gold); color: var(--black); }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--border2);
+    }
+    .btn-outline:hover { border-color: rgba(245,200,66,0.3); }
+    .btn-red { background: rgba(255,82,82,0.15); color: var(--red); border: 1px solid rgba(255,82,82,0.3); }
+    .btn-red:hover { background: rgba(255,82,82,0.25); }
+
+    /* AD COLUMN */
+    .ad-col {
+      padding: 24px 16px;
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .ad-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 6px;
+      min-height: 250px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center;
+    }
+    .ad-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+
+    /* RESULTS */
+    #result-section {
+      display: none; padding: 50px 32px;
+      max-width: 860px;
+    }
+    .result-top {
+      display: flex; align-items: center; gap: 32px;
+      background: rgba(17,17,17,0.9); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 32px; margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .score-circle {
+      width: 130px; height: 130px; border-radius: 50%;
+      border: 5px solid var(--gold);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: rgba(245,200,66,0.07); flex-shrink: 0;
+    }
+    .score-num { font-family: var(--font); font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .score-lab { font-size: 0.72rem; color: var(--muted); font-family: var(--font); font-weight: 700; }
+    .result-info h2 { font-family: var(--font); font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
+    .result-info p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+    .result-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+    .r-card {
+      background: rgba(17,17,17,0.9); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 16px; text-align: center;
+    }
+    .r-val { font-family: var(--font); font-size: 1.8rem; font-weight: 900; }
+    .r-lab { font-size: 0.78rem; color: var(--muted); margin-top: 4px; font-family: var(--font); }
+    .green { color: var(--green); } .red { color: var(--red); } .gold { color: var(--gold); }
+
+    /* REVIEW */
+    .review-section { margin-top: 28px; }
+    .review-title { font-family: var(--font); font-size: 1.1rem; font-weight: 900; margin-bottom: 16px; color: var(--gold); }
+    .review-item {
+      background: rgba(17,17,17,0.88); border: 1px solid var(--border2);
+      border-radius: 12px; padding: 20px 22px; margin-bottom: 14px;
+    }
+    .review-item.r-correct { border-left: 3px solid var(--green); }
+    .review-item.r-wrong { border-left: 3px solid var(--red); }
+    .review-item.r-skipped { border-left: 3px solid var(--muted); }
+    .review-q { font-size: 0.92rem; font-weight: 500; margin-bottom: 10px; line-height: 1.6; }
+    .review-answers { display: flex; flex-direction: column; gap: 5px; font-size: 0.83rem; }
+    .r-answer { display: flex; align-items: center; gap: 8px; }
+    .r-answer .tag {
+      font-family: var(--font); font-size: 0.68rem; font-weight: 800;
+      padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.4px;
+    }
+    .tag-correct { background: rgba(76,175,130,0.15); color: var(--green); }
+    .tag-wrong { background: rgba(255,82,82,0.15); color: var(--red); }
+    .tag-skipped { background: rgba(154,138,96,0.15); color: var(--muted); }
+    .review-exp { margin-top: 8px; font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes timerPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+    @media (max-width: 900px) {
+      .app-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .ad-col { display: none; }
+      .main-content { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">📖 English Language</span>
+</nav>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-content">
+
+    <!-- QUIZ -->
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">📖 English Language</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span id="q-counter">Question 1 of 100</span>
+          <span id="q-answered-info">0 answered</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle">
+          <div class="score-num" id="r-score">0%</div>
+          <div class="score-lab">Score</div>
+        </div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2>
+          <p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section">
+        <div class="review-title">📋 Answer Review</div>
+        <div id="review-list"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AD COLUMN -->
+  <div class="ad-col">
+    <div class="ad-box">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block;width:180px;height:250px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    <div class="ad-box">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block;width:180px;height:250px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// 100 JAMB & WAEC STANDARD ENGLISH QUESTIONS
+// ═══════════════════════════════════════════════
+const allQuestions = [
+  // VOCABULARY & LEXIS
+  {q:"Choose the word nearest in meaning to GARRULOUS.",opts:["Silent","Talkative","Aggressive","Timid"],ans:1,exp:"GARRULOUS means excessively talkative — synonymous with talkative or loquacious."},
+  {q:"Choose the word nearest in meaning to OBSCURE.",opts:["Clear","Famous","Vague","Obvious"],ans:2,exp:"OBSCURE means not clear or not easily understood — closest to VAGUE."},
+  {q:"Choose the word opposite in meaning to DILIGENT.",opts:["Hardworking","Careful","Lazy","Brilliant"],ans:2,exp:"DILIGENT means hardworking and careful. Its antonym is LAZY."},
+  {q:"Choose the word opposite in meaning to BENEVOLENT.",opts:["Kind","Generous","Malevolent","Friendly"],ans:2,exp:"BENEVOLENT means kind and generous. Its antonym is MALEVOLENT (wishing evil to others)."},
+  {q:"Choose the word nearest in meaning to LOQUACIOUS.",opts:["Quiet","Verbose","Shy","Brave"],ans:1,exp:"LOQUACIOUS means tending to talk a great deal — synonymous with VERBOSE."},
+  {q:"Choose the word opposite in meaning to EPHEMERAL.",opts:["Short-lived","Temporary","Permanent","Brief"],ans:2,exp:"EPHEMERAL means lasting for a very short time. Its antonym is PERMANENT."},
+  {q:"Choose the word nearest in meaning to ACRIMONY.",opts:["Sweetness","Bitterness","Kindness","Happiness"],ans:1,exp:"ACRIMONY means bitterness or ill feeling — synonymous with BITTERNESS."},
+  {q:"Choose the word opposite in meaning to VERBOSE.",opts:["Wordy","Concise","Talkative","Lengthy"],ans:1,exp:"VERBOSE means using more words than needed. Its antonym is CONCISE."},
+  {q:"Choose the word nearest in meaning to AMELIORATE.",opts:["Worsen","Ignore","Improve","Destroy"],ans:2,exp:"AMELIORATE means to make something bad better — synonymous with IMPROVE."},
+  {q:"Choose the word opposite in meaning to FRUGAL.",opts:["Thrifty","Careful","Wasteful","Economical"],ans:2,exp:"FRUGAL means economical and careful with money. Its antonym is WASTEFUL or extravagant."},
+
+  // GRAMMAR — PARTS OF SPEECH
+  {q:"Identify the part of speech of the underlined word: 'She sings <u>beautifully</u>.'",opts:["Adjective","Noun","Adverb","Verb"],ans:2,exp:"'Beautifully' modifies the verb 'sings' — it is an adverb."},
+  {q:"Which of the following is a conjunction?",opts:["Quickly","Although","Beautiful","Run"],ans:1,exp:"'Although' is a subordinating conjunction used to connect clauses showing contrast."},
+  {q:"Identify the correct plural of 'phenomenon'.",opts:["Phenomenons","Phenomenas","Phenomena","Phenomenes"],ans:2,exp:"The correct Latin-origin plural of 'phenomenon' is 'phenomena'."},
+  {q:"Which sentence contains a collective noun?",opts:["The dog barked loudly.","A pride of lions rested.","She runs fast.","He is tall."],ans:1,exp:"'Pride' is a collective noun referring to a group of lions."},
+  {q:"Which of the following is an abstract noun?",opts:["Table","Courage","London","River"],ans:1,exp:"'Courage' is an abstract noun — it names a quality that cannot be physically touched."},
+  {q:"Choose the correct reflexive pronoun: 'He hurt ___.'",opts:["him","his","himself","he"],ans:2,exp:"When the subject and object are the same person, a reflexive pronoun is used — 'himself'."},
+  {q:"Which of the following sentences is in the passive voice?",opts:["Emeka wrote the letter.","The letter was written by Emeka.","She is writing a letter.","They wrote many letters."],ans:1,exp:"'The letter was written by Emeka' is passive — the subject receives the action."},
+  {q:"Choose the correct form: 'Neither the boys nor the girl ___ present.'",opts:["were","are","is","have been"],ans:2,exp:"When using 'neither...nor', the verb agrees with the noun closest to it — 'girl' is singular, so use 'is'."},
+  {q:"Which of the following is a transitive verb?",opts:["Sleep","Arrive","Kick","Exist"],ans:2,exp:"A transitive verb takes a direct object. 'Kick' requires an object (e.g., kick the ball)."},
+  {q:"Identify the gerund in this sentence: 'Swimming is a good exercise.'",opts:["is","good","Swimming","exercise"],ans:2,exp:"'Swimming' is a gerund — a verb form ending in -ing used as a noun (subject of the sentence)."},
+
+  // FIGURES OF SPEECH
+  {q:"Identify the figure of speech: 'The wind whispered through the trees.'",opts:["Simile","Hyperbole","Personification","Metaphor"],ans:2,exp:"Giving the wind a human action (whispering) is personification."},
+  {q:"'Life is a journey' is an example of:",opts:["Simile","Metaphor","Personification","Irony"],ans:1,exp:"A metaphor makes a direct comparison without using 'like' or 'as' — life is directly called a journey."},
+  {q:"'As brave as a lion' is an example of:",opts:["Metaphor","Hyperbole","Simile","Alliteration"],ans:2,exp:"A simile compares two things using 'as' or 'like' — this compares bravery to a lion using 'as'."},
+  {q:"'I have told you a million times' is an example of:",opts:["Simile","Litotes","Hyperbole","Euphemism"],ans:2,exp:"Hyperbole is deliberate exaggeration for emphasis — a million times is an exaggeration."},
+  {q:"'Peter Piper picked a peck of pickled peppers' is an example of:",opts:["Assonance","Alliteration","Onomatopoeia","Rhyme"],ans:1,exp:"Alliteration is the repetition of the same consonant sound at the beginning of words — 'P' here."},
+  {q:"'The cock crowed' is an example of:",opts:["Alliteration","Personification","Onomatopoeia","Irony"],ans:2,exp:"Onomatopoeia refers to words that imitate the sounds they describe — 'crowed' imitates the cock's sound."},
+  {q:"'He passed away' instead of 'He died' is an example of:",opts:["Metaphor","Euphemism","Hyperbole","Irony"],ans:1,exp:"Euphemism is the use of a mild or indirect expression in place of one that might seem harsh."},
+  {q:"What figure of speech is used in: 'The stars danced in the sky'?",opts:["Simile","Alliteration","Personification","Oxymoron"],ans:2,exp:"Stars cannot dance — giving them human ability is personification."},
+  {q:"'Bittersweet' is an example of:",opts:["Simile","Oxymoron","Metaphor","Irony"],ans:1,exp:"An oxymoron combines contradictory terms — 'bitter' and 'sweet' are opposites placed together."},
+  {q:"'The pen is mightier than the sword' is an example of:",opts:["Simile","Irony","Metaphor","Hyperbole"],ans:2,exp:"This is a metaphor — the pen (writing/ideas) is directly compared to the sword (physical power)."},
+
+  // COMPREHENSION & SENTENCE STRUCTURE
+  {q:"Choose the correct sentence:",opts:["She don't like rice.","She doesn't likes rice.","She doesn't like rice.","She not like rice."],ans:2,exp:"With third-person singular subjects, use 'doesn't' + base verb: 'She doesn't like rice.'"},
+  {q:"Choose the sentence with correct subject-verb agreement:",opts:["The committee have decided.","The committee has decided.","The committee decides together.","The committee were deciding."],ans:1,exp:"'Committee' is a collective noun treated as singular in formal contexts — use 'has'."},
+  {q:"Which sentence uses the apostrophe correctly?",opts:["The dog's bone is missing.","The dogs bone is missing.","The dog's' bone is missing.","The dogs' bone is missing."],ans:0,exp:"'The dog's bone' correctly shows possession with an apostrophe before 's' for a singular noun."},
+  {q:"Choose the correctly punctuated sentence:",opts:["Emeka said, I am tired.","Emeka said 'I am tired'.","Emeka said, \"I am tired.\"","Emeka said I am tired."],ans:2,exp:"Direct speech requires a comma after the reporting verb and quotation marks around the spoken words."},
+  {q:"Identify the type of sentence: 'What a beautiful sunset!'",opts:["Declarative","Interrogative","Imperative","Exclamatory"],ans:3,exp:"An exclamatory sentence expresses strong emotion and ends with an exclamation mark."},
+  {q:"Choose the correct word to complete: 'I have lived here ___ 2010.'",opts:["for","since","from","during"],ans:1,exp:"'Since' is used with a specific point in time in the past — 'since 2010'."},
+  {q:"Choose the correct word: 'He is good ___ mathematics.'",opts:["in","on","at","for"],ans:2,exp:"The correct preposition with 'good' when referring to a subject or skill is 'at'."},
+  {q:"Which of the following is a compound sentence?",opts:["She ran fast.","She ran fast and won the race.","Running fast, she won.","She ran."],ans:1,exp:"A compound sentence contains two independent clauses joined by a coordinating conjunction — 'and' here."},
+  {q:"Choose the correct option: 'If I ___ rich, I would help the poor.'",opts:["am","was","were","will be"],ans:2,exp:"In a second conditional sentence (hypothetical), use 'were' for all subjects — 'If I were rich'."},
+  {q:"Identify the subordinate clause: 'She left early because she was tired.'",opts:["She left early","because she was tired","She left","early because"],ans:1,exp:"'Because she was tired' is a subordinate clause — it cannot stand alone and depends on the main clause."},
+
+  // ORAL ENGLISH — STRESS & PHONOLOGY
+  {q:"Which syllable is stressed in the word 'PHOtograph'?",opts:["Second","Third","First","None"],ans:2,exp:"In 'PHOtograph', the stress falls on the first syllable: PHO-to-graph."},
+  {q:"Which syllable is stressed in 'phoTOgraphy'?",opts:["First","Second","Third","Fourth"],ans:1,exp:"In 'phoTOgraphy', the stress falls on the second syllable: pho-TO-gra-phy."},
+  {q:"The word 'record' as a noun has stress on the:",opts:["Second syllable","First syllable","Third syllable","Last syllable"],ans:1,exp:"As a noun: RE-cord (stress on first syllable). As a verb: re-CORD (stress on second syllable)."},
+  {q:"How many syllables does the word 'beautiful' have?",opts:["Two","Four","Three","Five"],ans:2,exp:"'Beautiful' has three syllables: beau-ti-ful."},
+  {q:"Which word has a silent letter?",opts:["Cat","Knife","Run","Ball"],ans:1,exp:"In 'knife', the 'k' is silent — it is not pronounced."},
+  {q:"The phoneme /ʃ/ is represented by which letters in 'ship'?",opts:["s","sh","si","chi"],ans:1,exp:"The /ʃ/ sound (as in 'ship') is represented by the letters 'sh'."},
+  {q:"Which of these words is stressed on the second syllable?",opts:["TAble","beCAUSE","WINdow","CHILdren"],ans:1,exp:"'Because' (be-CAUSE) carries stress on the second syllable."},
+  {q:"In which word is the letter 'c' pronounced as /s/?",opts:["Cat","Car","City","Cut"],ans:2,exp:"When 'c' is followed by 'e', 'i', or 'y', it is pronounced /s/ — as in 'city'."},
+  {q:"Which of the following is a minimal pair?",opts:["cat/bat","dog/log","bit/beat","all of the above"],ans:3,exp:"A minimal pair differs by only one phoneme — cat/bat, dog/log, and bit/beat all qualify."},
+  {q:"The word 'psychology' begins with which sound?",opts:["/p/","/ps/","/s/","/si/"],ans:2,exp:"In 'psychology', the initial 'p' is silent — the word begins with the /s/ sound."},
+
+  // COMPREHENSION PASSAGES — INFERENCE
+  {q:"In comprehension, an 'inference' question asks you to:",opts:["Copy from the passage","State facts from the passage","Read between the lines","Summarise the passage"],ans:2,exp:"Inference involves understanding meaning that is implied but not directly stated — reading between the lines."},
+  {q:"The tone of a passage that uses words like 'unfortunately' and 'sadly' is best described as:",opts:["Humorous","Sarcastic","Melancholic","Optimistic"],ans:2,exp:"Words expressing sorrow and regret indicate a melancholic (sad/sorrowful) tone."},
+  {q:"A 'rhetorical question' in a passage is one that:",opts:["Requires a detailed answer","Is asked for effect, not an answer","Is always about politics","Cannot be answered"],ans:1,exp:"A rhetorical question is asked for persuasive or stylistic effect — no answer is expected."},
+  {q:"When a writer uses 'we' to address readers, the technique is called:",opts:["First person singular","Second person","First person plural","Third person"],ans:2,exp:"'We' is first person plural — it includes both the writer and the reader, creating a sense of togetherness."},
+  {q:"The main idea of a passage is best found in the:",opts:["Last sentence","Middle of the passage","Topic sentence","Conclusion only"],ans:2,exp:"The topic sentence (usually at the beginning of a paragraph) states the main idea."},
+
+  // SENTENCE COMPLETION & CLOZE
+  {q:"Choose the correct option: 'The jury ___ still deliberating.'",opts:["are","is","were","have"],ans:1,exp:"'Jury' is a collective noun — in formal/standard English, it takes a singular verb: 'is'."},
+  {q:"Fill in the gap: 'He has been working here ___ ten years.'",opts:["since","for","from","within"],ans:1,exp:"'For' is used with a period/duration of time — 'for ten years'."},
+  {q:"Choose the correct option: 'Each of the students ___ a textbook.'",opts:["have","has","had","having"],ans:1,exp:"'Each' is singular and takes a singular verb — 'has'."},
+  {q:"Fill in the gap: 'She is better ___ her sister at singing.'",opts:["from","than","then","that"],ans:1,exp:"'Than' is used in comparisons — 'better than'."},
+  {q:"Choose the correct word: 'The news ___ not good.'",opts:["are","were","is","have"],ans:2,exp:"'News' is an uncountable noun that always takes a singular verb — 'is'."},
+  {q:"Choose the correct spelling:",opts:["Accomodate","Accommodate","Acomodate","Accommadate"],ans:1,exp:"The correct spelling is 'Accommodate' — two c's and two m's."},
+  {q:"Choose the correct spelling:",opts:["Occurrence","Occurence","Ocurrence","Occurrance"],ans:0,exp:"The correct spelling is 'Occurrence' — two c's and two r's."},
+  {q:"Choose the correct spelling:",opts:["Neccessary","Necesary","Necessary","Neccesary"],ans:2,exp:"The correct spelling is 'Necessary' — one 'c' and two 's'."},
+  {q:"Fill in: 'I look forward to ___ from you.'",opts:["hear","hearing","heard","have heard"],ans:1,exp:"After 'look forward to', a gerund (-ing form) is required — 'hearing'."},
+  {q:"Choose the correct option: 'Neither John nor his friends ___ coming.'",opts:["is","are","was","has"],ans:1,exp:"When 'neither...nor' connects a singular and plural noun, the verb agrees with the noun closer to it — 'friends' is plural, so use 'are'."},
+
+  // IDIOMATIC EXPRESSIONS
+  {q:"What does 'burn the midnight oil' mean?",opts:["Start a fire","Work or study late into the night","Cook overnight","Waste fuel"],ans:1,exp:"'Burn the midnight oil' is an idiom meaning to work or study late at night."},
+  {q:"What does 'beat about the bush' mean?",opts:["Hit a bush","Talk directly","Avoid coming to the main point","Go for a walk"],ans:2,exp:"'Beat about the bush' means to avoid talking about the main topic — to be indirect."},
+  {q:"What does 'a blessing in disguise' mean?",opts:["A hidden curse","Something good that seemed bad at first","A religious miracle","A lie"],ans:1,exp:"'A blessing in disguise' means something that seems unfortunate but turns out to be beneficial."},
+  {q:"'Once in a blue moon' means:",opts:["Every month","Very rarely","Once a year","During full moon"],ans:1,exp:"'Once in a blue moon' means something that happens very rarely or infrequently."},
+  {q:"What does 'let the cat out of the bag' mean?",opts:["Release a pet","Keep a secret","Accidentally reveal a secret","Cause confusion"],ans:2,exp:"'Let the cat out of the bag' means to accidentally reveal a secret."},
+
+  // REGISTER & STYLE
+  {q:"A formal letter to a principal should end with:",opts:["Yours lovingly","Lots of love","Yours faithfully","See you soon"],ans:2,exp:"'Yours faithfully' is used in formal letters when the recipient's name is not known; 'Yours sincerely' is used when the name is known."},
+  {q:"Which of the following is appropriate in a formal letter?",opts:["Hey! How are you doing?","I am writing to formally apply...","What's up, sir?","Just wanted to say hi."],ans:1,exp:"Formal letters require professional language — 'I am writing to formally apply' is appropriate."},
+  {q:"The language register used among close friends is:",opts:["Formal","Consultative","Intimate","Frozen"],ans:2,exp:"The intimate register is used among very close friends and family — it includes informal language and shared references."},
+  {q:"Which type of essay presents arguments for and against a topic?",opts:["Narrative","Descriptive","Argumentative","Expository"],ans:2,exp:"An argumentative essay presents both sides of a topic and argues for one position."},
+  {q:"A narrative essay is best described as:",opts:["An essay that explains a process","An essay that tells a story","An essay that describes a scene","An essay that argues a point"],ans:1,exp:"A narrative essay tells a story — usually in first person with a clear sequence of events."},
+
+  // LITERATURE & POETRY
+  {q:"A sonnet has how many lines?",opts:["12","16","14","10"],ans:2,exp:"A sonnet is a 14-line poem, traditionally written in iambic pentameter."},
+  {q:"A stanza with four lines is called a:",opts:["Couplet","Tercet","Quatrain","Sestet"],ans:2,exp:"A quatrain is a stanza of four lines — one of the most common stanza forms in poetry."},
+  {q:"The repetition of vowel sounds within words is called:",opts:["Alliteration","Assonance","Consonance","Rhyme"],ans:1,exp:"Assonance is the repetition of vowel sounds in nearby words — e.g., 'the rain in Spain stays mainly in the plain'."},
+  {q:"The narrator who knows the thoughts of all characters is called:",opts:["First person narrator","Limited narrator","Omniscient narrator","Unreliable narrator"],ans:2,exp:"An omniscient (all-knowing) narrator has access to the thoughts and feelings of all characters."},
+  {q:"A play written to be humorous and with a happy ending is called a:",opts:["Tragedy","Satire","Comedy","Epic"],ans:2,exp:"A comedy is a dramatic work intended to be humorous, typically ending happily."},
+
+  // TENSES
+  {q:"Choose the correct tense: 'By next year, I ___ here for five years.'",opts:["will live","will have lived","have lived","am living"],ans:1,exp:"The future perfect tense ('will have lived') is used for an action that will be completed by a future time."},
+  {q:"'She ___ her homework before the teacher arrived.' Choose correctly.",opts:["did","has done","had done","was doing"],ans:2,exp:"The past perfect ('had done') shows an action completed before another past action."},
+  {q:"'I ___ to Lagos three times.' Choose the correct tense.",opts:["went","have been","was going","had gone"],ans:1,exp:"The present perfect ('have been') is used for experiences up to the present time."},
+  {q:"Choose the correct form: 'He ___ TV when the light went off.'",opts:["watched","was watching","has watched","watches"],ans:1,exp:"The past continuous ('was watching') describes an ongoing action interrupted by another past event."},
+  {q:"'They ___ in this house since 1990.' Choose correctly.",opts:["live","lived","have lived","are living"],ans:2,exp:"The present perfect ('have lived') is used with 'since' to show an action that started in the past and continues to the present."},
+
+  // DIRECT & INDIRECT SPEECH
+  {q:"Change to indirect speech: He said, 'I am tired.'",opts:["He said he is tired.","He said he was tired.","He told he was tired.","He said that I was tired."],ans:1,exp:"In indirect speech, the present tense ('am') shifts to past tense ('was') — 'He said he was tired.'"},
+  {q:"Change to direct speech: She said that she would come.",opts:["She said, 'I will come.'","She said, 'I would come.'","She said, 'She will come.'","She said, 'I came.'"],ans:0,exp:"'Would' in indirect speech becomes 'will' in direct speech — 'I will come.'"},
+  {q:"The reporting verb for questions in indirect speech is:",opts:["said","told","asked","spoke"],ans:2,exp:"'Asked' is the correct reporting verb for questions in indirect speech."},
+  {q:"Change to indirect speech: 'Close the door,' she said to him.",opts:["She said to close the door.","She told him to close the door.","She asked him close the door.","She said him close the door."],ans:1,exp:"Commands in indirect speech use 'told + object + to + infinitive' — 'She told him to close the door.'"},
+  {q:"'Will' in direct speech becomes ___ in indirect speech.",opts:["shall","would","could","should"],ans:1,exp:"In indirect speech, 'will' shifts back to 'would' as part of the backshift of tenses rule."},
+
+  // COMPREHENSION SKILLS
+  {q:"When a question says 'In your own words', you should:",opts:["Copy exactly from the passage","Translate the passage","Paraphrase the answer","Write a summary"],ans:2,exp:"'In your own words' means you must rephrase or paraphrase — not copy directly from the passage."},
+  {q:"The purpose of a topic sentence is to:",opts:["Conclude the paragraph","Introduce the main idea of a paragraph","Provide examples","Summarise the passage"],ans:1,exp:"A topic sentence introduces the central idea of a paragraph and guides what follows."},
+  {q:"A conclusion in an essay should:",opts:["Introduce new points","Summarise the main points and give a final thought","Copy the introduction","Be as long as the body"],ans:1,exp:"The conclusion summarises the essay's main points and provides a closing thought or recommendation."},
+  {q:"The word 'however' in a passage signals:",opts:["Addition","Contrast","Cause","Result"],ans:1,exp:"'However' is a discourse marker signalling contrast between two ideas."},
+  {q:"Which of the following is a discourse marker showing result?",opts:["Although","Furthermore","Therefore","However"],ans:2,exp:"'Therefore' signals a result or conclusion drawn from previous information."},
+
+  // MIXED GRAMMAR
+  {q:"Choose the correct option: '___ of the two girls is tall.'",opts:["Each","Either","Neither","Both"],ans:1,exp:"'Either' is used when referring to one of two options — 'Either of the two girls is tall.'"},
+  {q:"Choose the correct word: 'I ___ rather stay home than go out.'",opts:["will","would","should","could"],ans:1,exp:"'Would rather' is the correct expression for preference — 'I would rather stay home.'"},
+  {q:"Which is correct? 'He is one of the students who ___ passed.'",opts:["has","have","had","having"],ans:1,exp:"The relative clause 'who have passed' agrees with 'students' (plural) — use 'have'."},
+  {q:"'It is I' or 'It is me' — which is grammatically correct?",opts:["It is me","It is I","Both are correct","Neither is correct"],ans:1,exp:"'It is I' is grammatically correct in formal English — the pronoun after 'to be' should be in the nominative case."},
+  {q:"Choose the correct sentence:",opts:["Between you and I","Between you and me","Between you and myself","Between I and you"],ans:1,exp:"'Between' is a preposition and takes the objective case — 'me', not 'I'. So 'between you and me' is correct."},
+  {q:"'The teacher together with the students ___ going.' Choose correctly.",opts:["are","is","were","have"],ans:1,exp:"When 'together with' is used, the verb agrees with the main subject — 'teacher' is singular, so use 'is'."},
+  {q:"Choose the correct option: 'I wish I ___ taller.'",opts:["am","was","were","will be"],ans:2,exp:"After 'I wish', use 'were' for all subjects in the subjunctive mood — 'I wish I were taller.'"},
+  {q:"'Hardly had I arrived ___ it started raining.'",opts:["than","then","when","after"],ans:2,exp:"'Hardly...when' is the correct correlative — 'Hardly had I arrived when it started raining.'"},
+  {q:"Choose the correct option: 'She is ___ European.'",opts:["a","an","the","no article"],ans:0,exp:"'European' begins with a consonant sound /j/ — so use 'a', not 'an'."},
+  {q:"Which sentence is grammatically correct?",opts:["He goed to school.","He goes to school.","He go to school.","He going to school."],ans:1,exp:"Third-person singular simple present requires the verb to add '-s' or '-es' — 'He goes to school.'"},
+];
+
+// ═══════════════════════════════════════════════
+// QUIZ ENGINE
+// ═══════════════════════════════════════════════
+let questions = [], userAnswers = [], currentQ = 0, timerInterval, secondsLeft = 45 * 60;
+
+function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+function initQuiz() {
+  questions = shuffle(allQuestions).slice(0, 100);
+  userAnswers = new Array(questions.length).fill(null);
+  currentQ = 0;
+  secondsLeft = 45 * 60;
+  buildNav();
+  startTimer();
+  renderQ();
+  document.getElementById('quiz-section').style.display = 'block';
+  document.getElementById('result-section').style.display = 'none';
+}
+
+function buildNav() {
+  const nav = document.getElementById('q-nav');
+  nav.innerHTML = questions.map((_, i) => `
+    <div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>
+  `).join('');
+}
+
+function updateNav() {
+  questions.forEach((_, i) => {
+    const dot = document.getElementById(`dot-${i}`);
+    dot.className = 'q-dot';
+    if (i === currentQ) dot.classList.add('current');
+    else if (userAnswers[i] !== null) dot.classList.add('answered');
+  });
+  const answered = userAnswers.filter(a => a !== null).length;
+  document.getElementById('stat-answered').textContent = `${answered}/${questions.length}`;
+  document.getElementById('stat-remaining').textContent = questions.length - answered;
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    secondsLeft--;
+    const m = Math.floor(secondsLeft / 60), s = secondsLeft % 60;
+    const display = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    document.getElementById('timer').textContent = display;
+    document.getElementById('stat-time').textContent = display;
+    if (secondsLeft <= 300) document.getElementById('timer-box').classList.add('warning');
+    if (secondsLeft <= 0) { clearInterval(timerInterval); submitQuiz(); }
+  }, 1000);
+}
+
+function renderQ() {
+  const q = questions[currentQ];
+  const letters = ['A','B','C','D'];
+  document.getElementById('q-number').textContent = `Question ${currentQ + 1} of ${questions.length}`;
+  document.getElementById('q-counter').textContent = `Question ${currentQ + 1} of ${questions.length}`;
+  document.getElementById('q-answered-info').textContent = `${userAnswers.filter(a=>a!==null).length} answered`;
+  document.getElementById('q-text').innerHTML = q.q;
+  document.getElementById('progress-fill').style.width = `${((currentQ+1)/questions.length)*100}%`;
+  document.getElementById('prev-btn').disabled = currentQ === 0;
+  document.getElementById('next-btn').textContent = currentQ === questions.length-1 ? 'Submit →' : 'Next →';
+  document.getElementById('explanation').style.display = 'none';
+
+  const list = document.getElementById('options-list');
+  list.innerHTML = q.opts.map((opt, i) => `
+    <li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})">
+      <span class="opt-letter">${letters[i]}</span>
+      <span>${opt}</span>
+    </li>
+  `).join('');
+  updateNav();
+}
+
+function selectOpt(i) {
+  userAnswers[currentQ] = i;
+  renderQ();
+  if (typeof gtag !== 'undefined') gtag('event', 'answer', { subject: 'English', q: currentQ+1 });
+}
+
+function goToQ(i) { currentQ = i; renderQ(); }
+function nextQ() {
+  if (currentQ < questions.length - 1) { currentQ++; renderQ(); }
+  else confirmSubmit();
+}
+function prevQ() { if (currentQ > 0) { currentQ--; renderQ(); } }
+
+function confirmSubmit() {
+  const unanswered = userAnswers.filter(a => a === null).length;
+  if (unanswered > 0) {
+    if (!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) return;
+  }
+  submitQuiz();
+}
+
+function submitQuiz() {
+  clearInterval(timerInterval);
+  let correct = 0, wrong = 0, skipped = 0;
+  questions.forEach((q, i) => {
+    if (userAnswers[i] === null) skipped++;
+    else if (userAnswers[i] === q.ans) correct++;
+    else wrong++;
+  });
+  const pct = Math.round((correct / questions.length) * 100);
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'quiz_complete', { subject: 'English', score: pct, correct, wrong, skipped });
+  }
+
+  document.getElementById('quiz-section').style.display = 'none';
+  document.getElementById('result-section').style.display = 'block';
+  document.getElementById('r-score').textContent = pct + '%';
+  document.getElementById('r-correct').textContent = correct;
+  document.getElementById('r-wrong').textContent = wrong;
+  document.getElementById('r-skipped').textContent = skipped;
+
+  const titles = pct >= 70 ? '🎉 Excellent Performance!' : pct >= 50 ? '👍 Good Effort!' : '📚 Keep Studying!';
+  const msgs = pct >= 70
+    ? `You scored ${pct}% — you're well prepared for JAMB & WAEC English! Keep it up.`
+    : pct >= 50
+    ? `You scored ${pct}% — decent effort! Review the questions you missed and try again.`
+    : `You scored ${pct}% — don't give up! Go over your notes and practice again.`;
+
+  document.getElementById('r-title').textContent = titles;
+  document.getElementById('r-msg').textContent = msgs;
+
+  // Build review
+  const reviewList = document.getElementById('review-list');
+  reviewList.innerHTML = questions.map((q, i) => {
+    const userAns = userAnswers[i];
+    const isCorrect = userAns === q.ans;
+    const isSkipped = userAns === null;
+    const cls = isSkipped ? 'r-skipped' : isCorrect ? 'r-correct' : 'r-wrong';
+    const letters = ['A','B','C','D'];
+    return `
+      <div class="review-item ${cls}">
+        <div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div>
+        <div class="review-answers">
+          ${!isSkipped ? `<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>` : `<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}
+          ${!isCorrect ? `<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>` : ''}
+        </div>
+        <div class="review-exp">💡 ${q.exp}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function restartQuiz() {
+  document.getElementById('result-section').style.display = 'none';
+  initQuiz();
+}
+
+// Start
+initQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biology CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}
+    .logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}
+    .back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}
+    .q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}
+    .q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}
+    .stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}
+    .option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .option.correct{border-color:var(--green);background:rgba(76,175,130,0.1);}
+    .option.wrong{border-color:var(--red);background:rgba(255,82,82,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;transition:all .18s;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .option.correct .opt-letter{background:var(--green);color:#fff;border-color:var(--green);}
+    .option.wrong .opt-letter{background:var(--red);color:#fff;border-color:var(--red);}
+    .explanation{display:none;margin-top:16px;background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.2);border-radius:10px;padding:14px 16px;font-size:0.88rem;line-height:1.7;color:var(--text);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}
+    .btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}
+    .btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}
+    .r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}
+    .review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}
+    .review-item.r-wrong{border-left:3px solid var(--red);}
+    .review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}
+    .tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}
+    .tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">🧬 Biology</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">🧬 Biology</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2>
+          <p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // CELL BIOLOGY
+  {q:"Which organelle is known as the powerhouse of the cell?",opts:["Nucleus","Ribosome","Mitochondria","Golgi body"],ans:2,exp:"Mitochondria produce ATP through cellular respiration — hence the powerhouse of the cell."},
+  {q:"Which organelle is responsible for protein synthesis?",opts:["Mitochondria","Ribosome","Lysosome","Vacuole"],ans:1,exp:"Ribosomes are the sites of protein synthesis in all living cells."},
+  {q:"The cell membrane is described as selectively permeable because it:",opts:["Allows all substances in","Allows no substances in","Allows only certain substances in and out","Is made of protein only"],ans:2,exp:"Selectively permeable means the membrane controls which substances pass through it."},
+  {q:"Which of the following is found in plant cells but not animal cells?",opts:["Nucleus","Cell wall","Mitochondria","Ribosome"],ans:1,exp:"Plant cells have a cell wall made of cellulose; animal cells do not."},
+  {q:"The process by which cells engulf large particles is called:",opts:["Osmosis","Diffusion","Phagocytosis","Pinocytosis"],ans:2,exp:"Phagocytosis is the process by which cells engulf large solid particles — used by white blood cells."},
+  {q:"Osmosis is the movement of water from a region of:",opts:["High solute concentration to low","Low water concentration to high","High water concentration to low","Equal concentration to equal"],ans:2,exp:"Osmosis moves water from high water (low solute) concentration to low water (high solute) concentration through a semipermeable membrane."},
+  {q:"The nucleus of a cell contains:",opts:["Haemoglobin","Chromosomes","Chlorophyll","Enzymes only"],ans:1,exp:"The nucleus contains chromosomes which carry the genetic information (DNA) of the cell."},
+  {q:"Which cell organelle is responsible for photosynthesis?",opts:["Mitochondria","Ribosome","Chloroplast","Nucleus"],ans:2,exp:"Chloroplasts contain chlorophyll and are the site of photosynthesis in plant cells."},
+  {q:"The Golgi body is responsible for:",opts:["Energy production","Protein packaging and secretion","Photosynthesis","DNA replication"],ans:1,exp:"The Golgi apparatus packages and secretes proteins produced by the rough endoplasmic reticulum."},
+  {q:"A cell placed in a hypertonic solution will:",opts:["Swell and burst","Remain unchanged","Shrink (crenate)","Divide"],ans:2,exp:"In a hypertonic solution (higher solute concentration outside), water moves out of the cell by osmosis causing it to shrink."},
+
+  // NUTRITION
+  {q:"Which nutrient provides the most energy per gram?",opts:["Carbohydrate","Protein","Fat","Vitamins"],ans:2,exp:"Fats provide 9 kcal per gram — more than double that of carbohydrates and proteins (4 kcal/g each)."},
+  {q:"The deficiency of Vitamin C causes:",opts:["Rickets","Scurvy","Kwashiorkor","Night blindness"],ans:1,exp:"Vitamin C deficiency causes scurvy — characterised by bleeding gums and poor wound healing."},
+  {q:"Which vitamin is produced when skin is exposed to sunlight?",opts:["Vitamin A","Vitamin B","Vitamin C","Vitamin D"],ans:3,exp:"Vitamin D is synthesised in the skin when exposed to ultraviolet rays from sunlight."},
+  {q:"Kwashiorkor is caused by deficiency of:",opts:["Carbohydrates","Proteins","Fats","Vitamins"],ans:1,exp:"Kwashiorkor is a severe protein deficiency disease common in young children."},
+  {q:"Bile is produced by the:",opts:["Pancreas","Stomach","Liver","Small intestine"],ans:2,exp:"Bile is produced by the liver and stored in the gall bladder — it emulsifies fats."},
+  {q:"The enzyme that digests starch in the mouth is:",opts:["Pepsin","Amylase","Lipase","Trypsin"],ans:1,exp:"Salivary amylase (ptyalin) in saliva begins the digestion of starch in the mouth."},
+  {q:"Where does most chemical digestion of food take place?",opts:["Mouth","Stomach","Small intestine","Large intestine"],ans:2,exp:"Most chemical digestion and nutrient absorption occurs in the small intestine."},
+  {q:"Which part of the alimentary canal absorbs water?",opts:["Small intestine","Stomach","Oesophagus","Large intestine"],ans:3,exp:"The large intestine (colon) is primarily responsible for absorbing water from undigested food."},
+  {q:"The test for starch uses:",opts:["Benedict's solution","Biuret reagent","Iodine solution","Ethanol"],ans:2,exp:"Iodine solution turns blue-black in the presence of starch — a positive test."},
+  {q:"Proteins are broken down into:",opts:["Glucose","Fatty acids","Amino acids","Glycerol"],ans:2,exp:"Proteins are digested (hydrolysed) into their constituent amino acids which are then absorbed."},
+
+  // RESPIRATION
+  {q:"The equation for aerobic respiration is:",opts:["C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy","C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ + Energy","6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂","C₆H₁₂O₆ + 6H₂O → 6CO₂ + Energy"],ans:0,exp:"Aerobic respiration: glucose + oxygen → carbon dioxide + water + ATP energy."},
+  {q:"Anaerobic respiration in yeast produces:",opts:["Lactic acid","Ethanol and CO₂","Water and CO₂","ATP only"],ans:1,exp:"Yeast undergoes anaerobic fermentation producing ethanol (alcohol) and carbon dioxide."},
+  {q:"The process of breathing in is called:",opts:["Expiration","Respiration","Inspiration","Ventilation"],ans:2,exp:"Inspiration (inhalation) is the process of breathing air into the lungs."},
+  {q:"During inhalation, the diaphragm:",opts:["Relaxes and moves up","Contracts and moves down","Stays the same","Moves sideways"],ans:1,exp:"During inhalation, the diaphragm contracts and flattens (moves down), increasing lung volume."},
+  {q:"Lactic acid is produced during anaerobic respiration in:",opts:["Yeast","Plants","Muscle cells","Liver cells"],ans:2,exp:"In human muscle cells, when oxygen is insufficient, glucose is partially broken down to lactic acid."},
+
+  // PHOTOSYNTHESIS
+  {q:"The raw materials for photosynthesis are:",opts:["Glucose and oxygen","Carbon dioxide and water","Oxygen and glucose","Starch and water"],ans:1,exp:"Photosynthesis uses carbon dioxide (from air) and water (from soil) as raw materials."},
+  {q:"The green pigment in plants used for photosynthesis is:",opts:["Haemoglobin","Melanin","Chlorophyll","Carotene"],ans:2,exp:"Chlorophyll is the green pigment in chloroplasts that absorbs light energy for photosynthesis."},
+  {q:"During photosynthesis, oxygen is released from:",opts:["Carbon dioxide","Glucose","Water","Chlorophyll"],ans:2,exp:"Oxygen in photosynthesis comes from the splitting of water molecules (photolysis of water)."},
+  {q:"Which colour of light is LEAST effective for photosynthesis?",opts:["Red","Blue","Green","Violet"],ans:2,exp:"Chlorophyll reflects green light rather than absorbing it — making green light least effective."},
+  {q:"The starch test on a leaf is done to show:",opts:["Transpiration","Presence of chlorophyll","That photosynthesis has occurred","Respiration"],ans:2,exp:"Testing a leaf for starch (using iodine) confirms that photosynthesis has taken place and glucose was stored as starch."},
+
+  // TRANSPORT IN PLANTS & ANIMALS
+  {q:"Which blood group is the universal donor?",opts:["A","B","AB","O"],ans:3,exp:"Blood group O (especially O negative) can be donated to any blood group — universal donor."},
+  {q:"Which blood group is the universal recipient?",opts:["A","B","AB","O"],ans:2,exp:"Blood group AB can receive blood from any group — universal recipient."},
+  {q:"The liquid part of blood is called:",opts:["Serum","Plasma","Lymph","Haemoglobin"],ans:1,exp:"Plasma is the liquid component of blood, making up about 55% of blood volume."},
+  {q:"Red blood cells are produced in the:",opts:["Liver","Spleen","Bone marrow","Kidney"],ans:2,exp:"Red blood cells (erythrocytes) are produced in the red bone marrow."},
+  {q:"The function of haemoglobin is to:",opts:["Fight infection","Carry oxygen","Clot blood","Produce antibodies"],ans:1,exp:"Haemoglobin in red blood cells binds to oxygen in the lungs and transports it to body tissues."},
+  {q:"Water moves up a plant stem through the:",opts:["Phloem","Epidermis","Xylem","Cortex"],ans:2,exp:"Xylem vessels transport water and mineral salts upward from roots to leaves."},
+  {q:"Food (sucrose) is transported in plants through the:",opts:["Xylem","Epidermis","Phloem","Cortex"],ans:2,exp:"Phloem transports dissolved sugars (sucrose) from leaves to other parts of the plant."},
+  {q:"The process by which plants lose water through leaves is called:",opts:["Osmosis","Transpiration","Translocation","Respiration"],ans:1,exp:"Transpiration is the loss of water vapour from leaves mainly through stomata."},
+  {q:"Stomata are found mainly on the ___ surface of a leaf.",opts:["Upper","Lower","Both equally","Neither"],ans:1,exp:"Stomata are found predominantly on the lower epidermis of leaves to reduce water loss."},
+  {q:"The heart chamber that pumps blood to the lungs is the:",opts:["Left ventricle","Right ventricle","Left atrium","Right atrium"],ans:1,exp:"The right ventricle pumps deoxygenated blood to the lungs via the pulmonary artery."},
+
+  // EXCRETION
+  {q:"The functional unit of the kidney is the:",opts:["Nephron","Neuron","Alveolus","Villus"],ans:0,exp:"The nephron is the basic structural and functional unit of the kidney where filtration occurs."},
+  {q:"Which organ removes urea from the blood?",opts:["Liver","Lungs","Skin","Kidney"],ans:3,exp:"The kidneys filter urea (a nitrogenous waste) from the blood and excrete it in urine."},
+  {q:"Urea is produced in the:",opts:["Kidney","Liver","Pancreas","Spleen"],ans:1,exp:"The liver converts excess amino acids into urea through a process called deamination."},
+  {q:"Which gas is excreted through the lungs?",opts:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],ans:2,exp:"Carbon dioxide, a waste product of cellular respiration, is excreted through the lungs during exhalation."},
+  {q:"The skin excretes waste through:",opts:["Hair follicles","Sweat glands","Sebaceous glands","Blood vessels"],ans:1,exp:"Sweat glands in the skin produce sweat containing water, salts, and small amounts of urea."},
+
+  // REPRODUCTION
+  {q:"Fertilisation in humans takes place in the:",opts:["Uterus","Vagina","Ovary","Fallopian tube"],ans:3,exp:"Fertilisation (fusion of sperm and egg) normally occurs in the fallopian tube (oviduct)."},
+  {q:"The male sex hormone is:",opts:["Oestrogen","Progesterone","Testosterone","Insulin"],ans:2,exp:"Testosterone is the primary male sex hormone produced by the testes."},
+  {q:"The female sex hormone responsible for the menstrual cycle is:",opts:["Testosterone","Insulin","Oestrogen","Adrenaline"],ans:2,exp:"Oestrogen (and progesterone) regulate the menstrual cycle and female reproductive system."},
+  {q:"Which type of reproduction does not involve fusion of gametes?",opts:["Sexual reproduction","Fertilisation","Asexual reproduction","Pollination"],ans:2,exp:"Asexual reproduction involves only one parent and no fusion of gametes — e.g., budding, binary fission."},
+  {q:"Pollination is the transfer of pollen from:",opts:["Ovary to stigma","Anther to stigma","Anther to ovule","Stigma to anther"],ans:1,exp:"Pollination is the transfer of pollen grains from the anther (male) to the stigma (female) of a flower."},
+
+  // GENETICS
+  {q:"The study of heredity is called:",opts:["Ecology","Genetics","Physiology","Taxonomy"],ans:1,exp:"Genetics is the branch of biology that studies heredity and variation in living organisms."},
+  {q:"DNA stands for:",opts:["Deoxyribose Nucleic Acid","Deoxyribonucleic Acid","Diribonucleic Acid","Deoxyribose Nitrogen Acid"],ans:1,exp:"DNA stands for Deoxyribonucleic Acid — the molecule that carries genetic information."},
+  {q:"The basic unit of heredity is called a:",opts:["Chromosome","Nucleus","Gene","Allele"],ans:2,exp:"A gene is the basic unit of heredity — a segment of DNA that codes for a specific protein or trait."},
+  {q:"Organisms with two identical alleles for a trait are called:",opts:["Heterozygous","Homozygous","Dominant","Recessive"],ans:1,exp:"Homozygous organisms have two identical alleles (e.g., AA or aa) for a particular gene."},
+  {q:"If TT (tall) is crossed with tt (short), the offspring will be:",opts:["All short","All tall","Half tall half short","75% tall"],ans:1,exp:"TT × tt gives all Tt offspring — which are all tall since T (tall) is dominant over t (short)."},
+  {q:"The sex of a child is determined by:",opts:["The mother's chromosomes","The father's chromosomes","Both parents equally","Neither parent"],ans:1,exp:"The father determines sex — he contributes either X (girl) or Y (boy) chromosome; the mother always contributes X."},
+  {q:"Down syndrome is caused by:",opts:["A missing chromosome","An extra chromosome 21","A broken gene","Virus infection"],ans:1,exp:"Down syndrome results from trisomy 21 — having three copies of chromosome 21 instead of two."},
+
+  // ECOLOGY
+  {q:"The study of organisms in relation to their environment is called:",opts:["Genetics","Ecology","Physiology","Taxonomy"],ans:1,exp:"Ecology studies the relationships between organisms and their environment."},
+  {q:"A food chain always begins with a:",opts:["Consumer","Decomposer","Producer","Carnivore"],ans:2,exp:"Food chains begin with producers (green plants) that convert sunlight into food energy."},
+  {q:"Organisms that feed on dead organic matter are called:",opts:["Producers","Consumers","Decomposers","Herbivores"],ans:2,exp:"Decomposers (bacteria and fungi) break down dead organic matter, recycling nutrients back into the ecosystem."},
+  {q:"The total number of organisms of a species in an area is called:",opts:["Community","Ecosystem","Population","Biome"],ans:2,exp:"A population is the total number of individuals of the same species living in a given area at a given time."},
+  {q:"Which of the following is a biotic factor?",opts:["Temperature","Rainfall","Predation","Light intensity"],ans:2,exp:"Biotic factors are living components of an ecosystem — predation involves living organisms."},
+  {q:"The relationship where both organisms benefit is called:",opts:["Parasitism","Commensalism","Mutualism","Predation"],ans:2,exp:"Mutualism is a symbiotic relationship where both organisms derive benefit — e.g., bees and flowers."},
+  {q:"Which gas is most responsible for the greenhouse effect?",opts:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],ans:2,exp:"Carbon dioxide (CO₂) is the primary greenhouse gas contributing to global warming and climate change."},
+
+  // EVOLUTION & CLASSIFICATION
+  {q:"Charles Darwin proposed the theory of:",opts:["Cell theory","Evolution by natural selection","Germ theory","Genetics"],ans:1,exp:"Charles Darwin proposed the theory of evolution by natural selection in 'On the Origin of Species' (1859)."},
+  {q:"The science of naming and classifying organisms is called:",opts:["Ecology","Genetics","Taxonomy","Physiology"],ans:2,exp:"Taxonomy is the science of classifying organisms into hierarchical groups based on shared characteristics."},
+  {q:"Which is the correct order of classification from largest to smallest?",opts:["Kingdom, Phylum, Class, Order, Family, Genus, Species","Species, Genus, Family, Order, Class, Phylum, Kingdom","Kingdom, Class, Phylum, Order, Family, Genus, Species","Phylum, Kingdom, Class, Order, Family, Genus, Species"],ans:0,exp:"The correct taxonomic hierarchy is: Kingdom → Phylum → Class → Order → Family → Genus → Species."},
+  {q:"Humans belong to the genus:",opts:["Sapiens","Homo","Mammalia","Primate"],ans:1,exp:"Humans belong to the genus Homo and species sapiens — making our scientific name Homo sapiens."},
+  {q:"Analogous structures are body parts that:",opts:["Have the same origin","Have the same function but different origin","Are vestigial","Are identical"],ans:1,exp:"Analogous structures perform similar functions but evolved independently from different ancestral structures — e.g., wings of birds and insects."},
+
+  // NERVOUS SYSTEM
+  {q:"The basic unit of the nervous system is the:",opts:["Nephron","Neuron","Synapse","Axon"],ans:1,exp:"The neuron (nerve cell) is the basic structural and functional unit of the nervous system."},
+  {q:"The brain and spinal cord make up the:",opts:["Peripheral nervous system","Autonomic nervous system","Central nervous system","Somatic nervous system"],ans:2,exp:"The central nervous system (CNS) consists of the brain and spinal cord."},
+  {q:"A reflex action is controlled by the:",opts:["Brain","Cerebellum","Spinal cord","Medulla"],ans:2,exp:"Simple reflex actions bypass the brain and are coordinated by the spinal cord for faster response."},
+  {q:"The part of the brain that controls balance and coordination is the:",opts:["Cerebrum","Cerebellum","Medulla oblongata","Hypothalamus"],ans:1,exp:"The cerebellum coordinates movement, balance, and fine motor control."},
+  {q:"Which sense organ detects sound?",opts:["Eye","Ear","Nose","Skin"],ans:1,exp:"The ear contains the cochlea which converts sound vibrations into nerve impulses sent to the brain."},
+
+  // HORMONES & ENDOCRINE SYSTEM
+  {q:"Insulin is produced by the:",opts:["Liver","Thyroid gland","Pancreas","Adrenal gland"],ans:2,exp:"Insulin is produced by the beta cells of the islets of Langerhans in the pancreas."},
+  {q:"The hormone that regulates blood sugar level is:",opts:["Adrenaline","Thyroxine","Insulin","Oestrogen"],ans:2,exp:"Insulin lowers blood glucose levels by promoting uptake of glucose by cells."},
+  {q:"Adrenaline is produced by the:",opts:["Pancreas","Thyroid","Adrenal gland","Pituitary"],ans:2,exp:"Adrenaline (epinephrine) is produced by the adrenal medulla — prepares body for fight or flight."},
+  {q:"Goitre is caused by deficiency of:",opts:["Iron","Iodine","Calcium","Vitamin D"],ans:1,exp:"Iodine deficiency prevents the thyroid from making thyroxine, causing the gland to enlarge (goitre)."},
+  {q:"The master gland of the endocrine system is the:",opts:["Thyroid","Adrenal gland","Pituitary gland","Pancreas"],ans:2,exp:"The pituitary gland is called the master gland because it controls other endocrine glands."},
+
+  // DISEASES & IMMUNITY
+  {q:"Malaria is caused by:",opts:["A bacterium","A virus","A protozoan (Plasmodium)","A fungus"],ans:2,exp:"Malaria is caused by Plasmodium (a protozoan parasite) transmitted by the female Anopheles mosquito."},
+  {q:"The vector for malaria is:",opts:["Housefly","Tsetse fly","Female Anopheles mosquito","Aedes mosquito"],ans:2,exp:"The female Anopheles mosquito is the vector that transmits the Plasmodium parasite causing malaria."},
+  {q:"HIV attacks which cells of the immune system?",opts:["Red blood cells","Platelets","T-helper cells (CD4)","B-cells"],ans:2,exp:"HIV attacks CD4 T-helper cells, gradually destroying the immune system and leading to AIDS."},
+  {q:"Antibodies are produced by:",opts:["Red blood cells","T-lymphocytes","B-lymphocytes","Platelets"],ans:2,exp:"B-lymphocytes (B-cells) produce antibodies in response to antigens (foreign substances)."},
+  {q:"Vaccination works by:",opts:["Killing bacteria directly","Stimulating the immune system to produce antibodies","Reducing fever","Providing instant immunity"],ans:1,exp:"Vaccines contain weakened or killed pathogens that stimulate the immune system to produce antibodies without causing disease."},
+
+  // SUPPORT & MOVEMENT
+  {q:"The hard outer covering of insects is called:",opts:["Endoskeleton","Exoskeleton","Shell","Carapace"],ans:1,exp:"Insects have an exoskeleton made of chitin — a hard outer covering that provides support and protection."},
+  {q:"Tendons connect:",opts:["Bone to bone","Muscle to bone","Muscle to muscle","Bone to cartilage"],ans:1,exp:"Tendons are tough connective tissues that attach muscles to bones."},
+  {q:"Ligaments connect:",opts:["Muscle to bone","Bone to bone","Muscle to muscle","Skin to bone"],ans:1,exp:"Ligaments connect bone to bone at joints, providing stability."},
+  {q:"The type of joint found at the knee is a:",opts:["Ball and socket joint","Pivot joint","Hinge joint","Gliding joint"],ans:2,exp:"The knee is a hinge joint — it allows movement in one plane (flexion and extension) like a door hinge."},
+  {q:"Cartilage is found at:",opts:["Muscle ends","Bone surfaces at joints","Tendons","Ligaments"],ans:1,exp:"Cartilage covers the surfaces of bones at joints, reducing friction and absorbing shock."},
+];
+
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';document.getElementById('explanation').style.display='none';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();if(typeof gtag!=='undefined')gtag('event','answer',{subject:'Biology',q:currentQ+1});}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);if(typeof gtag!=='undefined')gtag('event','quiz_complete',{subject:'Biology',score:pct});document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;const titles=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';const msgs=pct>=70?`You scored ${pct}% — great Biology performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;document.getElementById('r-title').textContent=titles;document.getElementById('r-msg').textContent=msgs;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

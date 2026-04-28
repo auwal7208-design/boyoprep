@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Economics CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">📊 Economics</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">📊 Economics</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  {q:"Economics is best defined as:",opts:["Study of money","Science of wealth","Study of how scarce resources are allocated to satisfy unlimited wants","Study of government policies"],ans:2,exp:"Economics studies how individuals, firms, and governments allocate scarce resources to satisfy unlimited human wants."},
+  {q:"The basic economic problem is:",opts:["Unemployment","Inflation","Scarcity","Poverty"],ans:2,exp:"Scarcity is the fundamental economic problem — resources are limited but human wants are unlimited."},
+  {q:"Opportunity cost is:",opts:["The price of a good","The cost of production","The value of the next best alternative forgone","Total cost of all alternatives"],ans:2,exp:"Opportunity cost is the value of the next best alternative you give up when making a choice."},
+  {q:"A production possibility curve shows:",opts:["Maximum output combinations with given resources","Minimum output levels","Population growth","Price levels"],ans:0,exp:"The PPC shows all possible combinations of two goods that can be produced with available resources and technology."},
+  {q:"Which of the following is a factor of production?",opts:["Money","Profit","Capital","Interest"],ans:2,exp:"The four factors of production are Land, Labour, Capital, and Entrepreneurship."},
+  {q:"The reward for labour is:",opts:["Rent","Profit","Interest","Wages"],ans:3,exp:"Wages (or salaries) are the reward paid to labour for its contribution to production."},
+  {q:"The reward for capital is:",opts:["Rent","Wages","Interest","Profit"],ans:2,exp:"Interest is the reward for capital — the return earned on money invested or lent."},
+  {q:"The reward for land is:",opts:["Profit","Wages","Interest","Rent"],ans:3,exp:"Rent is the reward paid for the use of land as a factor of production."},
+  {q:"The reward for entrepreneurship is:",opts:["Rent","Wages","Interest","Profit"],ans:3,exp:"Profit is the reward for entrepreneurship — what remains after all other factors are paid."},
+  {q:"A free good is one that:",opts:["Has zero price","Is produced freely","Is available without scarcity","Is given by government"],ans:2,exp:"A free good is available in unlimited supply relative to demand — it has no opportunity cost (e.g., air, sunlight)."},
+  // DEMAND & SUPPLY
+  {q:"The law of demand states that:",opts:["As price rises, quantity demanded rises","As price falls, quantity demanded falls","As price rises, quantity demanded falls","Price and demand are unrelated"],ans:2,exp:"The law of demand: there is an inverse relationship between price and quantity demanded, ceteris paribus."},
+  {q:"The law of supply states that:",opts:["As price rises, quantity supplied falls","As price rises, quantity supplied rises","Supply is always constant","Price and supply are unrelated"],ans:1,exp:"The law of supply: there is a direct relationship between price and quantity supplied, ceteris paribus."},
+  {q:"Market equilibrium occurs when:",opts:["Demand exceeds supply","Supply exceeds demand","Quantity demanded equals quantity supplied","Price is at its maximum"],ans:2,exp:"Equilibrium is reached when quantity demanded equals quantity supplied — the market clears at the equilibrium price."},
+  {q:"A surplus in a market occurs when:",opts:["Quantity demanded exceeds quantity supplied","Quantity supplied exceeds quantity demanded","Price is below equilibrium","Demand shifts right"],ans:1,exp:"A surplus (excess supply) occurs when quantity supplied exceeds quantity demanded, usually when price is above equilibrium."},
+  {q:"A shortage in a market occurs when:",opts:["Quantity demanded exceeds quantity supplied","Quantity supplied exceeds quantity demanded","Price is above equilibrium","Supply shifts right"],ans:0,exp:"A shortage (excess demand) occurs when quantity demanded exceeds quantity supplied, usually when price is below equilibrium."},
+  {q:"Price elasticity of demand measures:",opts:["Change in supply due to price","Responsiveness of quantity demanded to price change","Change in income due to price","Rate of inflation"],ans:1,exp:"PED measures how much quantity demanded changes in response to a change in price."},
+  {q:"A good is said to be elastic when:",opts:["PED = 0","PED = 1","PED > 1","PED < 1"],ans:2,exp:"Elastic demand (PED > 1) means a small price change leads to a proportionally larger change in quantity demanded."},
+  {q:"Which of the following would cause a rightward shift in the demand curve?",opts:["Increase in price","Decrease in consumer income","Increase in consumer income","Increase in supply"],ans:2,exp:"An increase in consumer income (for normal goods) increases demand at every price, shifting the demand curve right."},
+  {q:"Inferior goods are goods whose demand:",opts:["Increases as income increases","Decreases as income increases","Is unaffected by income","Increases as price increases"],ans:1,exp:"For inferior goods, demand decreases as consumer income increases — people switch to better alternatives."},
+  {q:"Complementary goods are goods that are:",opts:["Used in place of each other","Used together","Unrelated in consumption","Both inferior"],ans:1,exp:"Complementary goods are consumed together — e.g., cars and petrol, bread and butter."},
+  // MARKET STRUCTURES
+  {q:"Perfect competition is characterised by:",opts:["Few sellers","Price-making ability","Many sellers and homogeneous products","Product differentiation"],ans:2,exp:"Perfect competition has many buyers and sellers, homogeneous products, free entry/exit, and perfect information."},
+  {q:"A monopoly exists when:",opts:["There are many sellers","There is only one seller","There are two sellers","There is free entry"],ans:1,exp:"A monopoly is a market structure with only one seller of a product with no close substitutes."},
+  {q:"An oligopoly is a market with:",opts:["One seller","Many sellers","A few large sellers","Unlimited sellers"],ans:2,exp:"An oligopoly has a few large dominant firms — e.g., the Nigerian telecommunications industry."},
+  {q:"Price discrimination means:",opts:["Charging different prices in different markets for the same good","Reducing prices for all","Fixing one price for everyone","Eliminating competition"],ans:0,exp:"Price discrimination is charging different prices to different consumers for the same product based on willingness to pay."},
+  {q:"In perfect competition, firms are:",opts:["Price makers","Price takers","Monopolists","Oligopolists"],ans:1,exp:"In perfect competition, no single firm can influence the market price — they are price takers."},
+  // NATIONAL INCOME
+  {q:"GDP stands for:",opts:["Gross Domestic Product","General Domestic Production","Government Development Plan","Gross Domestic Profit"],ans:0,exp:"GDP (Gross Domestic Product) is the total monetary value of all goods and services produced within a country in a year."},
+  {q:"GNP differs from GDP by adding:",opts:["Government expenditure","Net income from abroad","Imports","Taxes"],ans:1,exp:"GNP = GDP + Net income from abroad (income earned by citizens abroad minus income earned by foreigners domestically)."},
+  {q:"Per capita income is:",opts:["Total national income","National income divided by population","Income of the government","Wages of workers"],ans:1,exp:"Per capita income = National Income ÷ Population — it measures average income per person."},
+  {q:"Which of the following is NOT included in GDP?",opts:["Government spending","Consumer spending","Investment","Transfer payments"],ans:3,exp:"Transfer payments (e.g., pensions, unemployment benefits) are not included in GDP as they don't represent production."},
+  {q:"Inflation is defined as:",opts:["Decrease in money supply","Sustained rise in general price level","Decrease in GDP","Increase in unemployment"],ans:1,exp:"Inflation is a sustained and general increase in the price level of goods and services in an economy."},
+  // MONEY & BANKING
+  {q:"The primary function of money is:",opts:["Store of value","Standard of deferred payment","Medium of exchange","Unit of account"],ans:2,exp:"The primary function of money is as a medium of exchange — it facilitates transactions between buyers and sellers."},
+  {q:"The Central Bank of Nigeria (CBN) was established in:",opts:["1948","1958","1960","1970"],ans:1,exp:"The Central Bank of Nigeria (CBN) was established in 1958, before Nigeria's independence in 1960."},
+  {q:"Which of the following is a function of commercial banks?",opts:["Issuing currency","Controlling monetary policy","Accepting deposits and granting loans","Acting as lender of last resort"],ans:2,exp:"Commercial banks accept deposits from customers and grant loans — their core banking functions."},
+  {q:"The instrument used by CBN to control money supply is:",opts:["Fiscal policy","Monetary policy","Exchange rate policy","Trade policy"],ans:1,exp:"The CBN uses monetary policy tools (interest rates, reserve requirements, open market operations) to control money supply."},
+  {q:"Inflation can be controlled by:",opts:["Reducing interest rates","Increasing government spending","Increasing interest rates","Reducing taxes"],ans:2,exp:"Raising interest rates reduces borrowing and spending, which reduces aggregate demand and helps control inflation."},
+  // POPULATION & LABOUR
+  {q:"The optimum population is:",opts:["The largest possible population","The population that gives the highest per capita income","The smallest population","Zero population"],ans:1,exp:"Optimum population is the size at which a country achieves the highest possible standard of living (maximum per capita income)."},
+  {q:"Overpopulation occurs when:",opts:["Population is too small","Population exceeds available resources","Population equals resources","Birth rate equals death rate"],ans:1,exp:"Overpopulation occurs when a country's population exceeds its resources and productive capacity."},
+  {q:"Brain drain refers to:",opts:["Low education levels","Emigration of skilled professionals","Mental illness","Poor schooling"],ans:1,exp:"Brain drain is the emigration of highly trained and skilled professionals from a country to another — a major problem in Nigeria."},
+  {q:"Unemployment that occurs due to change of jobs is called:",opts:["Structural unemployment","Cyclical unemployment","Frictional unemployment","Seasonal unemployment"],ans:2,exp:"Frictional unemployment occurs when people are between jobs — temporarily unemployed while searching for new work."},
+  {q:"Structural unemployment is caused by:",opts:["Seasonal changes","Economic recession","Changes in the structure of industry making some skills obsolete","Workers changing jobs"],ans:2,exp:"Structural unemployment results from a mismatch between skills workers have and skills employers need due to industrial change."},
+  // TRADE
+  {q:"Comparative advantage means a country should produce goods it can produce:",opts:["Cheapest in absolute terms","With the lowest opportunity cost","Fastest","In largest quantities"],ans:1,exp:"Comparative advantage: a country should specialise in producing goods where it has the lowest opportunity cost relative to others."},
+  {q:"Balance of trade is:",opts:["Difference between exports and imports of goods","Total government revenue","Difference between money supply","GDP minus GNP"],ans:0,exp:"Balance of trade = value of exports minus value of imports of visible (physical) goods."},
+  {q:"A tariff is:",opts:["A quota on imports","A tax on imports","A subsidy on exports","A ban on trade"],ans:1,exp:"A tariff is a tax imposed on imported goods to make them more expensive and protect domestic industries."},
+  {q:"An import quota is:",opts:["A tax on imports","A limit on the quantity of goods that can be imported","A subsidy on imports","A ban on exports"],ans:1,exp:"An import quota sets a maximum limit on the quantity of a specific good that can be imported."},
+  {q:"Dumping in international trade means:",opts:["Exporting goods at very low prices below cost","Importing goods illegally","Banning certain exports","Taxing exports heavily"],ans:0,exp:"Dumping is selling goods in a foreign market at prices below their production cost or home market price."},
+  // GOVERNMENT & FISCAL POLICY
+  {q:"Fiscal policy involves:",opts:["Control of money supply","Government taxation and spending","Exchange rate management","Import controls"],ans:1,exp:"Fiscal policy uses government revenue (taxation) and expenditure (spending) to influence the economy."},
+  {q:"A budget deficit occurs when:",opts:["Revenue exceeds expenditure","Expenditure exceeds revenue","Revenue equals expenditure","Imports exceed exports"],ans:1,exp:"A budget deficit occurs when government expenditure exceeds its revenue in a given fiscal year."},
+  {q:"Progressive taxation means:",opts:["Everyone pays the same rate","Higher incomes pay higher rates","Lower incomes pay higher rates","Tax is on goods only"],ans:1,exp:"Progressive taxation: tax rate increases as taxable income increases — higher earners pay a higher percentage."},
+  {q:"Which of the following is a direct tax?",opts:["VAT","Excise duty","Income tax","Import duty"],ans:2,exp:"Income tax is a direct tax — it is levied directly on personal or corporate income."},
+  {q:"VAT is an example of:",opts:["Direct tax","Progressive tax","Indirect tax","Proportional tax"],ans:2,exp:"VAT (Value Added Tax) is an indirect tax — it is levied on goods and services and passed on to consumers."},
+  // AGRICULTURE & INDUSTRY
+  {q:"Subsistence farming is farming where:",opts:["Output is mainly for sale","Output is mainly for the farmer's own consumption","Machinery is used extensively","Large scale production occurs"],ans:1,exp:"Subsistence farming produces mainly for the farmer's own consumption with little or no surplus for sale."},
+  {q:"The Green Revolution refers to:",opts:["Environmental conservation","Agricultural improvements through technology and high-yield varieties","Afforestation programmes","Industrial development"],ans:1,exp:"The Green Revolution refers to agricultural transformation through improved seeds, fertilisers, and irrigation to increase food production."},
+  {q:"Which of the following is a cash crop in Nigeria?",opts:["Cassava","Yam","Cocoa","Maize"],ans:2,exp:"Cocoa is Nigeria's most important cash crop — grown primarily for export, not local consumption."},
+  {q:"Industrialisation leads to:",opts:["Lower employment","Higher standard of living","More subsistence farming","Less GDP"],ans:1,exp:"Industrialisation increases production, creates employment, raises income, and leads to higher standards of living."},
+  {q:"Import substitution industrialisation means:",opts:["Exporting more goods","Producing domestically what was previously imported","Banning all imports","Reducing domestic production"],ans:1,exp:"Import substitution involves producing domestically the goods previously imported to reduce dependence on foreign goods."},
+  // DEVELOPMENT ECONOMICS
+  {q:"A developing country is characterised by:",opts:["High per capita income","High literacy rate","Low standard of living","Advanced technology"],ans:2,exp:"Developing countries typically have low per capita income, low literacy, poor healthcare, and low standard of living."},
+  {q:"Foreign aid is:",opts:["Loans from commercial banks","Assistance given by one country to another","Domestic investment","Tax revenue"],ans:1,exp:"Foreign aid is financial, technical, or in-kind assistance provided by one country or institution to another."},
+  {q:"Economic development differs from economic growth in that:",opts:["They are the same","Development includes structural and social improvements","Growth is broader","Development only means GDP increase"],ans:1,exp:"Economic growth is a rise in GDP; economic development is broader — it includes improved living standards, education, and social welfare."},
+  {q:"The Human Development Index (HDI) measures:",opts:["GDP only","Military strength","Life expectancy, education, and per capita income","Export levels"],ans:2,exp:"The HDI measures human development using three dimensions: life expectancy, education level, and per capita income."},
+  {q:"Privatisation means:",opts:["Government taking over private firms","Transfer of ownership from government to private sector","Nationalising industries","Taxing private firms"],ans:1,exp:"Privatisation is the transfer of ownership and control of enterprises from the public (government) sector to the private sector."},
+  // MIXED TOPICS
+  {q:"The multiplier effect means:",opts:["A small investment leads to a larger increase in national income","Income always doubles","Money supply multiplies","Prices increase proportionally"],ans:0,exp:"The multiplier effect: an initial injection of spending leads to a larger final increase in national income."},
+  {q:"Stagflation refers to:",opts:["High growth and inflation","High inflation and high unemployment simultaneously","Low prices and high employment","Deflation and growth"],ans:1,exp:"Stagflation is the combination of stagnant economic growth (high unemployment) and high inflation — a difficult economic situation."},
+  {q:"The Laffer curve illustrates:",opts:["Relationship between demand and price","That very high tax rates reduce tax revenue","Supply and demand equilibrium","Population and income"],ans:1,exp:"The Laffer curve shows that beyond an optimal tax rate, further increases reduce total tax revenue as people work less or evade taxes."},
+  {q:"Which organisation regulates international trade?",opts:["IMF","World Bank","WTO","OPEC"],ans:2,exp:"The World Trade Organisation (WTO) regulates international trade rules between nations."},
+  {q:"ECOWAS stands for:",opts:["Economic Community of West African States","Eastern Community of West African States","Economic Council of West African States","European Community of West African States"],ans:0,exp:"ECOWAS (Economic Community of West African States) is a regional bloc of 15 West African countries promoting economic integration."},
+  {q:"The law of diminishing returns states that:",opts:["Output always increases with more inputs","Adding more of a variable factor to fixed factors eventually reduces marginal output","Costs always decrease","Production is always efficient"],ans:1,exp:"Law of diminishing returns: as more units of a variable factor are added to fixed factors, the marginal product eventually falls."},
+  {q:"Elasticity of supply measures:",opts:["How price changes with demand","Responsiveness of quantity supplied to price change","Cost of production","Government subsidies"],ans:1,exp:"Price elasticity of supply (PES) measures how much quantity supplied changes in response to a price change."},
+  {q:"A mixed economy is one where:",opts:["Only government controls production","Only private sector controls production","Both government and private sector control production","There is no economic activity"],ans:2,exp:"A mixed economy combines elements of free market (private sector) and command (government) economies."},
+  {q:"Devaluation of a currency means:",opts:["Increasing the value of currency","Reducing the official value of currency against others","Printing more money","Increasing exports"],ans:1,exp:"Devaluation is an official reduction in the value of a currency relative to other currencies — often to boost exports."},
+  {q:"Which of the following is an example of an invisible export?",opts:["Crude oil","Cocoa","Tourism earnings","Cars"],ans:2,exp:"Invisible exports are services sold to foreigners — tourism earnings are money spent by foreign visitors in Nigeria."},
+  {q:"The term 'ceteris paribus' means:",opts:["All things change","All other things being equal","Nothing changes","Some things change"],ans:1,exp:"'Ceteris paribus' is a Latin phrase meaning 'all other things being equal' — used in economic analysis to isolate one variable."},
+  {q:"Consumer surplus is:",opts:["Extra goods consumers buy","Difference between what consumers are willing to pay and what they actually pay","Government subsidy to consumers","Goods left unsold"],ans:1,exp:"Consumer surplus is the difference between the maximum price a consumer is willing to pay and the actual market price paid."},
+  {q:"Producer surplus is:",opts:["Extra profit from exports","Difference between price received and minimum price producer was willing to accept","Government support to producers","Unsold inventory"],ans:1,exp:"Producer surplus is the difference between the price a producer receives and the minimum they would accept to supply the good."},
+  {q:"Which of the following best describes a public good?",opts:["A good sold by government","A good that is non-excludable and non-rival","A good only the rich can buy","A good with high price"],ans:1,exp:"Public goods are non-excludable (cannot prevent people from using) and non-rival (one person's use doesn't reduce availability) — e.g., street lighting."},
+  {q:"Externalities are:",opts:["Internal costs of a firm","Costs or benefits to third parties not involved in a transaction","Export earnings","Government revenue"],ans:1,exp:"Externalities are spillover costs (negative) or benefits (positive) that affect third parties not involved in the economic transaction."},
+  {q:"Which of these is a negative externality?",opts:["Education benefits","Factory pollution","Beekeeping benefits to farmers","Road construction"],ans:1,exp:"Factory pollution is a negative externality — it imposes costs (health, environmental) on people not involved in the production."},
+  {q:"The term 'invisible hand' was coined by:",opts:["Karl Marx","John Keynes","Adam Smith","Milton Friedman"],ans:2,exp:"Adam Smith coined 'the invisible hand' in 'The Wealth of Nations' (1776) — describing how self-interest in free markets benefits society."},
+  {q:"Keynesian economics advocates:",opts:["Minimal government intervention","Government spending to stimulate economy during recession","Free market only","Reducing money supply always"],ans:1,exp:"Keynesian economics, developed by John Maynard Keynes, advocates government spending and intervention to manage aggregate demand."},
+  {q:"The velocity of money refers to:",opts:["Speed of inflation","How fast money circulates in the economy","Exchange rate changes","Speed of economic growth"],ans:1,exp:"Velocity of money is the rate at which money changes hands in the economy — how quickly it circulates."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Economics performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

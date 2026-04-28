@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Literature in English CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">📚 Literature in English</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">📚 Literature in English</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // LITERARY TERMS & GENRES
+  {q:"Literature can be defined as:",opts:["Any written text","Creative writing that reflects human experience with artistic merit","Only poetry","Only novels"],ans:1,exp:"Literature is creative writing — poetry, prose, and drama — that reflects human experience with artistic and aesthetic merit."},
+  {q:"The three major genres of literature are:",opts:["Novel, short story, poetry","Poetry, prose, drama","Biography, autobiography, diary","Fiction, non-fiction, drama"],ans:1,exp:"The three major literary genres are Poetry, Prose (fiction and non-fiction), and Drama."},
+  {q:"A novel is:",opts:["A short fictional story","A long fictional prose narrative","A dramatic work","A collection of poems"],ans:1,exp:"A novel is a long fictional prose narrative that tells a story through characters, plot, and setting."},
+  {q:"A sonnet is a poem with:",opts:["Any number of lines","Exactly 14 lines","16 lines","8 lines"],ans:1,exp:"A sonnet is a lyric poem of exactly 14 lines, usually written in iambic pentameter."},
+  {q:"Drama is a literary work intended to be:",opts:["Read silently","Performed on stage","Sung","Recited only"],ans:1,exp:"Drama is a literary composition designed to be performed before an audience on stage, combining dialogue and action."},
+  {q:"A tragedy is a dramatic work that:",opts:["Has a happy ending","Is comedic throughout","Ends in disaster or death of the protagonist","Has no conflict"],ans:2,exp:"A tragedy is a serious dramatic work depicting the downfall of a noble or great character, usually ending in death."},
+  {q:"A comedy is a dramatic work that:",opts:["Ends in death","Is serious throughout","Is humorous and ends happily","Has only one character"],ans:2,exp:"A comedy is a dramatic work with humorous elements, typically ending happily with reconciliation or marriage."},
+  {q:"The protagonist of a story is:",opts:["The villain","The main/central character","A minor character","The narrator"],ans:1,exp:"The protagonist is the main character of a story — the central figure around whom the plot revolves."},
+  {q:"The antagonist in a story is:",opts:["The hero","The character who opposes the protagonist","The narrator","A supporting character"],ans:1,exp:"The antagonist is the character or force that opposes the protagonist, creating conflict in the story."},
+  {q:"A short story differs from a novel in that it:",opts:["Has no plot","Has fewer characters and is shorter","Is always true","Has no dialogue"],ans:1,exp:"A short story is a brief fictional prose narrative with fewer characters, a single plot, and limited setting compared to a novel."},
+  // FIGURES OF SPEECH & LITERARY DEVICES
+  {q:"Personification is:",opts:["Comparing two unlike things using 'like' or 'as'","Giving human qualities to non-human things","Exaggerating for effect","Repeating consonant sounds"],ans:1,exp:"Personification is a figure of speech that gives human characteristics, emotions, or actions to non-human things or abstract ideas."},
+  {q:"A simile compares two things using:",opts:["Direct comparison","'Like' or 'as'","Exaggeration","Sound words"],ans:1,exp:"A simile is a comparison of two unlike things using the words 'like' or 'as' — e.g., 'as brave as a lion'."},
+  {q:"A metaphor:",opts:["Uses 'like' or 'as'","Makes a direct comparison without 'like' or 'as'","Repeats sounds","Exaggerates"],ans:1,exp:"A metaphor directly calls one thing another — e.g., 'Life is a journey' — without using 'like' or 'as'."},
+  {q:"Hyperbole is:",opts:["Understatement","Deliberate exaggeration for effect","A comparison using 'like'","Giving life to objects"],ans:1,exp:"Hyperbole is deliberate and obvious exaggeration used for emphasis or humorous effect — e.g., 'I've told you a million times'."},
+  {q:"Alliteration is the repetition of:",opts:["Vowel sounds","The same consonant sound at the beginning of words","End rhymes","A line in a poem"],ans:1,exp:"Alliteration is the repetition of the same consonant sound at the beginning of closely connected words — e.g., 'Peter Piper picked'."},
+  {q:"Onomatopoeia refers to words that:",opts:["Exaggerate meaning","Imitate the sounds they describe","Compare two things","Give life to objects"],ans:1,exp:"Onomatopoeia is the use of words that phonetically imitate the sounds they describe — e.g., buzz, hiss, bang, crash."},
+  {q:"Irony is a device where:",opts:["The literal meaning is what is said","What is said is the opposite of what is meant","Sounds are repeated","Stories are told"],ans:1,exp:"Irony involves saying the opposite of what is actually meant, or a situation where the outcome is contrary to expectations."},
+  {q:"An oxymoron is:",opts:["A long comparison","A combination of contradictory terms","An exaggeration","A sound device"],ans:1,exp:"An oxymoron combines two contradictory or seemingly opposite words — e.g., 'deafening silence', 'bittersweet'."},
+  {q:"Assonance is the repetition of:",opts:["Consonant sounds","Vowel sounds in nearby words","Whole words","End rhymes only"],ans:1,exp:"Assonance is the repetition of vowel sounds in nearby words — e.g., 'the rain in Spain stays mainly in the plain'."},
+  {q:"A flashback in a story is:",opts:["A look at future events","A return to past events within the narrative","A dream sequence","The climax of the story"],ans:1,exp:"A flashback is a narrative technique that interrupts the chronological sequence to describe earlier events."},
+  // POETRY
+  {q:"The rhyme scheme ABAB means:",opts:["All lines rhyme","Alternate lines rhyme","The first and last lines rhyme","No lines rhyme"],ans:1,exp:"ABAB rhyme scheme means the 1st and 3rd lines rhyme (A) and the 2nd and 4th lines rhyme (B) — alternate lines rhyme."},
+  {q:"A stanza is:",opts:["A single line of poetry","A group of lines forming a unit in a poem","The title of a poem","The theme of a poem"],ans:1,exp:"A stanza is a group of lines in a poem forming a unit — similar to a paragraph in prose."},
+  {q:"A couplet consists of:",opts:["One line","Two consecutive rhyming lines","Four lines","Six lines"],ans:1,exp:"A couplet is a pair of successive lines of poetry that rhyme and are of the same length."},
+  {q:"Free verse poetry is poetry that:",opts:["Has strict rhyme scheme","Has no regular rhyme or metre","Always has 14 lines","Must rhyme"],ans:1,exp:"Free verse is poetry that does not follow a regular rhyme scheme, metre, or line length — it has a natural, conversational rhythm."},
+  {q:"The persona in a poem is:",opts:["The poet","The voice or speaker in the poem","The theme","A literary device"],ans:1,exp:"The persona is the voice or speaker created by the poet to narrate or express the poem — not necessarily the poet themselves."},
+  {q:"The tone of a poem refers to:",opts:["The rhythm","The poet's attitude toward the subject","The rhyme scheme","The number of stanzas"],ans:1,exp:"Tone is the poet's or narrator's attitude toward the subject matter — it can be joyful, sad, angry, ironic, etc."},
+  {q:"The mood of a poem refers to:",opts:["The poet's feelings only","The feeling or atmosphere the poem creates in the reader","The rhyme scheme","The theme"],ans:1,exp:"Mood is the emotional atmosphere or feeling that the poem evokes in the reader — e.g., melancholic, joyful, tense."},
+  {q:"Enjambment in poetry means:",opts:["A pause at the end of a line","A sentence continues beyond the end of a line without a pause","Repeating the last word","End rhyme"],ans:1,exp:"Enjambment is when a sentence or phrase runs over from one line of a poem to the next without a major pause."},
+  {q:"A refrain in a poem is:",opts:["The title","A line or phrase repeated at intervals","The last stanza","A rhyme scheme"],ans:1,exp:"A refrain is a line, phrase, or group of lines repeated at regular intervals throughout a poem — especially in ballads."},
+  {q:"Iambic pentameter consists of:",opts:["5 stressed syllables per line","10 syllables per line with alternating unstressed/stressed pattern","Free verse only","Rhyming couplets"],ans:1,exp:"Iambic pentameter has 10 syllables per line arranged in 5 iambic feet (da-DUM pattern) — used by Shakespeare and Milton."},
+  // PROSE & NARRATIVE TECHNIQUES
+  {q:"The plot of a story is:",opts:["The setting","The sequence of events","The theme","The characters"],ans:1,exp:"Plot is the sequence of events that make up a story — what happens from beginning to end."},
+  {q:"The setting of a story is:",opts:["The characters","The time and place where the story occurs","The plot","The theme"],ans:1,exp:"Setting is the time and place (and social environment) in which the events of a story take place."},
+  {q:"The theme of a literary work is:",opts:["The title","The main subject or central idea","The plot summary","The characters' names"],ans:1,exp:"Theme is the central idea, message, or insight about life that a literary work explores."},
+  {q:"First person narration uses:",opts:["'He' and 'she'","'I' and 'we'","'You'","'They'"],ans:1,exp:"First person narration uses 'I' or 'we' — the narrator is a character within the story telling events from their perspective."},
+  {q:"Third person omniscient narration means:",opts:["The narrator is a character in the story","The narrator knows the thoughts of all characters","Only one character's thoughts are known","The narrator is uninvolved"],ans:1,exp:"An omniscient (all-knowing) third person narrator can access the thoughts, feelings, and actions of all characters."},
+  {q:"The climax of a story is:",opts:["The beginning","The point of highest tension or turning point","The resolution","The introduction of characters"],ans:1,exp:"The climax is the point of highest tension or the decisive turning point in the story — where the main conflict comes to a head."},
+  {q:"Denouement refers to:",opts:["The opening of a story","The climax","The resolution or final outcome of a story","The conflict"],ans:2,exp:"Denouement (French for 'unknotting') is the final resolution of the plot — where loose ends are tied up after the climax."},
+  {q:"Conflict in literature is:",opts:["A peaceful resolution","The struggle between opposing forces that drives the plot","A happy ending","Character description"],ans:1,exp:"Conflict is the central struggle between opposing forces — it can be internal (character vs. self) or external (character vs. character/society/nature)."},
+  {q:"Diction refers to:",opts:["The plot of a story","The writer's choice of words","The rhyme scheme","The setting"],ans:1,exp:"Diction is the writer's choice and use of words — formal, informal, archaic, colloquial — which affects tone and meaning."},
+  {q:"Foreshadowing is a device where:",opts:["Past events are described","Future events are hinted at earlier in the narrative","The story goes back in time","Characters describe each other"],ans:1,exp:"Foreshadowing is a narrative device in which the author gives early hints or clues about what will happen later in the story."},
+  // AFRICAN LITERATURE
+  {q:"Chinua Achebe is best known for his novel:",opts:["Arrow of God","Things Fall Apart","A Man of the People","No Longer at Ease"],ans:1,exp:"Chinua Achebe's 'Things Fall Apart' (1958) is his most celebrated novel — regarded as the archetypal African novel."},
+  {q:"The title 'Things Fall Apart' is taken from a poem by:",opts:["William Shakespeare","John Keats","W.B. Yeats","T.S. Eliot"],ans:2,exp:"The title is from W.B. Yeats' poem 'The Second Coming' — the line 'Things fall apart; the centre cannot hold.'"},
+  {q:"Wole Soyinka was awarded the Nobel Prize in Literature in:",opts:["1976","1986","1990","2000"],ans:1,exp:"Wole Soyinka became the first African writer to win the Nobel Prize in Literature in 1986."},
+  {q:"'Death and the King's Horseman' was written by:",opts:["Chinua Achebe","Ngugi wa Thiong'o","Wole Soyinka","Cyprian Ekwensi"],ans:2,exp:"'Death and the King's Horseman' (1975) is one of Wole Soyinka's most celebrated plays."},
+  {q:"Ngugi wa Thiong'o is a renowned author from:",opts:["Nigeria","Ghana","Kenya","South Africa"],ans:2,exp:"Ngugi wa Thiong'o is a prominent Kenyan author known for works like 'Weep Not, Child' and 'A Grain of Wheat'."},
+  {q:"Ben Okri's 'The Famished Road' won which prize?",opts:["Nobel Prize","Booker Prize","Pulitzer Prize","Man Booker Prize"],ans:1,exp:"Ben Okri's 'The Famished Road' won the Booker Prize in 1991 — a major British literary award."},
+  {q:"Ola Rotimi is a Nigerian dramatist known for:",opts:["Things Fall Apart","The Gods Are Not to Blame","Song of Lawino","Petals of Blood"],ans:1,exp:"Ola Rotimi is best known for 'The Gods Are Not to Blame' — a Nigerian adaptation of Sophocles' Oedipus Rex."},
+  {q:"'Song of Lawino' is a poem by:",opts:["Wole Soyinka","Chinua Achebe","Okot p'Bitek","Christopher Okigbo"],ans:2,exp:"'Song of Lawino' (1966) is an epic poem by Ugandan poet Okot p'Bitek — a celebrated African poem about cultural identity."},
+  {q:"Christopher Okigbo was a Nigerian poet known for his collection:",opts:["Labyrinths","Things Fall Apart","The Interpreters","Harvest of Corruption"],ans:0,exp:"Christopher Okigbo is celebrated for his poetry collection 'Labyrinths' — he died in the Nigerian Civil War in 1967."},
+  {q:"Flora Nwapa is notable for being:",opts:["First Nigerian male novelist","First Nigerian female novelist","First African playwright","First African poet"],ans:1,exp:"Flora Nwapa is celebrated as Nigeria's first female novelist, known for her novel 'Efuru' (1966)."},
+  // DRAMA ELEMENTS
+  {q:"A soliloquy is when a character:",opts:["Speaks to another character","Speaks alone expressing inner thoughts aloud","Speaks to the audience directly","Whispers to another character"],ans:1,exp:"A soliloquy is a dramatic device where a character speaks their inner thoughts aloud while alone on stage."},
+  {q:"An aside in drama is when a character:",opts:["Speaks to all other characters","Makes a brief remark to the audience unheard by other characters","Leaves the stage","Sings a song"],ans:1,exp:"An aside is a brief remark made by a character directly to the audience that other characters on stage cannot hear."},
+  {q:"The exposition in a drama refers to:",opts:["The climax","The background information provided at the beginning","The resolution","The conflict"],ans:1,exp:"Exposition provides background information about characters, setting, and events necessary to understand the story."},
+  {q:"The denouement in drama is the:",opts:["Opening scene","Main conflict","Resolution and tying up of loose ends","Climax"],ans:2,exp:"The denouement is the final resolution where conflicts are resolved and the story comes to a conclusion."},
+  {q:"A tragic flaw (hamartia) is:",opts:["A physical disability","A character weakness that leads to the hero's downfall","A villain's evil plan","A plot twist"],ans:1,exp:"Hamartia (tragic flaw) is the character weakness or error in judgment that leads to the downfall of a tragic hero — e.g., Okonkwo's pride in 'Things Fall Apart'."},
+  {q:"Catharsis in drama refers to:",opts:["The climax of the play","The emotional purging or release felt by the audience at the end of a tragedy","Character development","Stage directions"],ans:1,exp:"Catharsis (from Aristotle) is the emotional cleansing or release of emotions (pity and fear) experienced by the audience at the end of a tragedy."},
+  {q:"A deus ex machina is:",opts:["A stage machine","An unexpected event that resolves the conflict artificially","A type of monologue","A dramatic irony"],ans:1,exp:"Deus ex machina ('god from the machine') is an unexpected power, event, or character introduced to resolve an otherwise unsolvable problem."},
+  {q:"Stage directions in a play are:",opts:["Dialogue between characters","Instructions about movement, setting, and action on stage","The title of scenes","Character names"],ans:1,exp:"Stage directions are instructions in the script telling actors how to move, speak, and interact, and describing the setting."},
+  {q:"A monologue is:",opts:["A conversation between two characters","A long speech by one character","A short aside","A song in a play"],ans:1,exp:"A monologue is a long, uninterrupted speech delivered by one character — addressing other characters or the audience."},
+  {q:"Comic relief in a serious play is used to:",opts:["Make the play entirely funny","Provide a brief moment of humour to relieve dramatic tension","Show the villain's weakness","Create the climax"],ans:1,exp:"Comic relief introduces humorous scenes or characters into a serious/tragic play to temporarily relieve dramatic tension."},
+  // LITERARY CRITICISM & THEORY
+  {q:"The term 'stream of consciousness' refers to:",opts:["A type of plot","A narrative technique depicting a character's continuous thought flow","A type of poem","An acting technique"],ans:1,exp:"Stream of consciousness is a narrative technique that depicts the continuous, flowing thoughts and feelings of a character's mind."},
+  {q:"Satire is a literary device used to:",opts:["Praise society","Criticise and mock human vices or social institutions through humour","Tell love stories","Describe nature"],ans:1,exp:"Satire uses humour, irony, and exaggeration to criticise and expose foolishness, corruption, or vices in society."},
+  {q:"An allegory is a story where:",opts:["Events are literal only","Characters and events symbolically represent deeper moral or political meanings","There is no plot","It is always short"],ans:1,exp:"An allegory is a narrative where characters, events, and settings represent abstract ideas or moral qualities beyond the literal level."},
+  {q:"The term 'intertextuality' refers to:",opts:["Writing between lines","Relationships and references between different texts","A type of plot","A grammar rule"],ans:1,exp:"Intertextuality is the way texts reference, echo, or draw meaning from other texts — creating a network of literary connections."},
+  {q:"A bildungsroman is a novel about:",opts:["War and conflict","The psychological and moral growth of a protagonist from youth to adulthood","Romance only","Mystery and crime"],ans:1,exp:"A bildungsroman (German for 'novel of formation') traces the moral and psychological development of a protagonist from childhood to adulthood."},
+  // SHAKESPEARE
+  {q:"William Shakespeare was born in:",opts:["London","Manchester","Stratford-upon-Avon","Oxford"],ans:2,exp:"William Shakespeare was born in Stratford-upon-Avon, England, in 1564."},
+  {q:"Shakespeare's 'Romeo and Juliet' is a:",opts:["Comedy","History play","Tragedy","Tragicomedy"],ans:2,exp:"'Romeo and Juliet' is a tragedy — both young lovers die in the end due to the feud between their families."},
+  {q:"'To be or not to be' is a famous line from Shakespeare's:",opts:["Macbeth","Othello","Hamlet","King Lear"],ans:2,exp:"'To be or not to be, that is the question' is from Shakespeare's 'Hamlet' — spoken by Prince Hamlet in Act 3."},
+  {q:"Shakespeare wrote approximately how many plays?",opts:["20","37","50","10"],ans:1,exp:"Shakespeare wrote approximately 37 plays, including comedies, tragedies, and histories."},
+  {q:"The theatre Shakespeare was associated with is called:",opts:["The Royal Theatre","The Globe Theatre","The National Theatre","The Old Vic"],ans:1,exp:"The Globe Theatre in London was the theatre most associated with Shakespeare — built in 1599."},
+  // MIXED LITERATURE QUESTIONS
+  {q:"What is the setting of Chinua Achebe's 'Things Fall Apart'?",opts:["Lagos, Nigeria","Umuofia, an Igbo village","Kano, Nigeria","London, England"],ans:1,exp:"'Things Fall Apart' is set in Umuofia, a fictional Igbo village in southeastern Nigeria, during the late 19th century."},
+  {q:"The main character in 'Things Fall Apart' is:",opts:["Nwoye","Obierika","Okonkwo","Ezinma"],ans:2,exp:"Okonkwo is the protagonist of 'Things Fall Apart' — a proud, strong Igbo warrior whose tragic flaw is his fear of weakness."},
+  {q:"What is the theme of 'Things Fall Apart'?",opts:["Romance and love","The clash between Igbo tradition and colonialism","War and politics","Economic development"],ans:1,exp:"The central theme of 'Things Fall Apart' is the clash between traditional Igbo culture and the forces of colonialism and change."},
+  {q:"An epic is a:",opts:["Short lyric poem","Long narrative poem about heroic deeds","A one-act play","A short story"],ans:1,exp:"An epic is a long narrative poem that tells the story of a heroic figure and their great deeds — e.g., Homer's 'Iliad' and 'Odyssey'."},
+  {q:"A ballad is:",opts:["A type of sonnet","A narrative poem or song that tells a story","A free verse poem","A dramatic monologue"],ans:1,exp:"A ballad is a narrative poem or song that tells a story, often of love, adventure, or tragedy — usually with a refrain."},
+  {q:"The term 'poetic justice' means:",opts:["Poetry about law","When good is rewarded and evil is punished in the story","Injustice in a poem","A legal poem"],ans:1,exp:"Poetic justice is when virtuous characters are rewarded and villainous characters are punished in a satisfying way."},
+  {q:"Which of these is NOT a type of poem?",opts:["Sonnet","Ballad","Haiku","Biography"],ans:3,exp:"A biography is a prose account of a person's life — it is not a type of poem. Sonnet, ballad, and haiku are all poetic forms."},
+  {q:"Prose differs from poetry mainly in that:",opts:["Prose has no meaning","Prose is written in ordinary sentences without regular metrical patterns","Prose has no characters","Prose cannot have themes"],ans:1,exp:"Prose is written in ordinary sentences and paragraphs without the regular metrical or rhythmic patterns that characterise poetry."},
+  {q:"The resolution of a story is also called the:",opts:["Exposition","Rising action","Denouement","Climax"],ans:2,exp:"The resolution (denouement) is the final part of the story where conflicts are resolved and the narrative concludes."},
+  {q:"What is the purpose of a prologue in a literary work?",opts:["To end the story","To provide introductory information before the main story begins","To describe a character","To create the climax"],ans:1,exp:"A prologue is an introductory section that provides background information, sets the scene, or introduces themes before the main story begins."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Literature performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

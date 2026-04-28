@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRK CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">✝️ Christian Religious Knowledge</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">✝️ Christian Religious Knowledge</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // OLD TESTAMENT
+  {q:"The first book of the Bible is:",opts:["Exodus","Leviticus","Genesis","Numbers"],ans:2,exp:"Genesis is the first book of the Bible — it describes the creation of the world, the fall of man, and early human history."},
+  {q:"According to Genesis, God created the world in how many days?",opts:["5","6","7","10"],ans:1,exp:"God created the world in six days and rested on the seventh day (Genesis 1-2)."},
+  {q:"Who was the first man created by God?",opts:["Abel","Cain","Noah","Adam"],ans:3,exp:"Adam was the first man created by God from the dust of the ground (Genesis 2:7)."},
+  {q:"The first woman created by God was:",opts:["Mary","Ruth","Eve","Sarah"],ans:2,exp:"Eve was created by God from Adam's rib as a companion for him (Genesis 2:21-22)."},
+  {q:"Which fruit did Adam and Eve eat against God's command?",opts:["Apple (Fruit of the Tree of Knowledge of Good and Evil)","Mango","Banana","Grape"],ans:0,exp:"Adam and Eve ate the fruit of the Tree of Knowledge of Good and Evil in the Garden of Eden (Genesis 3)."},
+  {q:"Who built the ark to survive the great flood?",opts:["Moses","Abraham","Noah","David"],ans:2,exp:"God commanded Noah to build an ark to save his family and animals from the great flood (Genesis 6-9)."},
+  {q:"God made a covenant with Abraham and promised him:",opts:["A kingdom","Many descendants and the land of Canaan","Great wealth","Eternal life"],ans:1,exp:"God's covenant with Abraham promised him many descendants (like the stars) and the land of Canaan (Genesis 17)."},
+  {q:"Who was Abraham's son of promise?",opts:["Ishmael","Isaac","Jacob","Esau"],ans:1,exp:"Isaac was the son of promise — born to Abraham and Sarah in their old age as God had promised (Genesis 21)."},
+  {q:"Who sold his birthright for a bowl of pottage?",opts:["Jacob","Isaac","Esau","Joseph"],ans:2,exp:"Esau sold his birthright (right as firstborn) to his twin brother Jacob for a bowl of red stew (Genesis 25:29-34)."},
+  {q:"Joseph was sold into slavery by his brothers for how many pieces of silver?",opts:["30","20","40","50"],ans:1,exp:"Joseph was sold to Ishmaelite traders by his brothers for 20 pieces of silver (Genesis 37:28)."},
+  {q:"Who led the Israelites out of Egypt?",opts:["Joshua","Aaron","Moses","David"],ans:2,exp:"Moses led the Israelites out of Egypt (the Exodus) after God sent the ten plagues on Egypt (Exodus 12-14)."},
+  {q:"The Ten Commandments were given to Moses on:",opts:["Mount Carmel","Mount Zion","Mount Sinai","Mount Olivet"],ans:2,exp:"God gave Moses the Ten Commandments on Mount Sinai (also called Horeb) (Exodus 20)."},
+  {q:"The first commandment is:",opts:["You shall not kill","You shall not steal","You shall have no other gods before me","Remember the Sabbath day"],ans:2,exp:"The First Commandment: 'You shall have no other gods before me' (Exodus 20:3)."},
+  {q:"Who was the first king of Israel?",opts:["David","Solomon","Saul","Samuel"],ans:2,exp:"Saul was anointed as the first king of Israel by the prophet Samuel (1 Samuel 10)."},
+  {q:"Who killed the giant Goliath?",opts:["Saul","Jonathan","Samuel","David"],ans:3,exp:"David killed the Philistine giant Goliath with a stone from his sling (1 Samuel 17)."},
+  {q:"King Solomon was known for his:",opts:["Military strength","Great wisdom","Athletic ability","Farming skills"],ans:1,exp:"King Solomon was renowned for his great wisdom, granted by God when Solomon asked for wisdom to rule his people (1 Kings 3)."},
+  {q:"Solomon built the Temple in:",opts:["Nazareth","Bethlehem","Jerusalem","Jericho"],ans:2,exp:"King Solomon built the First Temple (Solomon's Temple) in Jerusalem as a permanent dwelling place for God (1 Kings 6)."},
+  {q:"The prophet Elijah confronted the prophets of Baal on:",opts:["Mount Sinai","Mount Carmel","Mount Zion","Mount Hermon"],ans:1,exp:"Elijah challenged and defeated 450 prophets of Baal on Mount Carmel, proving that Yahweh is the true God (1 Kings 18)."},
+  {q:"Which prophet was swallowed by a great fish?",opts:["Elijah","Isaiah","Jonah","Amos"],ans:2,exp:"The prophet Jonah was swallowed by a great fish after fleeing from God's command to go to Nineveh (Jonah 1-2)."},
+  {q:"The book of Psalms is attributed mainly to:",opts:["Moses","Solomon","David","Isaiah"],ans:2,exp:"The majority of the Psalms (73 out of 150) are attributed to King David — they are songs and prayers."},
+  // NEW TESTAMENT
+  {q:"Jesus was born in:",opts:["Nazareth","Jerusalem","Bethlehem","Jericho"],ans:2,exp:"Jesus was born in Bethlehem of Judea, fulfilling the prophecy of Micah 5:2 (Matthew 2:1, Luke 2:4-7)."},
+  {q:"The mother of Jesus was:",opts:["Elizabeth","Mary Magdalene","Mary","Martha"],ans:2,exp:"Mary (the Virgin Mary) was the mother of Jesus — she conceived through the Holy Spirit (Luke 1:26-35)."},
+  {q:"Jesus was baptised by:",opts:["Peter","Paul","John the Baptist","Elijah"],ans:2,exp:"Jesus was baptised by John the Baptist in the River Jordan (Matthew 3:13-17)."},
+  {q:"Jesus fasted for how many days in the wilderness?",opts:["20","30","40","50"],ans:2,exp:"Jesus fasted for 40 days and 40 nights in the wilderness, where He was tempted by the devil (Matthew 4:1-2)."},
+  {q:"The Sermon on the Mount is recorded in which book?",opts:["Mark","Luke","John","Matthew"],ans:3,exp:"The Sermon on the Mount is recorded in Matthew chapters 5-7, including the Beatitudes and the Lord's Prayer."},
+  {q:"The first beatitude is: 'Blessed are the poor in spirit, for theirs is':",opts:["The kingdom of God","The earth","The kingdom of heaven","Great comfort"],ans:2,exp:"'Blessed are the poor in spirit, for theirs is the kingdom of heaven.' (Matthew 5:3)"},
+  {q:"Jesus chose how many apostles?",opts:["7","10","12","14"],ans:2,exp:"Jesus chose 12 apostles (disciples) to be His closest followers and to spread His teachings (Matthew 10:1-4)."},
+  {q:"Which apostle denied Jesus three times?",opts:["John","James","Thomas","Peter"],ans:3,exp:"Peter denied knowing Jesus three times before the cock crowed, as Jesus had predicted (Matthew 26:69-75)."},
+  {q:"Which apostle betrayed Jesus for 30 pieces of silver?",opts:["Peter","John","Judas Iscariot","Thomas"],ans:2,exp:"Judas Iscariot betrayed Jesus to the chief priests for 30 pieces of silver (Matthew 26:14-16)."},
+  {q:"The miracle of feeding 5,000 people used:",opts:["10 loaves and 5 fish","5 loaves and 2 fish","7 loaves and 3 fish","3 loaves and 5 fish"],ans:1,exp:"Jesus fed 5,000 men with 5 loaves of bread and 2 fish — with 12 baskets of leftovers (Matthew 14:17-21)."},
+  {q:"Where did Jesus perform His first miracle?",opts:["Jerusalem","Nazareth","Bethlehem","Cana of Galilee"],ans:3,exp:"Jesus performed His first miracle at the wedding in Cana of Galilee, turning water into wine (John 2:1-11)."},
+  {q:"The parable of the Prodigal Son is found in:",opts:["Matthew","Mark","Luke","John"],ans:2,exp:"The Parable of the Prodigal Son (Lost Son) is found in Luke 15:11-32 — one of Jesus' most famous parables."},
+  {q:"The parable of the Good Samaritan teaches:",opts:["How to pray","Loving your neighbour regardless of background","How to fast","The importance of tithing"],ans:1,exp:"The Parable of the Good Samaritan teaches that loving your neighbour means showing compassion to anyone in need (Luke 10:25-37)."},
+  {q:"Jesus raised which friend from the dead?",opts:["Jairus","Stephen","Lazarus","Zacchaeus"],ans:2,exp:"Jesus raised Lazarus from the dead after he had been in the tomb for four days (John 11:1-44)."},
+  {q:"The Lord's Prayer begins with:",opts:["Hallowed be Thy name","Our Father who art in heaven","Give us this day","Forgive us our trespasses"],ans:1,exp:"The Lord's Prayer begins: 'Our Father who art in heaven, hallowed be Thy name...' (Matthew 6:9)."},
+  {q:"On which day did Jesus rise from the dead?",opts:["Friday","Saturday","Sunday","Monday"],ans:2,exp:"Jesus rose from the dead on the first day of the week (Sunday) — now celebrated as Easter Sunday (Matthew 28:1)."},
+  {q:"The Great Commission commands Christians to:",opts:["Build temples","Go and make disciples of all nations","Stay in Jerusalem","Observe all feasts"],ans:1,exp:"The Great Commission (Matthew 28:19): 'Go and make disciples of all nations, baptising them in the name of the Father, Son, and Holy Spirit.'"},
+  {q:"The Holy Spirit descended on the disciples on the day of:",opts:["Easter","Christmas","Pentecost","Epiphany"],ans:2,exp:"The Holy Spirit descended on the disciples on the Day of Pentecost (50 days after Easter), as recorded in Acts 2."},
+  {q:"The first Christian martyr was:",opts:["Peter","Paul","Stephen","Philip"],ans:2,exp:"Stephen was the first Christian martyr — he was stoned to death for his faith (Acts 7:54-60)."},
+  {q:"Paul was converted on the road to:",opts:["Jerusalem","Antioch","Damascus","Rome"],ans:2,exp:"Saul (Paul) was converted to Christianity on the road to Damascus when he encountered the risen Jesus (Acts 9:1-19)."},
+  // EPISTLES & CHURCH
+  {q:"How many books are in the New Testament?",opts:["27","39","66","12"],ans:0,exp:"The New Testament contains 27 books — Gospels, Acts, Epistles, and Revelation."},
+  {q:"How many books are in the Old Testament?",opts:["27","39","66","46"],ans:1,exp:"The Protestant Old Testament contains 39 books, while the Catholic Old Testament has 46 (with deuterocanonical books)."},
+  {q:"The total number of books in the Protestant Bible is:",opts:["27","39","66","73"],ans:2,exp:"The Protestant Bible has 66 books — 39 in the Old Testament and 27 in the New Testament."},
+  {q:"The longest book in the Bible is:",opts:["Genesis","Isaiah","Psalms","Jeremiah"],ans:2,exp:"Psalms is the longest book in the Bible with 150 chapters."},
+  {q:"The shortest book in the New Testament is:",opts:["Jude","Philemon","2 John","3 John"],ans:2,exp:"3 John is the shortest book in the New Testament, with only 1 chapter and 15 verses."},
+  {q:"Paul's letter to the Romans emphasises:",opts:["Church order","Spiritual gifts","Salvation by faith","The Second Coming"],ans:2,exp:"The book of Romans is Paul's most systematic presentation of the gospel — emphasising salvation by faith (not works)."},
+  {q:"The fruit of the Spirit listed in Galatians 5:22 includes:",opts:["Joy, wealth, power","Love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control","Tongues, prophecy, healing","Faith, hope, and love only"],ans:1,exp:"Galatians 5:22-23 lists the fruit of the Spirit: love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control."},
+  {q:"1 Corinthians 13 is known as the chapter on:",opts:["Faith","Hope","Love/Charity","Prayer"],ans:2,exp:"1 Corinthians 13 is the famous 'love chapter' — Paul describes the characteristics and supremacy of love (charity)."},
+  {q:"Which book of the Bible contains the vision of the end times?",opts:["Acts","Hebrews","Revelation","Jude"],ans:2,exp:"The Book of Revelation (Apocalypse) contains John's visions of the end times, the Second Coming, and the final judgment."},
+  {q:"The Beatitudes are found in:",opts:["Matthew 3","Matthew 5","Luke 4","Mark 3"],ans:1,exp:"The Beatitudes ('Blessed are...') are found in Matthew 5:3-12, as part of the Sermon on the Mount."},
+  // CHURCH HISTORY & SACRAMENTS
+  {q:"The Anglican Church in Nigeria is known as:",opts:["Roman Catholic Church","Presbyterian Church","Church of Nigeria (Anglican Communion)","Methodist Church"],ans:2,exp:"The Anglican Church in Nigeria is officially called the Church of Nigeria (Anglican Communion)."},
+  {q:"Baptism is a sacrament that symbolises:",opts:["Marriage","Death to sin and new life in Christ","Forgiveness of sins only","Membership in a specific church"],ans:1,exp:"Baptism symbolises dying to sin and rising to new life in Christ — it is the rite of initiation into Christianity."},
+  {q:"The Holy Communion (Eucharist) was instituted by Jesus:",opts:["At His baptism","At the wedding of Cana","At the Last Supper","At His resurrection"],ans:2,exp:"Jesus instituted the Holy Communion at the Last Supper on the night before His crucifixion (Matthew 26:26-28)."},
+  {q:"The Nicene Creed was formulated at the Council of Nicea in:",opts:["AD 100","AD 325","AD 451","AD 600"],ans:1,exp:"The Nicene Creed was formulated at the First Council of Nicea in AD 325 to define orthodox Christian belief."},
+  {q:"The Protestant Reformation was led by:",opts:["John Calvin","Ignatius Loyola","Martin Luther","Thomas Aquinas"],ans:2,exp:"Martin Luther initiated the Protestant Reformation in 1517 when he published his 95 Theses challenging the Roman Catholic Church."},
+  // CHRISTIAN LIVING & ETHICS
+  {q:"The Greatest Commandment according to Jesus is:",opts:["Keep the Sabbath","Do not steal","Love God with all your heart, soul, and mind","Honour your parents"],ans:2,exp:"Jesus declared the greatest commandment is to love God with all your heart, soul, and mind (Matthew 22:37-38)."},
+  {q:"The second greatest commandment is:",opts:["Love your enemies","Honour your parents","Love your neighbour as yourself","Do not kill"],ans:2,exp:"Jesus said the second greatest commandment is: 'Love your neighbour as yourself' (Matthew 22:39)."},
+  {q:"The Golden Rule states:",opts:["Do unto others as you would have them do unto you","Love your enemies","Forgive and forget","Give more than you receive"],ans:0,exp:"The Golden Rule (Matthew 7:12): 'Do unto others as you would have them do unto you.'"},
+  {q:"Stewardship in Christianity refers to:",opts:["Managing church funds only","Responsible management of all God's gifts and resources","Collecting tithes","Building churches"],ans:1,exp:"Christian stewardship is the responsible management of all resources God has entrusted to us — time, talent, treasure, and creation."},
+  {q:"Tithing means giving:",opts:["Half of your income","A tenth (10%) of your income to God","Whatever you can afford","An annual gift"],ans:1,exp:"Tithing is giving one-tenth (10%) of one's income to God — a practice rooted in the Old Testament (Malachi 3:10)."},
+  // PROPHETS & JUDGES
+  {q:"Who was the last judge of Israel before the monarchy?",opts:["Gideon","Samson","Samuel","Eli"],ans:2,exp:"Samuel was the last judge of Israel before the establishment of the monarchy — he anointed both Saul and David as kings."},
+  {q:"Samson's great strength came from:",opts:["His diet","His prayers","His uncut hair","His armour"],ans:2,exp:"Samson's supernatural strength came from his uncut hair — a symbol of his Nazirite vow to God (Judges 16:17)."},
+  {q:"Who betrayed Samson to the Philistines?",opts:["Ruth","Esther","Delilah","Jezebel"],ans:2,exp:"Delilah betrayed Samson by discovering the secret of his strength (his hair) and telling the Philistines (Judges 16)."},
+  {q:"The book of Ruth demonstrates the virtue of:",opts:["Courage in battle","Loyalty and faithfulness","Wisdom in leadership","Wealth management"],ans:1,exp:"Ruth demonstrates loyalty and faithfulness — her declaration 'Where you go I will go' (Ruth 1:16) is a hallmark of devotion."},
+  {q:"Esther was a Jewish queen who saved her people in:",opts:["Egypt","Babylon","Persia","Assyria"],ans:2,exp:"Esther was a Jewish queen in Persia who risked her life to save the Jewish people from Haman's plot (Book of Esther)."},
+  {q:"Isaiah is known as the 'Messianic prophet' because:",opts:["He performed many miracles","He prophesied extensively about the coming of the Messiah","He was a king","He founded a synagogue"],ans:1,exp:"Isaiah is called the Messianic prophet because of his many detailed prophecies about the coming of Jesus Christ (e.g., Isaiah 7:14; 53)."},
+  {q:"Jeremiah is known as the 'weeping prophet' because:",opts:["He cried a lot personally","He mourned greatly over Israel's sins and God's coming judgment","He had eye problems","He wrote sad psalms"],ans:1,exp:"Jeremiah is called the 'weeping prophet' because of his deep sorrow over Israel's persistent sin and the coming Babylonian exile."},
+  {q:"Daniel interpreted King Nebuchadnezzar's dream because:",opts:["He studied magic","God gave him wisdom and understanding","He was an expert in dreams","He bribed the king's advisors"],ans:1,exp:"God gave Daniel the ability to understand visions and dreams — he interpreted Nebuchadnezzar's dream through divine wisdom (Daniel 2)."},
+  {q:"Shadrach, Meshach, and Abednego were thrown into a fiery furnace because they:",opts:["Stole from the king","Refused to bow to Nebuchadnezzar's golden image","Prayed to God","Fled from the king"],ans:1,exp:"The three Hebrew men were thrown into the fiery furnace for refusing to bow down to Nebuchadnezzar's golden statue (Daniel 3)."},
+  {q:"Daniel was thrown into the lions' den because he:",opts:["Disobeyed the king","Continued to pray to God despite the king's decree","Stole from the treasury","Plotted against the king"],ans:1,exp:"Daniel was thrown into the lions' den because he continued to pray to God three times daily despite a royal decree forbidding it (Daniel 6)."},
+  // MIXED CRK
+  {q:"The Passover was instituted to commemorate:",opts:["The giving of the Law","God's deliverance of Israel from Egypt","The building of the Temple","The crossing of the Red Sea"],ans:1,exp:"The Passover commemorates God's deliverance of the Israelites from Egypt — when the angel of death 'passed over' their homes (Exodus 12)."},
+  {q:"The Promised Land was described as flowing with:",opts:["Gold and silver","Honey and wine","Milk and honey","Water and bread"],ans:2,exp:"God described the Promised Land of Canaan as a land 'flowing with milk and honey' — symbolising abundance (Exodus 3:8)."},
+  {q:"Which woman in the New Testament was healed of seven demons?",opts:["Mary the mother of Jesus","Martha","Mary Magdalene","Joanna"],ans:2,exp:"Mary Magdalene was a woman from whom Jesus cast out seven demons — she later became a devoted follower of Jesus (Luke 8:2)."},
+  {q:"The Transfiguration of Jesus occurred on:",opts:["Mount Sinai","A high mountain (traditionally Mount Tabor)","The Mount of Olives","Mount Carmel"],ans:1,exp:"The Transfiguration, where Jesus' appearance became radiant, occurred on a high mountain — traditionally identified as Mount Tabor."},
+  {q:"Zacchaeus was a:",opts:["Pharisee","Tax collector","Fisherman","Carpenter"],ans:1,exp:"Zacchaeus was a chief tax collector in Jericho who climbed a tree to see Jesus — Jesus called him down and visited his home (Luke 19)."},
+  {q:"The parable of the Talents teaches:",opts:["The importance of saving money","Using God-given gifts and opportunities faithfully","Giving to the poor","Humility"],ans:1,exp:"The Parable of the Talents teaches that we should faithfully use and multiply the gifts and opportunities God gives us (Matthew 25:14-30)."},
+  {q:"The woman who touched the hem of Jesus' garment was healed of:",opts:["Blindness","Leprosy","A blood disorder (haemorrhage)","Lameness"],ans:2,exp:"A woman who had suffered from a bleeding disorder for 12 years was healed by touching the hem of Jesus' garment (Matthew 9:20-22)."},
+  {q:"Which book begins with 'In the beginning was the Word'?",opts:["Genesis","Matthew","John","Revelation"],ans:2,exp:"The Gospel of John begins: 'In the beginning was the Word, and the Word was with God, and the Word was God' (John 1:1)."},
+  {q:"Nicodemus came to Jesus at night to ask about:",opts:["Healing","Eternal life and being born again","The Messiah's coming","Paying taxes"],ans:1,exp:"Nicodemus came to Jesus at night and asked about eternal life — Jesus told him: 'You must be born again' (John 3:1-7)."},
+  {q:"The armor of God is described in:",opts:["Romans 8","1 Corinthians 13","Ephesians 6","Galatians 5"],ans:2,exp:"The full armor of God (belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, sword of the Spirit) is in Ephesians 6:10-18."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great CRK performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

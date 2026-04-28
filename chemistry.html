@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemistry CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .explanation{display:none;margin-top:16px;background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.2);border-radius:10px;padding:14px 16px;font-size:0.88rem;line-height:1.7;color:var(--text);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">🧪 Chemistry</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">🧪 Chemistry</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // ATOMIC STRUCTURE
+  {q:"The number of protons in an atom is called its:",opts:["Mass number","Atomic number","Neutron number","Electron number"],ans:1,exp:"The atomic number is the number of protons in the nucleus of an atom — it defines the element."},
+  {q:"The mass number of an atom is:",opts:["Number of protons only","Number of neutrons only","Number of protons + neutrons","Number of electrons"],ans:2,exp:"Mass number = number of protons + number of neutrons in the nucleus."},
+  {q:"Isotopes are atoms of the same element with:",opts:["Same mass number","Different atomic numbers","Different number of neutrons","Different number of protons"],ans:2,exp:"Isotopes have the same atomic number (same element) but different numbers of neutrons, giving different mass numbers."},
+  {q:"The electronic configuration of sodium (Na, atomic number 11) is:",opts:["2,8,1","2,9","2,8,3","3,8"],ans:0,exp:"Sodium has 11 electrons arranged as 2 in the first shell, 8 in the second, and 1 in the third: 2,8,1."},
+  {q:"Which subatomic particle has no charge?",opts:["Proton","Electron","Neutron","Ion"],ans:2,exp:"Neutrons are neutral — they have no electric charge. Protons are positive, electrons are negative."},
+  {q:"The maximum number of electrons in the second shell is:",opts:["2","8","18","32"],ans:1,exp:"The second electron shell can hold a maximum of 8 electrons (2n² = 2×4 = 8)."},
+  {q:"An atom with atomic number 17 and mass number 35 has how many neutrons?",opts:["17","18","35","52"],ans:1,exp:"Neutrons = mass number - atomic number = 35 - 17 = 18."},
+  {q:"Ions are formed when atoms:",opts:["Gain or lose protons","Gain or lose electrons","Gain or lose neutrons","Change their mass number"],ans:1,exp:"Ions are formed when atoms gain electrons (forming anions) or lose electrons (forming cations)."},
+  {q:"Which of the following represents an isotope of Carbon-12?",opts:["Carbon-12","Carbon-14","Nitrogen-14","Oxygen-16"],ans:1,exp:"Carbon-14 is an isotope of Carbon-12 — both have 6 protons but Carbon-14 has 8 neutrons vs 6 in Carbon-12."},
+  {q:"The valency of an element is determined by its:",opts:["Mass number","Number of neutrons","Number of electrons in the outermost shell","Atomic number"],ans:2,exp:"Valency is determined by the number of electrons in the outermost (valence) shell of an atom."},
+
+  // PERIODIC TABLE
+  {q:"Elements in the same group of the periodic table have the same:",opts:["Mass number","Number of electron shells","Number of valence electrons","Atomic mass"],ans:2,exp:"Elements in the same group have the same number of valence electrons, giving them similar chemical properties."},
+  {q:"The period of an element in the periodic table indicates:",opts:["Number of valence electrons","Number of electron shells","Atomic mass","Valency"],ans:1,exp:"The period number of an element equals the number of electron shells (energy levels) in its atoms."},
+  {q:"Which group contains the noble gases?",opts:["Group I","Group VII","Group 0 (Group 18)","Group IV"],ans:2,exp:"Noble gases (He, Ne, Ar, Kr, Xe, Rn) are in Group 0 (also called Group 18) of the periodic table."},
+  {q:"Alkali metals are found in:",opts:["Group VII","Group 0","Group I","Group II"],ans:2,exp:"Alkali metals (Li, Na, K, Rb, Cs, Fr) are in Group I — they have one valence electron and are highly reactive."},
+  {q:"Halogens are in Group:",opts:["I","II","VI","VII"],ans:3,exp:"Halogens (F, Cl, Br, I, At) are in Group VII — they have 7 valence electrons and are very reactive non-metals."},
+  {q:"As you move across a period from left to right, atomic radius:",opts:["Increases","Decreases","Stays the same","First increases then decreases"],ans:1,exp:"Atomic radius decreases across a period because increasing nuclear charge pulls electrons closer to the nucleus."},
+  {q:"The element with the highest electronegativity is:",opts:["Oxygen","Chlorine","Fluorine","Nitrogen"],ans:2,exp:"Fluorine is the most electronegative element — it has the strongest ability to attract electrons in a bond."},
+  {q:"Metals are generally found on the ___ side of the periodic table.",opts:["Right","Left","Top","Bottom"],ans:1,exp:"Metals are on the left side of the periodic table; non-metals are on the right side."},
+  {q:"Which of these is a metalloid?",opts:["Sodium","Silicon","Sulphur","Chlorine"],ans:1,exp:"Silicon is a metalloid (semimetal) — it has properties of both metals and non-metals."},
+  {q:"The atomic number of Chlorine is:",opts:["16","17","18","19"],ans:1,exp:"Chlorine (Cl) has atomic number 17 — it has 17 protons and 17 electrons."},
+
+  // CHEMICAL BONDING
+  {q:"Ionic bonds are formed by:",opts:["Sharing of electrons","Transfer of electrons","Sharing of protons","Transfer of neutrons"],ans:1,exp:"Ionic bonds form when electrons are transferred from a metal to a non-metal, creating oppositely charged ions that attract."},
+  {q:"Covalent bonds are formed by:",opts:["Transfer of electrons","Sharing of electrons","Transfer of protons","Metallic bonding"],ans:1,exp:"Covalent bonds form when two non-metal atoms share pairs of electrons to achieve stable configurations."},
+  {q:"Which of the following is an ionic compound?",opts:["H₂O","CO₂","NaCl","CH₄"],ans:2,exp:"NaCl (sodium chloride) is an ionic compound — Na⁺ and Cl⁻ ions held together by electrostatic attraction."},
+  {q:"The type of bond in H₂ molecule is:",opts:["Ionic","Covalent","Metallic","Hydrogen bond"],ans:1,exp:"H₂ is formed by two hydrogen atoms sharing one pair of electrons — a single covalent bond."},
+  {q:"Which compound has a double covalent bond?",opts:["H₂","HCl","O₂","NaCl"],ans:2,exp:"O₂ has a double covalent bond — two oxygen atoms share two pairs of electrons."},
+  {q:"Metallic bonding involves:",opts:["Transfer of electrons","Sharing of electrons","Sea of delocalized electrons","Ionic attraction"],ans:2,exp:"Metallic bonding involves positive metal ions surrounded by a sea of delocalized (free-moving) electrons."},
+  {q:"Which of the following conducts electricity when dissolved in water?",opts:["Sugar","Ethanol","Sodium chloride","Glucose"],ans:2,exp:"NaCl dissociates into Na⁺ and Cl⁻ ions in water, enabling electrical conduction."},
+  {q:"The shape of a water molecule (H₂O) is:",opts:["Linear","Trigonal planar","V-shaped (bent)","Tetrahedral"],ans:2,exp:"Water has a V-shaped (bent) molecular geometry due to two lone pairs on oxygen that repel the bonding pairs."},
+  {q:"A coordinate (dative) bond is formed when:",opts:["Both atoms provide electrons","One atom provides both electrons","Electrons are transferred","No electrons are involved"],ans:1,exp:"A coordinate (dative covalent) bond forms when one atom donates both electrons in the shared pair."},
+  {q:"Which of the following has the highest melting point?",opts:["NaCl","H₂O","CO₂","CH₄"],ans:0,exp:"Ionic compounds like NaCl have very high melting points due to strong electrostatic forces between ions."},
+
+  // CHEMICAL REACTIONS
+  {q:"In the equation: 2H₂ + O₂ → 2H₂O, the reaction is:",opts:["Decomposition","Displacement","Combination (synthesis)","Neutralisation"],ans:2,exp:"Combination (synthesis) reactions involve two or more substances combining to form a single product."},
+  {q:"A reaction where a more reactive metal displaces a less reactive one is called:",opts:["Neutralisation","Displacement","Decomposition","Precipitation"],ans:1,exp:"Displacement reactions occur when a more reactive element displaces a less reactive one from its compound."},
+  {q:"The law of conservation of mass states that:",opts:["Mass is created in reactions","Mass is destroyed in reactions","Total mass of reactants equals total mass of products","Mass increases in exothermic reactions"],ans:2,exp:"In chemical reactions, matter is neither created nor destroyed — total mass of reactants equals total mass of products."},
+  {q:"An exothermic reaction is one that:",opts:["Absorbs heat from surroundings","Releases heat to surroundings","Requires light energy","Has no energy change"],ans:1,exp:"Exothermic reactions release energy (heat) to the surroundings — the products have less energy than the reactants."},
+  {q:"An endothermic reaction is one that:",opts:["Releases heat","Absorbs heat from surroundings","Produces light","Is always explosive"],ans:1,exp:"Endothermic reactions absorb heat energy from the surroundings — the products have more energy than the reactants."},
+  {q:"A catalyst:",opts:["Is used up in the reaction","Increases activation energy","Speeds up reaction without being consumed","Changes the products formed"],ans:2,exp:"A catalyst speeds up a chemical reaction by lowering activation energy and is not consumed in the process."},
+  {q:"The rate of a chemical reaction increases with:",opts:["Decrease in temperature","Decrease in concentration","Increase in temperature","Increase in particle size"],ans:2,exp:"Higher temperature gives particles more kinetic energy, increasing collision frequency and energy — so reaction rate increases."},
+  {q:"In a reversible reaction, the double arrow (⇌) means:",opts:["Reaction goes one way only","Both forward and reverse reactions occur","Reaction is incomplete","Catalyst is needed"],ans:1,exp:"The double arrow indicates a reversible reaction where both the forward and backward reactions occur simultaneously."},
+  {q:"Which of these is a decomposition reaction?",opts:["H₂ + Cl₂ → 2HCl","2H₂O → 2H₂ + O₂","NaOH + HCl → NaCl + H₂O","Fe + CuSO₄ → FeSO₄ + Cu"],ans:1,exp:"Decomposition involves one compound breaking down into simpler substances — 2H₂O → 2H₂ + O₂."},
+  {q:"Oxidation involves:",opts:["Gain of electrons","Loss of electrons","Gain of hydrogen","Loss of oxygen"],ans:1,exp:"Oxidation is the loss of electrons (or gain of oxygen, or loss of hydrogen). Remember OIL RIG — Oxidation Is Loss."},
+
+  // ACIDS, BASES & SALTS
+  {q:"An acid is a substance that:",opts:["Accepts protons","Donates protons","Accepts electrons","Donates electrons"],ans:1,exp:"According to Brønsted-Lowry theory, an acid is a proton (H⁺) donor."},
+  {q:"A base is a substance that:",opts:["Donates protons","Accepts protons","Releases OH⁻ only","Turns litmus red"],ans:1,exp:"A base is a proton (H⁺) acceptor according to Brønsted-Lowry theory."},
+  {q:"The pH of a neutral solution at 25°C is:",opts:["0","7","14","1"],ans:1,exp:"A neutral solution has pH 7 at 25°C — neither acidic (pH<7) nor basic (pH>7)."},
+  {q:"Which indicator turns red in acid and blue in base?",opts:["Phenolphthalein","Methyl orange","Litmus","Universal indicator"],ans:2,exp:"Litmus turns red in acidic solutions and blue in alkaline (basic) solutions."},
+  {q:"Neutralisation is the reaction between:",opts:["Two acids","Two bases","An acid and a base","A metal and acid"],ans:2,exp:"Neutralisation is the reaction between an acid and a base to form a salt and water only."},
+  {q:"The salt formed when HCl reacts with NaOH is:",opts:["Na₂SO₄","NaCl","NaNO₃","NaHCO₃"],ans:1,exp:"HCl + NaOH → NaCl + H₂O. The salt formed is sodium chloride (NaCl)."},
+  {q:"A strong acid is one that:",opts:["Has high concentration","Fully dissociates in water","Partially dissociates","Has pH of 0 only"],ans:1,exp:"A strong acid completely (fully) dissociates into ions in aqueous solution — e.g., HCl, H₂SO₄, HNO₃."},
+  {q:"Which of the following is a weak acid?",opts:["HCl","H₂SO₄","CH₃COOH (ethanoic acid)","HNO₃"],ans:2,exp:"Ethanoic acid (CH₃COOH) is a weak acid — it only partially dissociates in water."},
+  {q:"The process of finding the concentration of an acid using a base is called:",opts:["Distillation","Titration","Electrolysis","Crystallisation"],ans:1,exp:"Titration is a technique used to determine the concentration of an acid or base by neutralisation."},
+  {q:"Which gas is produced when zinc reacts with dilute HCl?",opts:["Oxygen","Carbon dioxide","Hydrogen","Chlorine"],ans:2,exp:"Zn + 2HCl → ZnCl₂ + H₂↑. Hydrogen gas is produced when zinc reacts with dilute hydrochloric acid."},
+
+  // GASES & MOLES
+  {q:"Avogadro's number is approximately:",opts:["6.02 × 10²¹","6.02 × 10²³","6.02 × 10²⁵","3.01 × 10²³"],ans:1,exp:"Avogadro's number is 6.02 × 10²³ — the number of particles in one mole of a substance."},
+  {q:"The molar mass of water (H₂O) is:",opts:["16 g/mol","18 g/mol","20 g/mol","34 g/mol"],ans:1,exp:"H₂O: 2(1) + 16 = 18 g/mol. Hydrogen = 1, Oxygen = 16."},
+  {q:"One mole of any gas at STP occupies:",opts:["11.2 L","22.4 L","24 L","44.8 L"],ans:1,exp:"At STP (0°C, 1 atm), one mole of any ideal gas occupies 22.4 litres (molar volume)."},
+  {q:"Boyle's law states that at constant temperature:",opts:["PV = constant","P/V = constant","P/T = constant","V/T = constant"],ans:0,exp:"Boyle's law: pressure × volume = constant (at constant temperature). P₁V₁ = P₂V₂."},
+  {q:"Charles' law states that at constant pressure:",opts:["V/T = constant","PV = constant","P/T = constant","PT = constant"],ans:0,exp:"Charles' law: Volume/Temperature = constant (at constant pressure). V₁/T₁ = V₂/T₂."},
+  {q:"The relative molecular mass of CO₂ is: (C=12, O=16)",opts:["28","44","32","40"],ans:1,exp:"CO₂: 12 + 2(16) = 12 + 32 = 44 g/mol."},
+  {q:"How many moles are in 44g of CO₂? (Molar mass = 44g/mol)",opts:["0.5","1","2","4"],ans:1,exp:"Moles = mass/molar mass = 44/44 = 1 mole."},
+  {q:"Diffusion of gases is explained by:",opts:["Boyle's law","Charles' law","Kinetic theory","Avogadro's law"],ans:2,exp:"The kinetic theory of matter explains diffusion — gas particles are in constant random motion and spread from high to low concentration."},
+  {q:"Graham's law states that the rate of diffusion of a gas is:",opts:["Directly proportional to its molar mass","Inversely proportional to square root of its molar mass","Equal to its molar mass","Independent of molar mass"],ans:1,exp:"Graham's law: rate of diffusion ∝ 1/√M, where M is the molar mass. Lighter gases diffuse faster."},
+  {q:"The ideal gas equation is:",opts:["PV = nRT","PV = RT","P = nRT/V","PV = nR"],ans:0,exp:"The ideal gas equation is PV = nRT, where P=pressure, V=volume, n=moles, R=gas constant, T=temperature."},
+
+  // ORGANIC CHEMISTRY
+  {q:"The general formula of alkanes is:",opts:["CₙH₂ₙ","CₙH₂ₙ₊₂","CₙH₂ₙ₋₂","CₙHₙ"],ans:1,exp:"Alkanes (saturated hydrocarbons) have the general formula CₙH₂ₙ₊₂ — e.g., methane CH₄, ethane C₂H₆."},
+  {q:"The first member of the alkane series is:",opts:["Ethane","Propane","Methane","Butane"],ans:2,exp:"Methane (CH₄) is the first and simplest member of the alkane homologous series."},
+  {q:"Alkenes contain:",opts:["Only single bonds","At least one double bond","Triple bonds","No carbon-hydrogen bonds"],ans:1,exp:"Alkenes are unsaturated hydrocarbons containing at least one carbon-carbon double bond (C=C)."},
+  {q:"Fermentation of glucose produces:",opts:["Methanol and CO₂","Ethanol and CO₂","Ethanol and O₂","Acetic acid and H₂O"],ans:1,exp:"Fermentation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂. Glucose breaks down to ethanol and carbon dioxide using yeast."},
+  {q:"Saponification is the reaction between a fat/oil and:",opts:["An acid","An alkali","Water","A salt"],ans:1,exp:"Saponification is the hydrolysis of fats/oils with an alkali (like NaOH) to produce soap and glycerol."},
+  {q:"The functional group of alcohols is:",opts:["-COOH","-OH","-CHO","-NH₂"],ans:1,exp:"Alcohols contain the hydroxyl functional group (-OH) — e.g., ethanol C₂H₅OH."},
+  {q:"The functional group of carboxylic acids is:",opts:["-OH","-CHO","-COOH","-NH₂"],ans:2,exp:"Carboxylic acids contain the -COOH (carboxyl) functional group — e.g., ethanoic acid CH₃COOH."},
+  {q:"Crude oil is separated by:",opts:["Distillation","Crystallisation","Filtration","Evaporation"],ans:0,exp:"Crude oil is separated into fractions by fractional distillation based on different boiling points."},
+  {q:"Which of the following is a polymer?",opts:["Glucose","Ethanol","Polythene","Ethene"],ans:2,exp:"Polythene (polyethylene) is a polymer — a large molecule made of many repeating ethene monomer units."},
+  {q:"The process of converting alkenes to alkanes by adding hydrogen is:",opts:["Cracking","Hydrogenation","Polymerisation","Oxidation"],ans:1,exp:"Hydrogenation is the addition of hydrogen (H₂) across a double bond to form a saturated compound (alkane)."},
+
+  // ELECTROCHEMISTRY
+  {q:"Electrolysis is the decomposition of a substance by:",opts:["Heat","Light","Electric current","Sound"],ans:2,exp:"Electrolysis uses electric current to decompose an ionic compound (electrolyte) in solution or molten state."},
+  {q:"In electrolysis, oxidation occurs at the:",opts:["Cathode","Anode","Electrolyte","Both electrodes"],ans:1,exp:"Oxidation (loss of electrons) occurs at the anode. Reduction occurs at the cathode."},
+  {q:"During electrolysis of water, hydrogen is produced at the:",opts:["Anode","Cathode","Both electrodes","Neither electrode"],ans:1,exp:"H⁺ ions are reduced at the cathode: 2H⁺ + 2e⁻ → H₂↑. Hydrogen is produced at the cathode."},
+  {q:"The electrode connected to the positive terminal of a battery is the:",opts:["Cathode","Anode","Electrolyte","Ion"],ans:1,exp:"The anode is connected to the positive terminal of the power supply — oxidation occurs here."},
+  {q:"Electroplating uses electrolysis to:",opts:["Purify metals","Coat a metal with another metal","Decompose metals","Extract metals from ores"],ans:1,exp:"Electroplating deposits a thin layer of one metal onto another using electrolysis — e.g., chrome plating."},
+
+  // ENVIRONMENTAL CHEMISTRY
+  {q:"The major cause of acid rain is:",opts:["CO₂ and O₂","SO₂ and NO₂","H₂O and CO","CH₄ and CO₂"],ans:1,exp:"Acid rain is caused mainly by sulphur dioxide (SO₂) and nitrogen dioxide (NO₂) reacting with water vapour in the atmosphere."},
+  {q:"The ozone layer protects the Earth from:",opts:["Infrared radiation","Ultraviolet radiation","Visible light","Radio waves"],ans:1,exp:"The ozone layer (O₃) in the stratosphere absorbs harmful ultraviolet (UV) radiation from the sun."},
+  {q:"Which gas is mainly responsible for the greenhouse effect?",opts:["O₂","N₂","CO₂","H₂"],ans:2,exp:"Carbon dioxide (CO₂) is the primary greenhouse gas contributing to global warming."},
+  {q:"Hard water contains dissolved salts of:",opts:["Sodium and potassium","Calcium and magnesium","Iron and copper","Lead and zinc"],ans:1,exp:"Hard water contains dissolved calcium (Ca²⁺) and magnesium (Mg²⁺) salts that prevent soap from lathering."},
+  {q:"Temporary hardness of water is caused by:",opts:["CaSO₄","MgSO₄","Ca(HCO₃)₂","NaCl"],ans:2,exp:"Temporary hardness is caused by dissolved calcium hydrogen carbonate Ca(HCO₃)₂ — it can be removed by boiling."},
+
+  // METALS & EXTRACTION
+  {q:"The most abundant metal in the Earth's crust is:",opts:["Iron","Copper","Aluminium","Calcium"],ans:2,exp:"Aluminium is the most abundant metal in the Earth's crust, making up about 8% by mass."},
+  {q:"Iron is extracted from its ore by:",opts:["Electrolysis","Fractional distillation","Blast furnace","Solar energy"],ans:2,exp:"Iron is extracted from iron ore (haematite) in a blast furnace using coke and limestone."},
+  {q:"Aluminium is extracted by:",opts:["Blast furnace","Electrolysis of molten aluminium oxide","Heating with carbon","Chemical reduction"],ans:1,exp:"Aluminium is extracted by electrolysis of molten aluminium oxide (Al₂O₃) — the Hall-Héroult process."},
+  {q:"Steel is an alloy of iron and:",opts:["Copper","Carbon","Aluminium","Zinc"],ans:1,exp:"Steel is an alloy of iron and carbon (typically 0.2–2.1% carbon), which improves strength and hardness."},
+  {q:"Rusting of iron requires both:",opts:["Oxygen and carbon dioxide","Water and oxygen","Water and carbon dioxide","Oxygen and nitrogen"],ans:1,exp:"Rusting requires both water (or water vapour) and oxygen. Iron oxidises to form iron(III) oxide (rust)."},
+];
+
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';document.getElementById('explanation').style.display='none';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Chemistry performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

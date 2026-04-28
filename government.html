@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">🏛️ Government</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">🏛️ Government</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  {q:"Government can be defined as:",opts:["An institution that makes laws only","The machinery established to manage the affairs of a state","A group of politicians","The ruling party"],ans:1,exp:"Government is the machinery or institution established to manage, direct, and control the affairs of a state."},
+  {q:"The three arms of government are:",opts:["Executive, Judiciary, Military","Legislature, Executive, Judiciary","President, Senate, Courts","Federal, State, Local"],ans:1,exp:"The three arms of government are the Legislature (makes laws), Executive (implements laws), and Judiciary (interprets laws)."},
+  {q:"The doctrine of separation of powers was propounded by:",opts:["John Locke","Jean-Jacques Rousseau","Baron de Montesquieu","Thomas Hobbes"],ans:2,exp:"Baron de Montesquieu propounded the doctrine of separation of powers in 'The Spirit of the Laws' (1748)."},
+  {q:"Federalism is a system where:",opts:["Power is concentrated at the centre","Power is shared between central and component units","One party rules","The military governs"],ans:1,exp:"Federalism is a system where governmental powers are constitutionally divided between a central (federal) government and component units (states)."},
+  {q:"Nigeria operates which type of government?",opts:["Parliamentary","Presidential","Monarchical","Confederal"],ans:1,exp:"Nigeria operates a Presidential system of government where the President is both head of state and head of government."},
+  {q:"The Nigerian Constitution of 1999 was promulgated on:",opts:["October 1, 1999","May 29, 1999","January 1, 1999","October 1, 1960"],ans:1,exp:"The 1999 Constitution was promulgated on May 29, 1999 — the same day democratic rule was restored after military rule."},
+  {q:"Democracy means:",opts:["Government by the military","Government of the people, by the people, for the people","Government by the elite","Government by one person"],ans:1,exp:"Democracy, as defined by Abraham Lincoln, is 'government of the people, by the people, for the people.'"},
+  {q:"Sovereignty means:",opts:["Military power","Supreme authority of a state","Economic power","Cultural dominance"],ans:1,exp:"Sovereignty is the supreme, absolute, and uncontrollable authority or power of a state over its territory and people."},
+  {q:"A constitution is:",opts:["A law passed by the president","A fundamental law that establishes government structure and principles","A military decree","An international treaty"],ans:1,exp:"A constitution is the fundamental law of a state that establishes the structure, powers, and limitations of government."},
+  {q:"A rigid constitution is one that:",opts:["Can be easily amended","Requires special procedure to amend","Cannot be written","Changes automatically"],ans:1,exp:"A rigid constitution requires a special and difficult procedure (e.g., referendum or supermajority) to amend."},
+  // POLITICAL CONCEPTS
+  {q:"Political parties in Nigeria are registered by:",opts:["The President","The National Assembly","Independent National Electoral Commission (INEC)","The Supreme Court"],ans:2,exp:"INEC (Independent National Electoral Commission) is responsible for registering political parties in Nigeria."},
+  {q:"Pressure groups differ from political parties in that they:",opts:["Seek to win elections","Do not seek to form government directly","Have more members","Control the media"],ans:1,exp:"Pressure groups aim to influence government policy without directly seeking to win elections or form government."},
+  {q:"The right to vote in an election is called:",opts:["Franchise/Suffrage","Civil right","Political immunity","Citizenship"],ans:0,exp:"Franchise (or suffrage) is the right to vote in public elections — a fundamental democratic right."},
+  {q:"Universal adult suffrage means:",opts:["Only educated people vote","All adults have the right to vote regardless of sex, race, or class","Only men vote","Only wealthy people vote"],ans:1,exp:"Universal adult suffrage is the right of all adult citizens to vote regardless of gender, race, religion, or economic status."},
+  {q:"A bye-election is conducted when:",opts:["A general election fails","A seat becomes vacant before the next general election","All seats are contested","The President calls for it"],ans:1,exp:"A bye-election is held to fill a vacant seat in the legislature before the next scheduled general election."},
+  {q:"The Electoral Commission in Nigeria is:",opts:["INEC","NEC","FEDECO","NECON"],ans:0,exp:"INEC (Independent National Electoral Commission) is the body responsible for conducting elections in Nigeria."},
+  {q:"Proportional representation means:",opts:["One person one vote","Seats are allocated based on percentage of votes won","Only the winner takes all","Military appoints representatives"],ans:1,exp:"Proportional representation is an electoral system where parties receive seats in proportion to their share of total votes."},
+  {q:"A referendum is:",opts:["An election to choose a president","A direct vote by the electorate on a specific question or policy","A parliamentary vote","A local government election"],ans:1,exp:"A referendum is a direct vote in which the entire electorate is asked to vote on a particular question or issue."},
+  {q:"Totalitarianism is a system where:",opts:["Power is shared among many","The state controls all aspects of life","The judiciary is independent","Citizens have full freedoms"],ans:1,exp:"Totalitarianism is a system where the government controls every aspect of public and private life with no opposition tolerated."},
+  {q:"A military government derives its authority from:",opts:["The constitution","Force/coercion","Popular elections","Judicial appointment"],ans:1,exp:"Military governments derive their authority from force (coercion) rather than from the consent of the governed through elections."},
+  // NIGERIAN GOVERNMENT
+  {q:"Nigeria gained independence on:",opts:["January 1, 1960","October 1, 1960","May 29, 1960","March 15, 1960"],ans:1,exp:"Nigeria gained independence from Britain on October 1, 1960."},
+  {q:"Nigeria became a republic on:",opts:["October 1, 1960","October 1, 1963","January 15, 1966","May 29, 1999"],ans:1,exp:"Nigeria became a Federal Republic on October 1, 1963, replacing the Queen as head of state with a President."},
+  {q:"The first President of Nigeria was:",opts:["Tafawa Balewa","Nnamdi Azikiwe","Obafemi Awolowo","Ahmadu Bello"],ans:1,exp:"Dr. Nnamdi Azikiwe became Nigeria's first President on October 1, 1963, when Nigeria became a republic."},
+  {q:"The first Prime Minister of Nigeria was:",opts:["Nnamdi Azikiwe","Obafemi Awolowo","Abubakar Tafawa Balewa","Ahmadu Bello"],ans:2,exp:"Sir Abubakar Tafawa Balewa was Nigeria's first and only Prime Minister from 1960 until the military coup of January 1966."},
+  {q:"How many states does Nigeria currently have?",opts:["30","36","37","32"],ans:1,exp:"Nigeria currently has 36 states and the Federal Capital Territory (FCT), Abuja."},
+  {q:"The Federal Capital Territory of Nigeria is:",opts:["Lagos","Kaduna","Abuja","Ibadan"],ans:2,exp:"Abuja became Nigeria's Federal Capital Territory (FCT) on December 12, 1991, replacing Lagos as the capital."},
+  {q:"The Nigerian Senate has how many members?",opts:["360","109","469","120"],ans:1,exp:"The Nigerian Senate has 109 members — 3 senators from each of the 36 states plus 1 from the FCT."},
+  {q:"The House of Representatives has how many members?",opts:["109","360","469","120"],ans:1,exp:"The Nigerian House of Representatives has 360 members elected from 360 federal constituencies."},
+  {q:"The Nigerian National Assembly consists of:",opts:["Senate only","House of Representatives only","Senate and House of Representatives","Senate, House of Reps, and State Houses"],ans:2,exp:"The National Assembly of Nigeria is bicameral — it consists of the Senate and the House of Representatives."},
+  {q:"INEC stands for:",opts:["Independent Nigerian Electoral Commission","Independent National Electoral Commission","International National Electoral Commission","Interim National Electoral Commission"],ans:1,exp:"INEC stands for Independent National Electoral Commission — the body that conducts elections in Nigeria."},
+  // ARMS OF GOVERNMENT
+  {q:"The power to make laws belongs to the:",opts:["Executive","Judiciary","Legislature","Military"],ans:2,exp:"The Legislature (National Assembly at federal level) has the constitutional power to make laws."},
+  {q:"The power to implement laws belongs to the:",opts:["Legislature","Judiciary","Executive","Civil service"],ans:2,exp:"The Executive arm of government implements and enforces the laws made by the legislature."},
+  {q:"The power to interpret laws belongs to the:",opts:["Legislature","Executive","Judiciary","Police"],ans:2,exp:"The Judiciary interprets the laws of the land and resolves disputes according to the constitution."},
+  {q:"Judicial independence means:",opts:["Judges make their own laws","Courts are free from interference from other arms of government","Judges are elected","Courts are above the law"],ans:1,exp:"Judicial independence ensures courts can make decisions based on law and facts without pressure from the executive or legislature."},
+  {q:"The highest court in Nigeria is:",opts:["High Court","Court of Appeal","Supreme Court","Federal High Court"],ans:2,exp:"The Supreme Court of Nigeria is the highest and final court of appeal — its decisions are binding on all other courts."},
+  // LOCAL GOVERNMENT
+  {q:"Local government was created to:",opts:["Replace state government","Bring government closer to the grassroots","Control the military","Manage foreign affairs"],ans:1,exp:"Local government is created to bring governance closer to the people at the grassroots level and provide basic services."},
+  {q:"The 1976 Local Government Reform in Nigeria was carried out under:",opts:["Gowon","Murtala Mohammed","Obasanjo","Babangida"],ans:1,exp:"The landmark 1976 Local Government Reform that created 299 LGAs was carried out under General Murtala Mohammed."},
+  {q:"How many local government areas does Nigeria have?",opts:["699","774","999","500"],ans:1,exp:"Nigeria has 774 Local Government Areas (LGAs) created by the 1976 reforms and subsequent creations."},
+  {q:"The Exclusive Legislative List contains matters handled by:",opts:["State governments only","Local governments","Federal government only","Both federal and state"],ans:2,exp:"The Exclusive Legislative List contains matters (like defence, foreign affairs, customs) that only the Federal Government can legislate on."},
+  {q:"The Concurrent Legislative List contains matters handled by:",opts:["Federal government only","State government only","Both federal and state governments","Local governments"],ans:2,exp:"The Concurrent Legislative List contains matters on which both Federal and State governments can legislate."},
+  // INTERNATIONAL RELATIONS
+  {q:"The United Nations was established in:",opts:["1939","1945","1950","1919"],ans:1,exp:"The United Nations was established on October 24, 1945, after World War II to maintain international peace and security."},
+  {q:"The headquarters of the United Nations is in:",opts:["Geneva","London","Washington DC","New York"],ans:3,exp:"The headquarters of the United Nations is in New York City, USA."},
+  {q:"ECOWAS was established in:",opts:["1960","1975","1963","1980"],ans:1,exp:"ECOWAS (Economic Community of West African States) was established in 1975 in Lagos, Nigeria."},
+  {q:"The African Union (AU) replaced which organisation?",opts:["ECOWAS","OAU","UN","NATO"],ans:1,exp:"The African Union (AU) replaced the Organisation of African Unity (OAU) in 2002."},
+  {q:"Nigeria is a member of which of these organisations?",opts:["NATO","EU","ECOWAS","ASEAN"],ans:2,exp:"Nigeria is a founding member of ECOWAS (Economic Community of West African States) established in 1975."},
+  {q:"The Commonwealth of Nations is headed by:",opts:["The US President","The British Monarch","The UN Secretary General","The Prime Minister of UK"],ans:1,exp:"The Commonwealth of Nations is headed by the British Monarch — currently King Charles III."},
+  {q:"Diplomacy is:",opts:["Military intervention","The art of conducting international relations through negotiation","Economic sanctions","Cultural exchange"],ans:1,exp:"Diplomacy is the management of international relations through negotiation, communication, and agreement between states."},
+  {q:"An ambassador is:",opts:["A foreign spy","The highest-ranking diplomatic representative of one country to another","A military attaché","A trade representative"],ans:1,exp:"An ambassador is the highest-ranking diplomatic official sent by one country to represent it in another country."},
+  {q:"The Security Council of the UN has how many permanent members?",opts:["3","5","10","15"],ans:1,exp:"The UN Security Council has 5 permanent members: USA, UK, France, Russia, and China (the P5)."},
+  {q:"Veto power in the UN Security Council means:",opts:["The right to start wars","The right to block a resolution","The right to add members","The right to expel members"],ans:1,exp:"Veto power allows any of the 5 permanent members to block (veto) any substantive UN Security Council resolution."},
+  // POLITICAL IDEOLOGIES
+  {q:"Capitalism is an economic system where:",opts:["Government owns all means of production","Private individuals own means of production","Military controls the economy","There is no private property"],ans:1,exp:"Capitalism is a system where means of production are privately owned and operated for profit in a free market."},
+  {q:"Socialism advocates:",opts:["Private ownership of production","Collective or state ownership of means of production","Military government","Religious governance"],ans:1,exp:"Socialism advocates collective or government ownership and regulation of the means of production and distribution."},
+  {q:"Communism was propounded by:",opts:["Adam Smith","John Locke","Karl Marx and Friedrich Engels","Thomas Hobbes"],ans:2,exp:"Communism was developed by Karl Marx and Friedrich Engels, most notably in 'The Communist Manifesto' (1848)."},
+  {q:"The social contract theory was developed by:",opts:["Montesquieu","Karl Marx","John Locke, Thomas Hobbes, and Rousseau","Aristotle"],ans:2,exp:"The social contract theory was developed by philosophers John Locke, Thomas Hobbes, and Jean-Jacques Rousseau."},
+  {q:"According to Hobbes, life in the state of nature was:",opts:["Peaceful and happy","Solitary, poor, nasty, brutish and short","Free and equal","Governed by natural law"],ans:1,exp:"Thomas Hobbes described life in the state of nature as 'solitary, poor, nasty, brutish, and short' — justifying a strong government."},
+  // CONSTITUTIONS & RIGHTS
+  {q:"Fundamental Human Rights in Nigeria are contained in:",opts:["Chapter I","Chapter II","Chapter IV","Chapter VI"],ans:2,exp:"Fundamental Human Rights in the 1999 Nigerian Constitution are contained in Chapter IV (Sections 33-46)."},
+  {q:"Which of the following is NOT a fundamental right in Nigeria?",opts:["Right to life","Right to freedom of expression","Right to a university education","Right to dignity of human person"],ans:2,exp:"The right to university education is not a fundamental right — it is an aspirational/directive principle, not justiciable."},
+  {q:"The right to life can be derogated when:",opts:["Never","In execution of a court sentence after conviction","The president orders it","During elections"],ans:1,exp:"The right to life can be limited in Nigeria when a court sentences a person to death following lawful conviction for a capital offence."},
+  {q:"Rule of law means:",opts:["The ruler makes all laws","Everyone is equal before the law","Judges make all decisions","Military decrees are supreme"],ans:1,exp:"Rule of law means that the law is supreme and applies equally to all persons regardless of their status or position."},
+  {q:"The principle of checks and balances ensures:",opts:["One arm dominates others","Each arm of government limits the powers of others","The military controls government","The president has unlimited power"],ans:1,exp:"Checks and balances is a system where each arm of government has powers to limit and oversee the other arms."},
+  // NIGERIAN HISTORY
+  {q:"The Amalgamation of Nigeria took place in:",opts:["1900","1906","1914","1920"],ans:2,exp:"The Amalgamation of Northern and Southern Nigeria into one colony took place on January 1, 1914 under Lord Lugard."},
+  {q:"Lord Lugard introduced which system of administration in Nigeria?",opts:["Direct rule","Indirect rule","Military rule","Autocratic rule"],ans:1,exp:"Lord Lugard introduced Indirect Rule in Nigeria — governing through existing traditional rulers and institutions."},
+  {q:"The Richard Constitution of 1946 was significant because it:",opts:["Granted independence","Introduced federalism","Created regional councils","Gave Nigerians the vote"],ans:2,exp:"The Richard Constitution (1946) introduced regional councils and legislative councils, laying groundwork for regionalism."},
+  {q:"Nigeria's first military coup took place on:",opts:["October 1, 1960","January 15, 1966","July 29, 1966","February 13, 1976"],ans:1,exp:"Nigeria's first military coup occurred on January 15, 1966, led by Major Chukwuma Kaduna Nzeogwu."},
+  {q:"The Nigerian Civil War lasted from:",opts:["1966-1967","1967-1970","1970-1975","1964-1966"],ans:1,exp:"The Nigerian Civil War (Biafran War) lasted from July 6, 1967 to January 15, 1970."},
+  // PUBLIC ADMINISTRATION
+  {q:"The Civil Service is characterised by:",opts:["Political appointment","Permanence, neutrality, and anonymity","Military discipline","Short term employment"],ans:1,exp:"The civil service is characterised by permanence (job security), political neutrality, and anonymity (serving any government)."},
+  {q:"A bureaucracy refers to:",opts:["Military organisation","System of government through departments staffed by officials","Elected representatives","Traditional rulers"],ans:1,exp:"A bureaucracy is a system of government administration through departments staffed by appointed (non-elected) officials."},
+  {q:"Corruption in public office means:",opts:["Efficient use of public resources","Abuse of entrusted power for private gain","Following rules strictly","Transparent governance"],ans:1,exp:"Corruption is the abuse of entrusted power or public office for private gain — a major governance challenge in Nigeria."},
+  {q:"EFCC stands for:",opts:["Economic and Financial Crimes Commission","Economic and Fiscal Control Commission","Electoral and Financial Crimes Commission","Economic Freedom and Citizens Commission"],ans:0,exp:"EFCC stands for Economic and Financial Crimes Commission — established in 2003 to combat financial crimes in Nigeria."},
+  {q:"The Ombudsman is an official who:",opts:["Makes laws","Investigates citizens' complaints against government","Commands the military","Collects taxes"],ans:1,exp:"An Ombudsman (Public Complaints Commissioner in Nigeria) investigates citizens' complaints about maladministration by government officials."},
+  // MIXED TOPICS
+  {q:"A unitary system of government is one where:",opts:["Power is shared between levels","All power is concentrated in the central government","States have equal power as the centre","There is no central government"],ans:1,exp:"In a unitary system, all governmental power is vested in the central government which may delegate to lower levels."},
+  {q:"Citizenship can be acquired by:",opts:["Birth only","Naturalisation only","Birth, registration, or naturalisation","Purchase"],ans:2,exp:"Citizenship can be acquired by birth (jus soli or jus sanguinis), registration, or naturalisation."},
+  {q:"Political socialisation refers to:",opts:["Joining a political party","The process by which people acquire political values and beliefs","Government propaganda","Military training"],ans:1,exp:"Political socialisation is the process through which individuals learn political values, beliefs, and behaviours — through family, school, media, etc."},
+  {q:"A coup d'état is:",opts:["A democratic election","A sudden, violent seizure of government power","A peaceful transfer of power","A constitutional amendment"],ans:1,exp:"A coup d'état is the sudden, violent overthrow of an existing government, usually by the military."},
+  {q:"Public opinion refers to:",opts:["Views of the government","The collective opinion of citizens on public matters","Opinions of journalists","Views of political parties"],ans:1,exp:"Public opinion is the aggregate of individual views, attitudes, and beliefs about political and social issues held by citizens."},
+  {q:"The term 'Lame Duck' in politics refers to:",opts:["A weak political party","An elected official whose successor has been chosen but not yet taken office","An opposition leader","A corrupt official"],ans:1,exp:"A 'lame duck' is an elected official who is still in office after their successor has been chosen — they have reduced power and influence."},
+  {q:"Bicameralism refers to a legislature with:",opts:["One chamber","Two chambers","Three chambers","No chambers"],ans:1,exp:"A bicameral legislature has two chambers — e.g., Nigeria's National Assembly (Senate + House of Representatives)."},
+  {q:"The Speaker of the Nigerian House of Representatives presides over:",opts:["The Senate","The House of Representatives","The Supreme Court","The Executive Council"],ans:1,exp:"The Speaker presides over the House of Representatives — the lower chamber of Nigeria's National Assembly."},
+  {q:"Nigeria's main anti-corruption agency is:",opts:["EFCC","NAFDAC","INEC","NPC"],ans:0,exp:"The EFCC (Economic and Financial Crimes Commission) is Nigeria's primary anti-corruption and financial crimes agency."},
+  {q:"The Nigerian Police Force is under which tier of government?",opts:["State","Local","Federal","All tiers"],ans:2,exp:"The Nigerian Police Force is a federal institution — it is under the control of the Federal Government, unlike in many other federations."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Government performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

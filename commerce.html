@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commerce CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">💼 Commerce</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">💼 Commerce</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // INTRODUCTION TO COMMERCE
+  {q:"Commerce can be defined as:",opts:["Growing and selling food","All activities involved in buying and selling goods and services","Manufacturing goods only","Transportation of goods only"],ans:1,exp:"Commerce encompasses all activities involved in the exchange of goods and services — including trade and aids to trade."},
+  {q:"The two main branches of commerce are:",opts:["Banking and insurance","Trade and aids to trade","Manufacturing and retailing","Exporting and importing"],ans:1,exp:"Commerce has two main branches: Trade (buying and selling) and Aids to Trade (activities that facilitate trade)."},
+  {q:"Aids to trade include:",opts:["Farming and fishing","Banking, insurance, transport, warehousing, and advertising","Manufacturing and construction","Retailing and wholesaling"],ans:1,exp:"Aids to trade are activities that support and facilitate trade — banking, insurance, transport, warehousing, communication, and advertising."},
+  {q:"Home trade refers to:",opts:["Trading at home only","Buying and selling within the same country","International trade","Online trade"],ans:1,exp:"Home trade (domestic trade) is the buying and selling of goods within the borders of a country."},
+  {q:"Foreign trade refers to:",opts:["Trade between individuals","Trade between cities","Trade between countries","Trade between states"],ans:2,exp:"Foreign trade (international trade) is the buying and selling of goods and services between different countries."},
+  {q:"Export trade means:",opts:["Buying goods from other countries","Selling goods to other countries","Moving goods within a country","Storing goods for future sale"],ans:1,exp:"Export trade involves selling goods and services to other countries — bringing in foreign exchange earnings."},
+  {q:"Import trade means:",opts:["Selling goods to other countries","Buying goods from other countries","Manufacturing for export","Domestic distribution"],ans:1,exp:"Import trade involves buying goods and services from other countries — foreign goods entering the domestic market."},
+  {q:"Entrepot trade refers to:",opts:["Manufacturing goods for export","Importing goods for re-export to other countries","Domestic trade only","Retail trade"],ans:1,exp:"Entrepot trade is importing goods into a country and then re-exporting them to other countries — the country acts as a middleman."},
+  {q:"A wholesaler is a trader who:",opts:["Sells directly to consumers","Buys in large quantities and sells to retailers","Manufactures goods","Imports goods only"],ans:1,exp:"A wholesaler buys goods in bulk from manufacturers and sells in smaller quantities to retailers — acting as a middleman."},
+  {q:"A retailer is a trader who:",opts:["Buys in bulk from manufacturers","Sells directly to the final consumer","Sells only online","Exports goods"],ans:1,exp:"A retailer sells goods directly to the final consumer in small quantities — the last link in the chain of distribution."},
+  // TRADE
+  {q:"The chain of distribution refers to:",opts:["Transporting goods by chain","The path goods take from producer to consumer","A type of retail store","A banking procedure"],ans:1,exp:"The chain of distribution is the sequence of intermediaries (manufacturer → wholesaler → retailer → consumer) through which goods pass."},
+  {q:"An itinerant trader is one who:",opts:["Has a fixed shop","Moves from place to place selling goods","Trades only online","Works in a warehouse"],ans:1,exp:"Itinerant traders have no fixed location — they travel from place to place selling goods (e.g., hawkers, market traders)."},
+  {q:"A supermarket is a type of:",opts:["Wholesale trade","Large self-service retail store","Warehouse","Manufacturing plant"],ans:1,exp:"A supermarket is a large self-service retail store selling a wide range of goods — customers select items and pay at the checkout."},
+  {q:"A department store is:",opts:["A government store","A large retail store with different sections selling various types of goods","A warehouse","A wholesale store"],ans:1,exp:"A department store is a large retail establishment divided into departments, each selling a different category of goods."},
+  {q:"Hire purchase allows buyers to:",opts:["Buy goods and pay the full price immediately","Pay for goods in instalments while using them","Rent goods temporarily","Buy goods on credit with no payment"],ans:1,exp:"Hire purchase allows a buyer to use goods while paying for them in regular instalments — ownership transfers when all payments are complete."},
+  {q:"A trade discount is:",opts:["A reduction given to customers for buying in bulk","A penalty for late payment","A bonus for retailers","A tax reduction"],ans:0,exp:"A trade discount is a reduction in the list price given by a manufacturer or wholesaler to retailers or bulk buyers."},
+  {q:"A cash discount is:",opts:["A reduction for bulk buying","A reduction given for prompt (immediate) payment","A reward for loyal customers","A seasonal reduction"],ans:1,exp:"A cash discount is a reduction offered to encourage prompt or early payment of debts."},
+  {q:"Barter trade involves:",opts:["Buying with money","Exchanging goods for goods without using money","Online trading","Credit trading"],ans:1,exp:"Barter is the direct exchange of goods or services for other goods or services without the use of money."},
+  {q:"A bill of lading is a document used in:",opts:["Banking","Road transport","Sea (shipping) transport","Air transport"],ans:2,exp:"A bill of lading is a shipping document that serves as a receipt for cargo, a contract of carriage, and a document of title."},
+  {q:"An invoice is a document that:",opts:["Proves ownership of goods","Shows details of goods supplied and amounts owed","Is used only for payments","Certifies goods are insured"],ans:1,exp:"An invoice is a commercial document sent by a seller to a buyer showing goods supplied, quantities, prices, and total amount owed."},
+  // BANKING
+  {q:"A commercial bank is one that:",opts:["Issues currency","Controls monetary policy","Accepts deposits and gives loans to the public","Only serves government"],ans:2,exp:"Commercial banks accept deposits from customers and provide loans and other financial services to individuals and businesses."},
+  {q:"A current account is a bank account that:",opts:["Earns high interest","Is used for savings only","Allows unlimited withdrawals by cheque","Cannot be used for business"],ans:2,exp:"A current account allows unlimited deposits and withdrawals (usually by cheque or debit card) — mainly used for business transactions."},
+  {q:"A savings account is designed for:",opts:["Business transactions","Regular cheque withdrawals","Accumulating savings and earning interest","International transfers only"],ans:2,exp:"A savings account is designed to encourage saving — it earns interest but has limited withdrawal facilities compared to a current account."},
+  {q:"A cheque is:",opts:["A type of coin","A written order to a bank to pay a specified amount to a named person","A receipt for goods","A bank loan document"],ans:1,exp:"A cheque is a written instruction ordering a bank to pay a specified sum of money from the drawer's account to the payee."},
+  {q:"An overdraft means:",opts:["Saving more than planned","Withdrawing more money than is in the account","A type of savings account","A large deposit"],ans:1,exp:"An overdraft occurs when a customer withdraws more money than their account balance — the bank effectively lends the shortfall."},
+  {q:"The Central Bank of Nigeria's main function is to:",opts:["Accept deposits from the public","Issue currency and regulate commercial banks","Give loans to traders","Process cheques"],ans:1,exp:"The CBN issues currency, regulates and supervises commercial banks, manages monetary policy, and acts as banker to the government."},
+  {q:"A bank draft is:",opts:["A letter from a customer","A cheque guaranteed by the bank itself","A type of overdraft","A savings plan"],ans:1,exp:"A bank draft is a payment instrument issued and guaranteed by the bank — more secure than a personal cheque."},
+  {q:"Standing order is an instruction to a bank to:",opts:["Pay variable amounts as requested","Pay a fixed amount regularly to a specified person or account","Issue a bank draft","Open a new account"],ans:1,exp:"A standing order is a bank instruction to pay a fixed amount at regular intervals to a specified account."},
+  {q:"Direct debit allows:",opts:["The account holder to control all payments","A third party to collect varying amounts from your account with your permission","Only fixed payments","Cash withdrawals only"],ans:1,exp:"Direct debit authorises a third party to collect payments directly from your bank account — the amount may vary each time."},
+  {q:"E-banking refers to:",opts:["Banking in the evening","Electronic/online banking services","Banking by exchange","Emergency banking"],ans:1,exp:"E-banking (electronic banking) allows customers to conduct banking transactions online via computers or mobile devices."},
+  // INSURANCE
+  {q:"Insurance is based on the principle of:",opts:["Making profit from risk","Pooling risks so many people share the cost of losses suffered by a few","Guaranteeing no losses","Eliminating all risks"],ans:1,exp:"Insurance is based on risk pooling — many policyholders pay premiums so that those who suffer losses can be compensated."},
+  {q:"A premium is:",opts:["The amount paid out when a claim is made","The regular payment made by the insured to the insurance company","The value of insured property","The insurance policy document"],ans:1,exp:"A premium is the periodic payment made by the policyholder to the insurance company in exchange for coverage."},
+  {q:"The principle of indemnity means:",opts:["The insured can profit from a claim","The insured is restored to the same financial position as before the loss","The insurer pays more than the loss","Insurance is free"],ans:1,exp:"Indemnity ensures the insured is compensated to restore them to their pre-loss financial position — not to profit from the loss."},
+  {q:"Insurable interest means:",opts:["Interest paid on insurance premiums","The insured must have a financial stake in what is insured","Insurance earns interest","Only valuable items can be insured"],ans:1,exp:"Insurable interest means the policyholder must have a financial interest in the subject matter — they would suffer financial loss if it were damaged."},
+  {q:"Life assurance differs from life insurance in that:",opts:["They are the same","Assurance covers an event that is certain (death), insurance covers uncertain events","Assurance pays more","Insurance is cheaper"],ans:1,exp:"Assurance covers events that will definitely happen (like death) — it is a certainty. Insurance covers uncertain events that may or may not occur."},
+  {q:"The principle of subrogation means:",opts:["The insured can claim from multiple insurers","After paying a claim, the insurer takes over the insured's rights to sue a third party","The insured keeps damaged property","The insurer refuses payment"],ans:1,exp:"Subrogation: after compensating the insured, the insurer steps into the insured's shoes and can recover the loss from a responsible third party."},
+  {q:"Contribution in insurance means:",opts:["Only one insurer pays","When an item is insured with multiple insurers, each pays a proportionate share","The insured contributes to the premium","Government contributes to insurance"],ans:1,exp:"Contribution applies when a risk is insured with more than one insurer — each insurer contributes proportionally to any claim."},
+  {q:"A policy document in insurance is:",opts:["A premium receipt","The contract between the insurer and insured stating terms and conditions","A claim form","A risk assessment report"],ans:1,exp:"An insurance policy is the legal contract document that outlines the terms, conditions, coverage, and exclusions of the insurance agreement."},
+  {q:"Third party insurance in motor vehicle covers:",opts:["Damage to your own vehicle","Injury or damage caused to other people or their property","Theft of your vehicle","All risks"],ans:1,exp:"Third party motor insurance covers liability for injury or damage caused to third parties (other people) — the minimum legal requirement."},
+  {q:"Comprehensive insurance covers:",opts:["Third party damage only","Your vehicle and third party damage and theft","Third party and fire only","Only theft"],ans:1,exp:"Comprehensive insurance is the most complete motor cover — it covers third party liability, fire, theft, and damage to your own vehicle."},
+  // TRANSPORT & COMMUNICATION
+  {q:"The most suitable transport for perishable goods over long distances is:",opts:["Rail","Road","Air","Sea"],ans:2,exp:"Air transport is fastest and most suitable for perishable goods (fresh flowers, fish, vegetables) over long distances."},
+  {q:"The cheapest means of transporting bulk goods overseas is:",opts:["Air","Road","Rail","Sea/Shipping"],ans:3,exp:"Sea transport is the cheapest for bulk goods over long distances — suitable for heavy, non-perishable goods like crude oil, coal, and grain."},
+  {q:"A bill of lading is used in:",opts:["Air transport","Road transport","Sea transport","Rail transport"],ans:2,exp:"A bill of lading is the key document for sea freight — it serves as receipt, contract of carriage, and title document."},
+  {q:"An airway bill is used in:",opts:["Sea transport","Road transport","Air transport","Rail transport"],ans:2,exp:"An airway bill (air consignment note) is the document used for goods transported by air — it is a non-negotiable receipt."},
+  {q:"The main advantage of road transport is:",opts:["Cheapest for bulk goods","Door-to-door delivery flexibility","Fastest for long distances","Suitable for all weather"],ans:1,exp:"Road transport's main advantage is flexibility — it provides door-to-door delivery and can reach places other modes cannot."},
+  {q:"A warehouse is used for:",opts:["Manufacturing goods","Storing goods until they are needed","Selling goods directly","Transporting goods"],ans:1,exp:"A warehouse is a storage facility where goods are kept safely until they are needed for distribution or sale."},
+  {q:"A bonded warehouse stores goods that:",opts:["Have already paid customs duty","Are awaiting payment of customs duty","Have been condemned","Are being manufactured"],ans:1,exp:"A bonded warehouse stores imported goods on which customs duty has not yet been paid — they are released when duty is paid."},
+  {q:"Cold storage warehouses are used for:",opts:["Storing documents","Storing perishable goods at low temperatures","Storing chemicals","Storing machinery"],ans:1,exp:"Cold storage warehouses maintain low temperatures to preserve perishable goods like fruits, vegetables, dairy, and meat."},
+  {q:"Advertising aims to:",opts:["Reduce prices","Inform and persuade consumers to buy a product","Remove competition","Make products cheaper"],ans:1,exp:"Advertising informs potential customers about products/services and persuades them to buy — increasing sales and brand awareness."},
+  {q:"Public relations (PR) involves:",opts:["Selling products directly","Managing a company's reputation and relationship with the public","Advertising on TV only","Reducing prices"],ans:1,exp:"Public relations manages communication between an organisation and its various publics to build and maintain a positive reputation."},
+  // BUSINESS OWNERSHIP
+  {q:"A sole proprietorship is a business owned by:",opts:["The government","Two or more partners","One person","Shareholders"],ans:2,exp:"A sole proprietorship is a business owned and managed by one person — the simplest and most common form of business ownership."},
+  {q:"The main disadvantage of a sole proprietorship is:",opts:["Easy to set up","No profit sharing","Unlimited liability — the owner is personally responsible for all debts","Freedom of decision making"],ans:2,exp:"The main disadvantage of sole proprietorship is unlimited liability — the owner's personal assets can be used to pay business debts."},
+  {q:"A partnership is a business owned by:",opts:["One person","The government","Two to twenty persons","Unlimited shareholders"],ans:2,exp:"A partnership is a business owned by 2 to 20 persons (2 to 10 in banking) who share profits, losses, and management."},
+  {q:"A limited liability company means:",opts:["The company has limited customers","Shareholders' liability is limited to the value of their shares","The company has limited staff","The company makes limited profit"],ans:1,exp:"Limited liability means shareholders are only liable for company debts up to the amount they invested (the value of their shares)."},
+  {q:"A public limited company (PLC) differs from a private limited company in that it:",opts:["Has fewer shareholders","Cannot issue shares","Can offer shares to the general public on the stock exchange","Is government owned"],ans:2,exp:"A PLC can sell shares to the public through the stock exchange, while a private limited company cannot offer shares publicly."},
+  {q:"A cooperative society is formed to:",opts:["Make maximum profit for owners","Provide mutual benefits to members through collective action","Avoid paying taxes","Compete with government"],ans:1,exp:"Cooperative societies are formed by people with common needs who work together for mutual benefit — e.g., farmers' cooperatives, credit unions."},
+  {q:"A public corporation is owned by:",opts:["Private shareholders","The government on behalf of the public","Foreign investors","A cooperative"],ans:1,exp:"A public corporation is a government-owned enterprise set up to provide essential services — e.g., NNPC, PHCN (now privatised)."},
+  {q:"The memorandum of association is a document that:",opts:["Governs internal management of a company","States the company's external relations, objectives, and powers","Lists the company's employees","Shows the company's bank balance"],ans:1,exp:"The memorandum of association is a founding document that defines the company's relationship with the outside world — its name, objectives, and capital."},
+  {q:"The articles of association govern:",opts:["External relations of a company","Internal management and rules of a company","The company's name","Tax payments"],ans:1,exp:"The articles of association regulate the internal management of a company — the rights of shareholders and powers of directors."},
+  {q:"Shares in a company represent:",opts:["Loans to the company","Units of ownership in the company","Government investments","Bank deposits"],ans:1,exp:"Shares represent units of ownership in a company — shareholders are part-owners and may receive dividends from profits."},
+  // MONEY & FINANCE
+  {q:"Capital in business refers to:",opts:["Money in a savings account","Money or assets invested in a business to generate profit","Government grants only","Bank loans only"],ans:1,exp:"Capital is the money or assets invested in a business — it is used to purchase resources needed for production and operations."},
+  {q:"Working capital is:",opts:["Total assets of a business","Current assets minus current liabilities — money available for day-to-day operations","Fixed assets only","Long-term loans"],ans:1,exp:"Working capital = Current Assets - Current Liabilities. It represents the funds available for the business's daily operations."},
+  {q:"Profit is calculated as:",opts:["Revenue minus expenses","Revenue plus expenses","Total sales only","Assets minus liabilities"],ans:0,exp:"Profit = Total Revenue - Total Costs (expenses). It is the financial gain remaining after all costs have been deducted."},
+  {q:"A balance sheet shows:",opts:["Daily sales records","A snapshot of a business's assets, liabilities, and equity at a specific date","Monthly expenses only","Customer purchase history"],ans:1,exp:"A balance sheet is a financial statement showing a business's assets, liabilities, and owner's equity at a specific point in time."},
+  {q:"The stock exchange is a market where:",opts:["Physical goods are bought and sold","Shares and securities are bought and sold","Foreign currency is exchanged","Government bonds are printed"],ans:1,exp:"The stock exchange is an organised market where shares, bonds, and other securities are bought and sold by investors."},
+  {q:"A debenture is:",opts:["A type of share","A long-term loan to a company at a fixed interest rate","A bank account","A type of insurance"],ans:1,exp:"A debenture is a loan certificate issued by a company promising to repay the loan at a fixed interest rate on a specified date."},
+  {q:"Liquidity refers to:",opts:["A company's profit","How easily assets can be converted to cash","The total value of assets","Long-term investments"],ans:1,exp:"Liquidity refers to how quickly and easily an asset can be converted into cash without significant loss of value."},
+  {q:"Bad debt is:",opts:["A loan with high interest","A debt that is unlikely to be recovered","A bank overdraft","A government loan"],ans:1,exp:"A bad debt is money owed to a business that is unlikely to be collected — it is written off as a loss in the accounts."},
+  {q:"Depreciation refers to:",opts:["Increase in value of assets over time","The reduction in value of a fixed asset over time due to wear and use","A type of tax","Discount on purchases"],ans:1,exp:"Depreciation is the gradual reduction in the value of a fixed asset over its useful life due to use, wear, and obsolescence."},
+  {q:"The Nigerian Stock Exchange is located in:",opts:["Abuja","Port Harcourt","Kano","Lagos"],ans:3,exp:"The Nigerian Exchange Group (NGX), formerly Nigerian Stock Exchange, is located in Lagos — Nigeria's commercial capital."},
+  // CONSUMER PROTECTION
+  {q:"Consumer protection aims to:",opts:["Help businesses make more profit","Protect buyers from unfair practices, unsafe products, and fraud","Reduce prices artificially","Control advertising"],ans:1,exp:"Consumer protection laws and agencies protect buyers from dishonest traders, unsafe products, misleading advertising, and fraud."},
+  {q:"NAFDAC in Nigeria is responsible for:",opts:["Controlling stock exchange","Regulating food, drugs, and related products for safety","Managing government finances","Controlling foreign trade"],ans:1,exp:"NAFDAC (National Agency for Food and Drug Administration and Control) ensures the safety of food, drugs, cosmetics, and related products."},
+  {q:"The Consumer Protection Council (CPC) in Nigeria:",opts:["Sets prices for goods","Protects consumers from harmful products and unfair trade practices","Manufactures consumer goods","Exports consumer products"],ans:1,exp:"The Consumer Protection Council (CPC) protects Nigerian consumers from hazardous products and ensures their rights are upheld."},
+  {q:"Standards Organisation of Nigeria (SON) ensures:",opts:["High prices for goods","Products meet set quality and safety standards","Goods are exported","Taxes are collected"],ans:1,exp:"SON (Standards Organisation of Nigeria) develops and enforces standards for goods and services to ensure quality and safety."},
+  {q:"Which of the following is a right of consumers?",opts:["Right to buy at any price","Right to safety — protection from harmful products","Right to unlimited credit","Right to pay less than market price"],ans:1,exp:"Consumer rights include the right to safety (protection from harmful products), right to information, right to choose, and right to be heard."},
+  // MIXED COMMERCE
+  {q:"An entrepreneur is someone who:",opts:["Only manages a business","Identifies opportunities, takes risks, and organises resources to start a business","Only provides capital","Only provides labour"],ans:1,exp:"An entrepreneur identifies business opportunities, takes risks, organises factors of production, and manages a business for profit."},
+  {q:"VAT stands for:",opts:["Value Added Tax","Variable Asset Tax","Volume Added Tax","Vendor Asset Tax"],ans:0,exp:"VAT (Value Added Tax) is an indirect tax levied on goods and services at each stage of production and distribution."},
+  {q:"Monopoly in business means:",opts:["Many sellers of a product","One seller controls the entire supply of a product","Two sellers dominate the market","Free competition"],ans:1,exp:"A monopoly exists when a single seller controls the entire market supply of a product or service with no close substitutes."},
+  {q:"Competition in business leads to:",opts:["Higher prices","Lower quality","Better products and lower prices for consumers","Fewer choices"],ans:2,exp:"Competition among businesses drives innovation, improves quality, and lowers prices — benefiting consumers."},
+  {q:"E-commerce refers to:",opts:["Economics of commerce","Buying and selling of goods and services electronically over the internet","Emergency commercial activities","European commerce"],ans:1,exp:"E-commerce is the buying and selling of goods and services over electronic networks, primarily the internet."},
+  {q:"A franchise is a business arrangement where:",opts:["Two companies merge","A franchisor grants another person (franchisee) rights to sell their products/services","A company is nationalised","Partners share a business equally"],ans:1,exp:"A franchise is a licence allowing a franchisee to operate using the franchisor's brand, systems, and support in exchange for fees."},
+  {q:"Opportunity cost in business means:",opts:["The actual cost of a product","The value of the next best alternative forgone when making a business decision","A penalty for missed opportunities","The cheapest option"],ans:1,exp:"Opportunity cost is the value of the next best alternative given up when making a business decision — a key concept in business economics."},
+  {q:"The purpose of a business plan is to:",opts:["Record past transactions","Guide the establishment and operation of a business and attract funding","Replace the memorandum of association","List employees"],ans:1,exp:"A business plan outlines the business idea, goals, strategies, market analysis, and financial projections — used to guide operations and attract investors."},
+  {q:"Goodwill in a business is:",opts:["The total assets of the business","The extra value of a business beyond its tangible assets due to reputation","The profit for the year","The owner's capital"],ans:1,exp:"Goodwill is the intangible value of a business's reputation, customer loyalty, and brand — it is recognised when a business is sold at a premium."},
+  {q:"The most important document in international trade is:",opts:["Invoice","Bill of lading","Letter of credit","Receipt"],ans:2,exp:"A letter of credit is considered the most important document in international trade — it guarantees payment from the buyer's bank to the seller."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Commerce performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

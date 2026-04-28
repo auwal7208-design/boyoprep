@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agriculture CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">🌾 Agriculture</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">🌾 Agriculture</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // SOIL SCIENCE
+  {q:"The most fertile type of soil is:",opts:["Sandy soil","Clay soil","Loamy soil","Silty soil"],ans:2,exp:"Loamy soil is the most fertile — it is a mixture of sand, silt, and clay with good water retention, drainage, and nutrient content."},
+  {q:"Soil pH measures the:",opts:["Nutrient content of soil","Acidity or alkalinity of soil","Water content of soil","Organic matter in soil"],ans:1,exp:"Soil pH measures the acidity or alkalinity of soil on a scale of 0-14. pH 7 is neutral; below 7 is acidic; above 7 is alkaline."},
+  {q:"The process of adding lime to acid soil is called:",opts:["Fertilisation","Liming","Irrigation","Mulching"],ans:1,exp:"Liming is the application of calcium carbonate (lime) to acidic soil to raise the pH and improve fertility."},
+  {q:"Humus is:",opts:["A type of fertiliser","Decomposed organic matter in soil","Mineral particles in soil","Water in soil"],ans:1,exp:"Humus is the dark, organic component of soil formed from the decomposition of plant and animal materials."},
+  {q:"Which of the following is a macronutrient for plants?",opts:["Zinc","Copper","Nitrogen","Iron"],ans:2,exp:"Nitrogen (N), Phosphorus (P), and Potassium (K) are the three primary macronutrients essential for plant growth."},
+  {q:"NPK fertiliser contains:",opts:["Nitrogen, Phosphorus, Potassium","Nitrogen, Protein, Potassium","Nickel, Phosphorus, Kilogram","Nitrogen, Phosphorus, Krypton"],ans:0,exp:"NPK fertiliser contains Nitrogen (N) for leaf growth, Phosphorus (P) for root/fruit development, and Potassium (K) for overall plant health."},
+  {q:"Soil erosion is best prevented by:",opts:["Deep ploughing","Monoculture","Contour ploughing and cover crops","Burning vegetation"],ans:2,exp:"Contour ploughing (across slopes) and cover crops help prevent soil erosion by reducing water runoff and protecting bare soil."},
+  {q:"Laterite soil is predominant in:",opts:["Temperate regions","Desert regions","Tropical regions","Polar regions"],ans:2,exp:"Laterite (lateritic) soil is common in tropical regions — reddish in colour due to high iron and aluminium oxides."},
+  {q:"The process by which water moves downward through soil layers is called:",opts:["Capillarity","Leaching","Percolation","Evaporation"],ans:2,exp:"Percolation is the downward movement of water through soil pores and layers."},
+  {q:"Mulching involves:",opts:["Adding chemical fertilisers","Covering soil surface with organic material","Burning crop residues","Deep ploughing"],ans:1,exp:"Mulching is the practice of covering the soil surface with organic materials (straw, leaves) to conserve moisture and suppress weeds."},
+  // CROP PRODUCTION
+  {q:"Photosynthesis in plants requires:",opts:["Oxygen, water, and glucose","Carbon dioxide, water, and light energy","Nitrogen, oxygen, and light","Carbon dioxide, glucose, and oxygen"],ans:1,exp:"Photosynthesis requires carbon dioxide (CO₂), water (H₂O), and light energy to produce glucose and oxygen."},
+  {q:"Germination is the process by which:",opts:["A seed produces flowers","A seed develops into a seedling","A plant produces seeds","Roots develop from stems"],ans:1,exp:"Germination is the process by which a dormant seed begins to sprout and develop into a seedling under favourable conditions."},
+  {q:"The conditions necessary for seed germination are:",opts:["Sunlight, fertiliser, and temperature","Water, oxygen, and suitable temperature","Soil, fertiliser, and rain","Light, carbon dioxide, and warmth"],ans:1,exp:"Seeds need water (for metabolic processes), oxygen (for respiration), and suitable temperature to germinate."},
+  {q:"Vegetative propagation involves reproducing plants from:",opts:["Seeds only","Spores only","Vegetative parts like stems, roots, or leaves","Flowers only"],ans:2,exp:"Vegetative propagation is asexual reproduction using plant parts like stems (cuttings), roots (suckers), or leaves."},
+  {q:"A nursery in agriculture is a place where:",opts:["Animals are born","Young seedlings are raised before transplanting","Farmers sell produce","Farm tools are stored"],ans:1,exp:"A nursery is a controlled environment where young seedlings or plants are raised before being transplanted to the field."},
+  {q:"Crop rotation involves:",opts:["Growing the same crop every year","Growing different crops in sequence on the same land","Rotating farm equipment","Growing crops in circles"],ans:1,exp:"Crop rotation is the practice of growing different crops in succession on the same land to maintain soil fertility and reduce pests."},
+  {q:"Mixed farming refers to:",opts:["Growing crops and raising animals on the same farm","Growing different crops only","Keeping only animals","Farming at different locations"],ans:0,exp:"Mixed farming is the practice of combining crop production and animal husbandry (livestock keeping) on the same farm."},
+  {q:"Which of the following is a cereal crop?",opts:["Groundnut","Cassava","Maize","Tomato"],ans:2,exp:"Maize (corn) is a cereal crop — cereals are grasses grown for their edible starchy grains, including rice, wheat, millet, and sorghum."},
+  {q:"Which of the following is a legume?",opts:["Maize","Rice","Sorghum","Cowpea"],ans:3,exp:"Cowpea is a legume — legumes (beans, groundnuts, soybeans) fix atmospheric nitrogen in the soil through root nodules."},
+  {q:"The main cash crop of southern Nigeria is:",opts:["Groundnut","Cocoa","Cotton","Gum arabic"],ans:1,exp:"Cocoa is the major cash crop of southern Nigeria, especially in states like Ondo, Ogun, Cross River, and Edo."},
+  // ANIMAL HUSBANDRY
+  {q:"Ruminants are animals that:",opts:["Eat only plants","Have one stomach","Chew the cud (re-chew partially digested food)","Lay eggs"],ans:2,exp:"Ruminants (cattle, goats, sheep) have multi-chambered stomachs and regurgitate and re-chew partially digested food (cud)."},
+  {q:"Which of the following is a ruminant?",opts:["Pig","Rabbit","Goat","Poultry"],ans:2,exp:"Goats are ruminants — they have four-chambered stomachs (rumen, reticulum, omasum, abomasum)."},
+  {q:"Castration of male farm animals is done to:",opts:["Increase milk production","Improve meat quality and make animals docile","Prevent diseases","Speed up growth"],ans:1,exp:"Castration (removal of testes) improves meat quality, makes animals more docile (easier to manage), and prevents unwanted breeding."},
+  {q:"Colostrum is:",opts:["A type of animal feed","The first milk produced after birth, rich in antibodies","A vaccine for animals","A growth hormone"],ans:1,exp:"Colostrum is the first milk produced by mammals shortly after birth — it is rich in antibodies that protect newborns from disease."},
+  {q:"The gestation period of a cow is approximately:",opts:["5 months","7 months","9 months","12 months"],ans:2,exp:"The gestation period (pregnancy) of a cow is approximately 9 months (280 days)."},
+  {q:"Mastitis is a disease that affects:",opts:["Poultry feathers","The udder of dairy cows","Pig skin","Fish gills"],ans:1,exp:"Mastitis is an inflammation of the udder (mammary gland) in dairy cows, caused by bacterial infection — it reduces milk production."},
+  {q:"Newcastle disease affects:",opts:["Cattle","Pigs","Poultry","Goats"],ans:2,exp:"Newcastle disease is a highly contagious viral disease affecting poultry (chickens, turkeys) — causing respiratory and nervous symptoms."},
+  {q:"Which of the following is an ecto-parasite of farm animals?",opts:["Liver fluke","Roundworm","Tick","Tapeworm"],ans:2,exp:"Ticks are ecto-parasites (external parasites) that live on the skin of animals. Liver fluke, roundworm, and tapeworm are endo-parasites."},
+  {q:"Aquaculture refers to:",opts:["Growing water plants","Farming of fish and other aquatic organisms","Irrigation of crops","Water management"],ans:1,exp:"Aquaculture is the farming or cultivation of aquatic organisms such as fish, shellfish, and seaweed in controlled environments."},
+  {q:"The process of preserving fish by drying and salting is called:",opts:["Canning","Refrigeration","Smoking and salting","Fermentation"],ans:2,exp:"Smoking and salting are traditional fish preservation methods — they reduce moisture content and inhibit bacterial growth."},
+  // FARM TOOLS & MACHINERY
+  {q:"A cutlass is used for:",opts:["Ploughing","Cutting and clearing vegetation","Harvesting grains","Measuring land"],ans:1,exp:"A cutlass (machete) is used for cutting, clearing bush, and harvesting — one of the most common farm tools in Nigeria."},
+  {q:"A hoe is used for:",opts:["Harvesting","Clearing trees","Weeding and loosening soil","Measuring land"],ans:2,exp:"A hoe is used for weeding, tilling, mounding soil around plants, and loosening the topsoil."},
+  {q:"A tractor is used in agriculture mainly for:",opts:["Harvesting crops manually","Mechanised ploughing, harrowing, and cultivation","Mixing fertilisers","Transporting animals"],ans:1,exp:"Tractors are used for mechanised farming operations — ploughing, harrowing, planting, and other field operations."},
+  {q:"A plough is used for:",opts:["Harvesting crops","Turning over and breaking up soil before planting","Spraying pesticides","Measuring rainfall"],ans:1,exp:"A plough is used to till the soil — turning over and breaking up the soil to prepare it for planting."},
+  {q:"Irrigation is the practice of:",opts:["Draining excess water","Artificially supplying water to crops","Adding fertilisers","Controlling weeds"],ans:1,exp:"Irrigation is the artificial application of water to agricultural land to supply crops with water, especially during dry periods."},
+  // PESTS & DISEASES
+  {q:"A pesticide is a chemical used to:",opts:["Add nutrients to soil","Kill or control pests","Improve soil pH","Water crops"],ans:1,exp:"Pesticides are chemicals used to kill or control pests that damage crops — including insecticides, herbicides, and fungicides."},
+  {q:"A herbicide is used to control:",opts:["Insects","Weeds","Fungi","Bacteria"],ans:1,exp:"Herbicides are chemicals specifically used to kill or inhibit the growth of weeds."},
+  {q:"A fungicide is used to control:",opts:["Insects","Weeds","Fungal diseases","Bacteria"],ans:2,exp:"Fungicides are chemicals used to prevent or treat fungal diseases in crops."},
+  {q:"Which of the following is a major pest of stored grains in Nigeria?",opts:["Aphid","Weevil","Boll weevil","Locust"],ans:1,exp:"Weevils (grain borers) are major pests of stored grains like maize and beans — they bore into and destroy stored grain."},
+  {q:"Crop diseases caused by fungi are usually controlled by:",opts:["Insecticides","Herbicides","Fungicides","Antibiotics"],ans:2,exp:"Fungal crop diseases (e.g., rust, blight, mildew) are controlled by applying fungicides to infected plants."},
+  // FARM MANAGEMENT
+  {q:"Farm planning involves:",opts:["Building farm structures","Deciding what, how, and when to produce on the farm","Buying farm equipment","Hiring farm workers"],ans:1,exp:"Farm planning involves making decisions about what crops/animals to produce, the methods to use, timing, and resource allocation."},
+  {q:"A farm record is important because it:",opts:["Is required by law","Helps the farmer make informed decisions and track profit/loss","Is needed to get a loan only","Replaces actual farming"],ans:1,exp:"Farm records document farm activities, inputs, outputs, and finances — helping farmers make informed decisions and assess profitability."},
+  {q:"Agricultural extension services help farmers by:",opts:["Selling farm produce","Providing updated knowledge and technology to farmers","Building roads","Giving free land"],ans:1,exp:"Agricultural extension services disseminate new farming knowledge, technologies, and best practices to farmers in rural areas."},
+  {q:"Land tenure refers to:",opts:["The quality of land","The system by which land is owned, used, or transferred","The size of farmland","Land preparation methods"],ans:1,exp:"Land tenure is the system of rights and arrangements by which land is owned, held, or used — it affects agricultural investment."},
+  {q:"Cooperative farming involves:",opts:["One farmer working alone","Farmers working together to achieve common goals","Government controlling farms","Foreigners owning farms"],ans:1,exp:"Agricultural cooperatives are farmer organisations where members pool resources, share knowledge, and market produce collectively."},
+  // ENVIRONMENTAL AGRICULTURE
+  {q:"Deforestation leads to:",opts:["Increased rainfall","Better farming","Soil erosion and loss of biodiversity","More farmland only"],ans:2,exp:"Deforestation removes tree cover, leading to soil erosion, reduced rainfall, loss of biodiversity, and desertification."},
+  {q:"Afforestation means:",opts:["Cutting down forests","Planting trees on previously unforested land","Burning vegetation","Draining wetlands"],ans:1,exp:"Afforestation is the establishment of trees and forests on land that was previously unforested — helps prevent desertification."},
+  {q:"Bush burning in agriculture is harmful because it:",opts:["Improves soil fertility permanently","Destroys soil organisms and increases erosion","Kills all pests permanently","Makes land wetter"],ans:1,exp:"Bush burning destroys beneficial soil organisms, removes organic matter, and leaves soil exposed to erosion."},
+  {q:"Organic farming avoids the use of:",opts:["Water","Natural fertilisers","Synthetic chemical fertilisers and pesticides","Crop rotation"],ans:2,exp:"Organic farming relies on natural inputs and avoids synthetic chemical fertilisers, pesticides, and GMOs."},
+  {q:"Sustainable agriculture means farming that:",opts:["Maximises production at all costs","Meets present needs without compromising future generations' ability to produce food","Uses only machinery","Ignores environmental impact"],ans:1,exp:"Sustainable agriculture meets current food needs while preserving resources and environmental quality for future generations."},
+  // FOOD PROCESSING & STORAGE
+  {q:"Post-harvest losses refer to:",opts:["Losses during planting","Losses of agricultural produce after harvesting","Losses during transportation only","Losses during processing only"],ans:1,exp:"Post-harvest losses occur after harvest during storage, transportation, and processing — a major problem reducing food availability in Nigeria."},
+  {q:"Which of the following is a method of food preservation?",opts:["Planting","Canning","Ploughing","Fertilising"],ans:1,exp:"Canning is a food preservation method — food is sealed in airtight containers and heated to kill microorganisms."},
+  {q:"Smoking as a preservation method works by:",opts:["Adding moisture","Reducing moisture and adding antimicrobial compounds","Adding salt only","Increasing temperature permanently"],ans:1,exp:"Smoking preserves food by reducing moisture content and depositing antimicrobial compounds from wood smoke."},
+  {q:"A grain silo is used for:",opts:["Drying grains","Storing large quantities of grains","Processing grains","Selling grains"],ans:1,exp:"A grain silo is a structure used for storing large quantities of harvested grains like maize, wheat, and sorghum."},
+  {q:"Refrigeration preserves food by:",opts:["Killing all bacteria","Slowing bacterial growth by lowering temperature","Removing all moisture","Adding preservatives"],ans:1,exp:"Refrigeration preserves food by maintaining low temperatures that slow down the growth of spoilage microorganisms."},
+  // MIXED AGRICULTURE
+  {q:"Aquatic weeds in ponds are controlled by:",opts:["Adding more fish","Herbicides or manual removal","Reducing water","Adding fertilisers"],ans:1,exp:"Aquatic weeds in fish ponds can be controlled by herbicides, manual removal, or introducing herbivorous fish."},
+  {q:"Which crop is used as a cover crop to improve soil fertility?",opts:["Maize","Cassava","Legumes (e.g., cowpea)","Yam"],ans:2,exp:"Legumes (cowpea, soybean) are used as cover crops — their roots fix atmospheric nitrogen, improving soil fertility."},
+  {q:"A cash crop is primarily grown for:",opts:["Home consumption","Animal feed","Sale and export","Medicinal purposes only"],ans:2,exp:"Cash crops are grown primarily for sale in the market or for export rather than for the farmer's own consumption."},
+  {q:"Intercropping is the practice of:",opts:["Growing one crop per season","Growing two or more crops simultaneously on the same land","Rotating crops every season","Growing crops in greenhouses"],ans:1,exp:"Intercropping is growing two or more different crops simultaneously on the same field — maximising land use and reducing risk."},
+  {q:"The process of breaking up large soil clods after ploughing is called:",opts:["Harrowing","Ridging","Mounding","Weeding"],ans:0,exp:"Harrowing is the secondary tillage operation that breaks up large soil clods and creates a fine seedbed after ploughing."},
+  {q:"Which of the following animals is monogastric?",opts:["Cow","Goat","Sheep","Pig"],ans:3,exp:"Pigs are monogastric — they have a single-chambered stomach. Cows, goats, and sheep are ruminants with multi-chambered stomachs."},
+  {q:"Vaccination of farm animals is done to:",opts:["Improve milk production","Prevent infectious diseases","Speed up growth","Improve meat quality"],ans:1,exp:"Vaccination stimulates the immune system to produce antibodies against specific diseases, preventing infection in farm animals."},
+  {q:"The practice of rearing bees for honey production is called:",opts:["Aquaculture","Apiculture","Horticulture","Silviculture"],ans:1,exp:"Apiculture is the science and practice of beekeeping — rearing bees (Apis mellifera) for honey, wax, and pollination."},
+  {q:"Horticulture is the cultivation of:",opts:["Cereals and grains","Fruits, vegetables, and ornamental plants","Timber trees","Cash crops only"],ans:1,exp:"Horticulture is the branch of agriculture dealing with the cultivation of fruits, vegetables, flowers, and ornamental plants."},
+  {q:"Silage is:",opts:["Dry hay stored in barns","Fermented, high-moisture fodder stored for animal feed","Fresh grass only","Grain stored in silos"],ans:1,exp:"Silage is fermented, high-moisture fodder made from green crops (grass, maize) stored in airtight conditions for animal feed."},
+  {q:"The FAO stands for:",opts:["Food and Agriculture Organisation","Federal Agriculture Office","Farming and Agriculture Operations","Food and Animal Organisation"],ans:0,exp:"FAO stands for Food and Agriculture Organisation — a specialised UN agency leading international efforts to defeat hunger."},
+  {q:"Overgrazing leads to:",opts:["Better pasture growth","Increased soil fertility","Land degradation and soil erosion","More grass growth"],ans:2,exp:"Overgrazing removes too much plant cover, compacts soil, reduces its fertility, and causes erosion — degrading pasture land."},
+  {q:"Agricultural mechanisation means:",opts:["Using only hand tools","Using machinery and technology in farming","Farming without equipment","Using animals only"],ans:1,exp:"Agricultural mechanisation is the use of machinery and modern technology in farming to increase efficiency and productivity."},
+  {q:"NAFDAC controls:",opts:["Farm subsidies","Safety of food, drugs, and chemicals in Nigeria","Agricultural exports","Fertiliser distribution"],ans:1,exp:"NAFDAC (National Agency for Food and Drug Administration and Control) regulates food, drugs, and related products in Nigeria."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Agriculture performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

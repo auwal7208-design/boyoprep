@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #0a0a0a;
+      --black2: #111111;
+      --black3: #1a1a1a;
+      --gold:   #f5c842;
+      --gold2:  #e6b800;
+      --text:   #f0ead6;
+      --muted:  #9a8a60;
+      --border: rgba(245,200,66,0.12);
+      --border2: rgba(255,255,255,0.06);
+      --font:      'Nunito', sans-serif;
+      --font-body: 'Nunito Sans', sans-serif;
+      --radius: 16px;
+      --red: #ff5252;
+      --green: #4caf82;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      background-image:
+        url("https://www.transparenttextures.com/patterns/chalkboard.png"),
+        linear-gradient(160deg, #0a0a0a 60%, #141008 100%);
+      background-blend-mode: overlay;
+    }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .logo { font-family: var(--font); font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; font-family: var(--font); transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--black); padding: 9px 22px;
+      border-radius: 8px; font-weight: 800; font-size: 0.88rem;
+      text-decoration: none; font-family: var(--font); transition: all .2s;
+    }
+    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+
+    /* HERO */
+    .page-hero {
+      text-align: center;
+      padding: 70px 6% 50px;
+      animation: fadeUp .7s ease both;
+    }
+    .page-tag {
+      display: inline-block;
+      background: rgba(245,200,66,0.1);
+      border: 1px solid rgba(245,200,66,0.25);
+      color: var(--gold);
+      font-size: 0.75rem; font-weight: 800;
+      font-family: var(--font);
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .page-hero h1 span { color: var(--gold); }
+    .page-hero p { color: var(--muted); font-size: 0.95rem; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    .gold-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      border-radius: 99px;
+      margin: 30px auto;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 960px; margin: 0 auto;
+      padding: 0 6% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* INFO CARDS */
+    .info-col { display: flex; flex-direction: column; gap: 18px; }
+
+    .info-card {
+      background: rgba(17,17,17,0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      animation: fadeUp .5s ease both;
+    }
+    .info-card h3 {
+      font-family: var(--font); font-size: 1rem; font-weight: 800;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .info-card h3 .icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(245,200,66,0.1); border: 1px solid rgba(245,200,66,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .info-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+    .info-card a { color: var(--gold); text-decoration: none; font-weight: 700; font-size: 0.92rem; }
+    .info-card a:hover { text-decoration: underline; }
+
+    .response-time {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 10px; font-size: 0.82rem; color: var(--muted);
+    }
+    .response-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .faq-item { font-size: 0.88rem; }
+    .faq-item .q { color: var(--text); font-weight: 600; margin-bottom: 3px; }
+    .faq-item .a { color: var(--muted); line-height: 1.6; }
+
+    /* FORM CARD */
+    .form-card {
+      background: rgba(17,17,17,0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 34px;
+      animation: fadeUp .5s ease .1s both;
+    }
+    .form-card h2 {
+      font-family: var(--font); font-size: 1.2rem; font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .form-card .form-sub { color: var(--muted); font-size: 0.88rem; margin-bottom: 28px; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-family: var(--font); font-size: 0.82rem;
+      font-weight: 700; color: var(--muted); margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: 0.6px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid var(--border2);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: rgba(245,200,66,0.4);
+      background: rgba(245,200,66,0.04);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+    .form-group select option { background: var(--black2); color: var(--text); }
+    .form-group textarea { height: 130px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .btn-submit {
+      width: 100%; padding: 15px;
+      background: var(--gold); color: var(--black);
+      border: none; border-radius: 10px;
+      font-family: var(--font); font-weight: 900; font-size: 1rem;
+      cursor: pointer; transition: all .2s; margin-top: 6px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,200,66,0.2); }
+    .btn-submit:active { transform: translateY(0); }
+
+    /* SUCCESS MESSAGE */
+    .success-msg {
+      display: none;
+      background: rgba(76,175,130,0.1);
+      border: 1px solid rgba(76,175,130,0.3);
+      border-radius: 10px; padding: 16px 18px;
+      margin-top: 16px; text-align: center;
+      font-family: var(--font); font-weight: 700; font-size: 0.92rem;
+      color: var(--green);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 28px 6%;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.82rem;
+      font-family: var(--font);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    @media (max-width: 700px) {
+      .container { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 20px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+  <a href="index.html" class="nav-cta">Start Practice →</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-tag">Get In Touch</div>
+  <h1>Contact <span>BoyoPrep</span></h1>
+  <p>Have a question, found a mistake in a question, or just want to say hi? We'd love to hear from you!</p>
+  <div class="gold-divider"></div>
+</section>
+
+<div class="container">
+
+  <!-- LEFT INFO COL -->
+  <div class="info-col">
+
+    <!-- EMAIL -->
+    <div class="info-card">
+      <h3><span class="icon">📧</span> Email Us</h3>
+      <p>Send us an email directly and we'll get back to you as soon as possible.</p>
+      <br>
+      <a href="mailto:presidoboyo@gmail.com">presidoboyo@gmail.com</a>
+      <div class="response-time">
+        <span class="response-dot"></span>
+        Usually responds within 24–48 hours
+      </div>
+    </div>
+
+    <!-- WHAT TO CONTACT FOR -->
+    <div class="info-card">
+      <h3><span class="icon">💬</span> What Can You Contact Us For?</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="q">❓ Wrong or unclear question?</div>
+          <div class="a">Let us know the subject and question number and we'll fix it.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">🐛 Website not working?</div>
+          <div class="a">Report any technical issues and we'll resolve them quickly.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">💡 Suggestions?</div>
+          <div class="a">We love feedback! Tell us how we can make BoyoPrep better for you.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">🤝 Partnership or collaboration?</div>
+          <div class="a">Reach out and let's talk about how we can work together.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="info-card">
+      <h3><span class="icon">🌍</span> Spread the Word</h3>
+      <p>Help other students find BoyoPrep! Share with your classmates, WhatsApp groups, and study partners. The more students practice, the more students pass! 🎯</p>
+    </div>
+
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="form-card">
+    <h2>Send Us a Message ✉️</h2>
+    <p class="form-sub">Fill in the form below and we'll get back to you at your email address.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="sender-name" placeholder="e.g. Chidi Okafor"/>
+      </div>
+      <div class="form-group">
+        <label>Your Email</label>
+        <input type="email" id="sender-email" placeholder="your@email.com"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Subject</label>
+      <select id="msg-subject">
+        <option value="" disabled selected>Select a topic...</option>
+        <option value="Wrong question report">Wrong or unclear question</option>
+        <option value="Technical issue">Website not working / technical issue</option>
+        <option value="Suggestion">Suggestion or feedback</option>
+        <option value="Partnership">Partnership / collaboration</option>
+        <option value="General enquiry">General enquiry</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea id="msg-body" placeholder="Write your message here..."></textarea>
+    </div>
+
+    <button class="btn-submit" onclick="sendMessage()">
+      <span>Send Message</span> <span>→</span>
+    </button>
+
+    <div class="success-msg" id="success-msg">
+      ✅ Your email app will open now — just hit Send! We'll reply within 24–48 hours.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 BoyoPrep · Founded by Boyo Presido · <a href="about.html">About Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  function sendMessage() {
+    const name    = document.getElementById('sender-name').value.trim();
+    const email   = document.getElementById('sender-email').value.trim();
+    const subject = document.getElementById('msg-subject').value;
+    const body    = document.getElementById('msg-body').value.trim();
+
+    if (!name || !email || !subject || !body) {
+      alert('Please fill in all fields before sending.');
+      return;
+    }
+
+    const mailSubject = encodeURIComponent(`[BoyoPrep] ${subject} — from ${name}`);
+    const mailBody    = encodeURIComponent(
+      `Hi Boyo Presido,\n\nMy name is ${name} (${email}).\n\n${body}\n\nSent via BoyoPrep Contact Form`
+    );
+
+    window.location.href = `mailto:presidoboyo@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+    document.getElementById('success-msg').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

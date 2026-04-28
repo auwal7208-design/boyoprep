@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Physics CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}
+    .logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}
+    .back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}
+    .q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}
+    .q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}
+    .stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}
+    .option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .explanation{display:none;margin-top:16px;background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.2);border-radius:10px;padding:14px 16px;font-size:0.88rem;line-height:1.7;color:var(--text);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}
+    .btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}
+    .r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}
+    .review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}
+    .review-item.r-wrong{border-left:3px solid var(--red);}
+    .review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}
+    .tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}
+    .tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">⚡ Physics</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">⚡ Physics</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // MEASUREMENTS & UNITS
+  {q:"The SI unit of force is:",opts:["Watt","Joule","Newton","Pascal"],ans:2,exp:"The SI unit of force is the Newton (N), named after Sir Isaac Newton."},
+  {q:"Which instrument is used to measure atmospheric pressure?",opts:["Thermometer","Barometer","Hydrometer","Manometer"],ans:1,exp:"A barometer measures atmospheric pressure. Mercury barometers are most common."},
+  {q:"The unit of power is:",opts:["Joule","Newton","Watt","Pascal"],ans:2,exp:"Power is measured in Watts (W). 1 Watt = 1 Joule per second."},
+  {q:"The unit of electric charge is:",opts:["Ampere","Volt","Coulomb","Ohm"],ans:2,exp:"Electric charge is measured in Coulombs (C). 1 Coulomb = charge of about 6.24×10¹⁸ electrons."},
+  {q:"Which of the following is a scalar quantity?",opts:["Velocity","Force","Acceleration","Speed"],ans:3,exp:"Speed is a scalar — it has magnitude only. Velocity is a vector (magnitude + direction)."},
+  {q:"Which of the following is a vector quantity?",opts:["Mass","Temperature","Velocity","Speed"],ans:2,exp:"Velocity is a vector quantity — it has both magnitude (speed) and direction."},
+  {q:"The instrument used to measure small lengths like wire diameter is a:",opts:["Ruler","Vernier caliper","Micrometer screw gauge","Tape measure"],ans:2,exp:"The micrometer screw gauge measures very small lengths accurately to 0.01mm."},
+  {q:"The dimension of velocity is:",opts:["LT","LT⁻¹","LT⁻²","L²T⁻¹"],ans:1,exp:"Velocity = distance/time = L/T = LT⁻¹."},
+  {q:"The SI unit of pressure is:",opts:["Newton","Joule","Pascal","Bar"],ans:2,exp:"Pressure is measured in Pascals (Pa). 1 Pa = 1 N/m²."},
+  {q:"Which of the following is NOT a base SI unit?",opts:["Kilogram","Metre","Newton","Second"],ans:2,exp:"Newton is a derived unit (kg·m/s²). The base SI units include kg, m, s, A, K, mol, cd."},
+
+  // MOTION
+  {q:"A body is in uniform motion when it:",opts:["Accelerates uniformly","Moves with constant speed in a straight line","Changes direction","Decelerates"],ans:1,exp:"Uniform motion means constant speed in a straight line — zero acceleration."},
+  {q:"The slope of a distance-time graph gives:",opts:["Acceleration","Speed","Force","Displacement"],ans:1,exp:"The gradient (slope) of a distance-time graph gives the speed of the object."},
+  {q:"The slope of a velocity-time graph gives:",opts:["Speed","Distance","Acceleration","Momentum"],ans:2,exp:"The gradient (slope) of a velocity-time graph gives the acceleration of the object."},
+  {q:"The area under a velocity-time graph gives:",opts:["Acceleration","Speed","Distance travelled","Force"],ans:2,exp:"The area under a velocity-time graph represents the distance (displacement) travelled."},
+  {q:"A ball is dropped from rest. After 3 seconds, its velocity is: (g = 10m/s²)",opts:["10m/s","20m/s","30m/s","40m/s"],ans:2,exp:"v = u + gt = 0 + 10×3 = 30m/s."},
+  {q:"Newton's first law of motion is also known as the law of:",opts:["Momentum","Inertia","Gravitation","Conservation"],ans:1,exp:"Newton's first law states that a body remains at rest or in uniform motion unless acted upon by a net force — this is the law of inertia."},
+  {q:"Newton's second law states that force equals:",opts:["mass × velocity","mass × acceleration","mass × distance","weight × time"],ans:1,exp:"F = ma — Force equals mass multiplied by acceleration."},
+  {q:"A 5kg mass is accelerated at 4m/s². The force applied is:",opts:["1.25N","9N","20N","40N"],ans:2,exp:"F = ma = 5 × 4 = 20N."},
+  {q:"The momentum of a 2kg object moving at 5m/s is:",opts:["2.5 kg·m/s","7 kg·m/s","10 kg·m/s","20 kg·m/s"],ans:2,exp:"Momentum p = mv = 2 × 5 = 10 kg·m/s."},
+  {q:"The principle of conservation of momentum states that:",opts:["Momentum increases with time","Total momentum before collision equals total momentum after","Force causes momentum","Momentum is always zero"],ans:1,exp:"In the absence of external forces, the total momentum of a system remains constant before and after collision."},
+
+  // ENERGY & WORK
+  {q:"Work done is calculated as:",opts:["Force + distance","Force × distance × cos θ","Force / distance","Force × time"],ans:1,exp:"Work = Force × distance × cos θ, where θ is the angle between force and displacement."},
+  {q:"The unit of work and energy is:",opts:["Newton","Watt","Joule","Pascal"],ans:2,exp:"Both work and energy are measured in Joules (J). 1 J = 1 N·m."},
+  {q:"Kinetic energy is given by:",opts:["mgh","½mv²","mv","Fd"],ans:1,exp:"Kinetic energy KE = ½mv², where m is mass and v is velocity."},
+  {q:"Potential energy is given by:",opts:["½mv²","mgh","Fd","mv"],ans:1,exp:"Gravitational potential energy PE = mgh, where m=mass, g=gravity, h=height."},
+  {q:"A 2kg object is raised to a height of 5m. Its PE is: (g=10m/s²)",opts:["10J","50J","100J","25J"],ans:2,exp:"PE = mgh = 2 × 10 × 5 = 100J."},
+  {q:"Power is defined as:",opts:["Work × time","Work / time","Force × time","Energy × distance"],ans:1,exp:"Power = Work done / time taken. Unit: Watt (W)."},
+  {q:"The law of conservation of energy states that:",opts:["Energy can be created","Energy can be destroyed","Energy can be converted from one form to another","Energy always increases"],ans:2,exp:"Energy cannot be created or destroyed — it can only be converted from one form to another."},
+  {q:"A machine with efficiency 80% has a velocity ratio of 5. Its mechanical advantage is:",opts:["4","5","6","7"],ans:0,exp:"MA = efficiency × VR / 100 = (80/100) × 5 = 4."},
+  {q:"Which type of energy does a stretched spring possess?",opts:["Kinetic energy","Thermal energy","Elastic potential energy","Chemical energy"],ans:2,exp:"A stretched or compressed spring stores elastic potential energy (strain energy)."},
+  {q:"The energy of a body due to its motion is called:",opts:["Potential energy","Chemical energy","Kinetic energy","Nuclear energy"],ans:2,exp:"Kinetic energy is the energy a body possesses due to its motion."},
+
+  // HEAT & TEMPERATURE
+  {q:"The SI unit of temperature is:",opts:["Celsius","Fahrenheit","Kelvin","Rankine"],ans:2,exp:"The SI unit of temperature is Kelvin (K). 0K = absolute zero = -273°C."},
+  {q:"Convert 27°C to Kelvin.",opts:["246K","300K","373K","327K"],ans:1,exp:"K = °C + 273 = 27 + 273 = 300K."},
+  {q:"The specific heat capacity of a substance is:",opts:["Heat needed to raise 1kg by 1°C","Heat to melt 1kg","Heat to vaporise 1kg","Total heat content"],ans:0,exp:"Specific heat capacity is the heat energy needed to raise 1kg of a substance by 1°C (or 1K)."},
+  {q:"The process by which heat is transferred through a vacuum is:",opts:["Conduction","Convection","Radiation","Absorption"],ans:2,exp:"Radiation can transfer heat through a vacuum (empty space) — e.g., heat from the sun reaches Earth."},
+  {q:"Heat transfer in liquids and gases is mainly by:",opts:["Conduction","Convection","Radiation","Absorption"],ans:1,exp:"Convection transfers heat through the movement of fluid (liquid or gas) particles."},
+  {q:"The latent heat of fusion is the heat needed to:",opts:["Raise temperature by 1°C","Change liquid to gas","Change solid to liquid at constant temperature","Change gas to liquid"],ans:2,exp:"Latent heat of fusion is the heat absorbed to change a solid to liquid at its melting point without temperature change."},
+  {q:"Which thermometric property does a mercury thermometer use?",opts:["Resistance change","Volume change of gas","Linear expansion of mercury","Colour change"],ans:2,exp:"Mercury thermometers use the linear expansion of mercury with temperature as the thermometric property."},
+  {q:"Good conductors of heat are also good conductors of:",opts:["Light","Sound","Electricity","Heat only"],ans:2,exp:"Materials that conduct heat well (like metals) are also good conductors of electricity due to free electrons."},
+  {q:"Thermos flasks reduce heat transfer by:",opts:["Conduction only","Convection only","Radiation only","All three methods"],ans:3,exp:"A thermos flask reduces conduction (vacuum), convection (vacuum), and radiation (silvered walls)."},
+  {q:"The boiling point of water at standard pressure is:",opts:["0°C","37°C","100°C","212°C"],ans:2,exp:"Water boils at 100°C (373K) at standard atmospheric pressure (101.325 kPa)."},
+
+  // WAVES & SOUND
+  {q:"Sound waves are:",opts:["Transverse waves","Electromagnetic waves","Longitudinal waves","Mechanical transverse waves"],ans:2,exp:"Sound waves are longitudinal — particles vibrate parallel to the direction of wave travel."},
+  {q:"The speed of sound in air at 0°C is approximately:",opts:["300 m/s","330 m/s","3×10⁸ m/s","1500 m/s"],ans:1,exp:"The speed of sound in air at 0°C is approximately 330 m/s (increases with temperature)."},
+  {q:"The frequency of a wave is related to its period by:",opts:["f = T","f = 1/T","f = T²","f = 2T"],ans:1,exp:"Frequency f = 1/T, where T is the period (time for one complete oscillation)."},
+  {q:"The wave equation is:",opts:["v = fλ","v = f/λ","v = λ/f","v = f + λ"],ans:0,exp:"Wave speed v = frequency × wavelength (v = fλ)."},
+  {q:"Resonance occurs when:",opts:["Amplitude is zero","Frequency matches natural frequency","Wave speed is maximum","Wavelength is minimum"],ans:1,exp:"Resonance occurs when the driving frequency equals the natural frequency of an object, causing maximum amplitude."},
+  {q:"The pitch of a sound depends on its:",opts:["Amplitude","Wavelength","Frequency","Speed"],ans:2,exp:"Pitch is determined by frequency — higher frequency = higher pitch."},
+  {q:"The loudness of a sound depends on its:",opts:["Frequency","Amplitude","Speed","Wavelength"],ans:1,exp:"Loudness is determined by amplitude — larger amplitude = louder sound."},
+  {q:"An echo is caused by:",opts:["Refraction of sound","Reflection of sound","Diffraction of sound","Absorption of sound"],ans:1,exp:"An echo is the reflection of sound waves from a hard surface back to the listener."},
+  {q:"Light travels fastest in:",opts:["Water","Glass","Air","Vacuum"],ans:3,exp:"Light travels at its maximum speed (3×10⁸ m/s) in a vacuum."},
+  {q:"The bending of light as it passes from one medium to another is called:",opts:["Reflection","Diffraction","Refraction","Dispersion"],ans:2,exp:"Refraction is the bending of light when it passes from one medium to another of different optical density."},
+
+  // ELECTRICITY
+  {q:"Ohm's law states that:",opts:["V = IR²","V = I/R","V = IR","I = VR"],ans:2,exp:"Ohm's law: Voltage (V) = Current (I) × Resistance (R)."},
+  {q:"The unit of resistance is:",opts:["Volt","Ampere","Ohm","Watt"],ans:2,exp:"Resistance is measured in Ohms (Ω), named after Georg Simon Ohm."},
+  {q:"Three resistors of 2Ω, 3Ω, and 6Ω are connected in parallel. The total resistance is:",opts:["11Ω","1Ω","0.5Ω","2Ω"],ans:1,exp:"1/R = 1/2+1/3+1/6 = 3/6+2/6+1/6 = 6/6 = 1. So R = 1Ω."},
+  {q:"The electric power consumed by a device is given by:",opts:["P=IV","P=I/V","P=V/I","P=I+V"],ans:0,exp:"Electric power P = IV = I²R = V²/R, where I is current and V is voltage."},
+  {q:"A 60W bulb connected to 240V draws a current of:",opts:["0.25A","0.5A","1A","4A"],ans:0,exp:"I = P/V = 60/240 = 0.25A."},
+  {q:"Which material is the best conductor of electricity?",opts:["Rubber","Glass","Silver","Plastic"],ans:2,exp:"Silver is the best conductor of electricity, followed closely by copper."},
+  {q:"A fuse in an electric circuit is used to:",opts:["Increase current","Decrease voltage","Protect against excess current","Store charge"],ans:2,exp:"A fuse melts and breaks the circuit when excess current flows, protecting appliances and wiring."},
+  {q:"In a series circuit, the current through each component is:",opts:["Different","The same","Zero","Depends on resistance"],ans:1,exp:"In a series circuit, the same current flows through all components since there is only one path."},
+  {q:"The instrument used to measure electric current is:",opts:["Voltmeter","Ammeter","Galvanometer","Ohmmeter"],ans:1,exp:"An ammeter measures electric current. It is connected in series in a circuit."},
+  {q:"EMF of a cell stands for:",opts:["Electric Magnetic Force","Electromagnetic Force","Electromotive Force","Electric Motor Force"],ans:2,exp:"EMF stands for Electromotive Force — the energy per unit charge supplied by a cell or source."},
+
+  // MAGNETISM
+  {q:"Like magnetic poles:",opts:["Attract each other","Repel each other","Have no effect","Create electricity"],ans:1,exp:"Like poles (N-N or S-S) repel each other; unlike poles (N-S) attract."},
+  {q:"The magnetic field lines of a bar magnet run from:",opts:["South to North outside the magnet","North to South outside the magnet","Inside only","South to South"],ans:1,exp:"Magnetic field lines run from the North pole to the South pole outside the magnet."},
+  {q:"Soft iron is used in electromagnets because it:",opts:["Is permanently magnetic","Loses magnetism easily","Never loses magnetism","Conducts electricity well"],ans:1,exp:"Soft iron is used in electromagnets because it magnetises easily and loses its magnetism quickly when current stops."},
+  {q:"The SI unit of magnetic flux density is:",opts:["Weber","Tesla","Gauss","Ampere"],ans:1,exp:"Magnetic flux density is measured in Tesla (T). 1 T = 1 Wb/m²."},
+  {q:"Which of these is NOT a magnetic material?",opts:["Iron","Nickel","Cobalt","Aluminium"],ans:3,exp:"Aluminium is not a ferromagnetic material. Iron, nickel, and cobalt are the common ferromagnetic materials."},
+
+  // LIGHT & OPTICS
+  {q:"The angle of incidence equals the angle of reflection. This is:",opts:["Snell's law","Law of refraction","Law of reflection","Huygen's principle"],ans:2,exp:"The law of reflection states that the angle of incidence equals the angle of reflection."},
+  {q:"A concave mirror is also called a:",opts:["Diverging mirror","Convex mirror","Converging mirror","Plane mirror"],ans:2,exp:"A concave mirror converges parallel rays of light to a focal point — hence 'converging mirror'."},
+  {q:"The critical angle is the angle of incidence at which:",opts:["Refraction is maximum","Total internal reflection begins","Light is absorbed","Diffraction occurs"],ans:1,exp:"The critical angle is the minimum angle of incidence (in the denser medium) at which total internal reflection occurs."},
+  {q:"A lens that is thicker at the centre than at the edges is:",opts:["Concave","Diverging","Convex","Plane"],ans:2,exp:"A convex (converging) lens is thicker at the centre and converges parallel light rays to a focal point."},
+  {q:"Dispersion of white light by a prism produces:",opts:["Single colour","Two colours","A spectrum of seven colours","No colours"],ans:2,exp:"A prism disperses white light into a spectrum of seven colours: red, orange, yellow, green, blue, indigo, violet (ROYGBIV)."},
+
+  // MODERN PHYSICS
+  {q:"Radioactivity was discovered by:",opts:["Marie Curie","Ernest Rutherford","Henri Becquerel","Albert Einstein"],ans:2,exp:"Henri Becquerel discovered radioactivity in 1896 when he noticed uranium emitting radiation spontaneously."},
+  {q:"Alpha particles are:",opts:["High-energy electrons","Helium nuclei","Electromagnetic radiation","Protons"],ans:1,exp:"Alpha particles consist of 2 protons and 2 neutrons — identical to a helium-4 nucleus."},
+  {q:"Which type of radiation is most penetrating?",opts:["Alpha","Beta","Gamma","X-ray"],ans:2,exp:"Gamma rays are the most penetrating radiation — they can pass through thick lead and concrete."},
+  {q:"The half-life of a radioactive substance is:",opts:["Time for all atoms to decay","Time for half the atoms to decay","Time for one atom to decay","Full decay time"],ans:1,exp:"Half-life is the time taken for half of the radioactive atoms in a sample to decay."},
+  {q:"Nuclear fission involves:",opts:["Combining light nuclei","Splitting heavy nuclei","Electron emission","Proton capture"],ans:1,exp:"Nuclear fission is the splitting of a heavy nucleus (like uranium-235) into smaller nuclei, releasing enormous energy."},
+
+  // FLUIDS
+  {q:"Archimedes' principle states that the upthrust on an object equals:",opts:["Weight of object","Weight of fluid displaced","Volume of object","Density of object"],ans:1,exp:"Archimedes' principle: upthrust = weight of fluid displaced by the object."},
+  {q:"An object floats when:",opts:["Its density is greater than the fluid","Its weight equals the upthrust","Its volume is large","Its mass is small"],ans:1,exp:"An object floats when the upthrust (buoyant force) equals its weight — principle of flotation."},
+  {q:"Pressure in a fluid at depth h is given by:",opts:["P = ρgh","P = mgh","P = ρg/h","P = ρ/gh"],ans:0,exp:"Fluid pressure P = ρgh, where ρ is fluid density, g is gravity, and h is depth."},
+  {q:"A hydraulic press works on the principle that:",opts:["Pressure increases with depth","Pressure is transmitted equally in all directions in a confined fluid","Fluids flow from high to low pressure","Gases are compressible"],ans:1,exp:"Pascal's principle: pressure applied to a confined fluid is transmitted equally in all directions."},
+  {q:"The unit of pressure in the CGS system is:",opts:["Pascal","Bar","Dyne/cm²","Newton/m²"],ans:2,exp:"In the CGS system, pressure is measured in dyne/cm² (also called barye)."},
+
+  // SIMPLE MACHINES
+  {q:"The mechanical advantage of a machine is:",opts:["Load/Effort","Effort/Load","Work output/Work input","Velocity ratio × efficiency"],ans:0,exp:"Mechanical Advantage (MA) = Load / Effort — how much the machine multiplies the applied force."},
+  {q:"The velocity ratio of a pulley system with 4 strings supporting the load is:",opts:["2","4","8","1"],ans:1,exp:"For a pulley system, VR equals the number of strings (ropes) supporting the load — here VR = 4."},
+  {q:"A lever of the first class has the fulcrum:",opts:["At one end","Between load and effort","At the load","At the effort"],ans:1,exp:"In a first-class lever, the fulcrum is between the load and effort — e.g., a seesaw or scissors."},
+  {q:"The efficiency of a machine is always:",opts:["Greater than 100%","Equal to 100%","Less than 100%","Zero"],ans:2,exp:"Due to friction and other energy losses, no real machine is 100% efficient — efficiency is always less than 100%."},
+  {q:"An inclined plane is a simple machine that:",opts:["Increases force needed","Reduces distance","Reduces force needed by increasing distance","Doubles speed"],ans:2,exp:"An inclined plane reduces the force needed to lift an object by spreading the work over a longer distance."},
+];
+
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';document.getElementById('explanation').style.display='none';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Physics performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

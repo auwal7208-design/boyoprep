@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geography CBT — BoyoPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZZE3WYFVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZZE3WYFVN');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;--black4:#222222;--gold:#f5c842;--gold2:#e6b800;--text:#f0ead6;--muted:#9a8a60;--border:rgba(245,200,66,0.12);--border2:rgba(255,255,255,0.06);--green:#4caf82;--red:#ff5252;--font:'Nunito',sans-serif;--font-body:'Nunito Sans',sans-serif;--radius:16px;--sidebar:240px;}
+    html,body{height:100%;font-family:var(--font-body);background:var(--black);color:var(--text);}
+    body{background-image:url("https://www.transparenttextures.com/patterns/chalkboard.png"),linear-gradient(160deg,#0a0a0a 60%,#141008 100%);background-blend-mode:overlay;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4%;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+    .logo{font-family:var(--font);font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--text);}.logo span{color:var(--gold);}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-family:var(--font);font-weight:700;font-size:0.85rem;transition:color .2s;}.back-btn:hover{color:var(--gold);}
+    .subject-badge{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);color:var(--gold);padding:6px 16px;border-radius:100px;font-family:var(--font);font-weight:800;font-size:0.8rem;}
+    .app-layout{display:grid;grid-template-columns:var(--sidebar) 1fr 200px;min-height:calc(100vh - 57px);}
+    .sidebar{background:rgba(17,17,17,0.95);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+    .sidebar-title{font-family:var(--font);font-size:0.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding:0 4px;}
+    .question-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+    .q-dot{width:100%;aspect-ratio:1;border-radius:7px;border:1.5px solid var(--border2);background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:0.7rem;font-weight:700;cursor:pointer;transition:all .15s;color:var(--muted);}
+    .q-dot:hover{border-color:rgba(245,200,66,0.3);color:var(--text);}.q-dot.answered{background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold);}.q-dot.current{background:var(--gold);border-color:var(--gold);color:var(--black);}
+    .sidebar-stats{margin-top:20px;display:flex;flex-direction:column;gap:8px;}
+    .stat-row{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;padding:8px 10px;background:var(--black3);border-radius:8px;border:1px solid var(--border2);}
+    .stat-row .label{color:var(--muted);font-family:var(--font);font-weight:600;}.stat-row .val{font-family:var(--font);font-weight:800;color:var(--text);}
+    .main-content{padding:28px 32px;max-width:780px;}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .quiz-title{font-family:var(--font);font-size:1.2rem;font-weight:900;}
+    .timer-box{display:flex;align-items:center;gap:8px;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.25);color:var(--red);padding:8px 16px;border-radius:10px;font-family:var(--font);font-weight:900;font-size:1rem;}
+    .timer-box.warning{animation:timerPulse 1s infinite;}
+    .progress-wrap{margin-bottom:24px;}
+    .progress-info{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);font-family:var(--font);font-weight:700;margin-bottom:7px;}
+    .progress-bar{height:6px;background:var(--black4);border-radius:99px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .4s ease;}
+    .question-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;margin-bottom:20px;animation:fadeUp .3s ease;}
+    .q-number{font-family:var(--font);font-size:0.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .q-text{font-size:1rem;line-height:1.75;font-weight:400;margin-bottom:24px;}
+    .options-list{display:flex;flex-direction:column;gap:10px;}
+    .option{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border2);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .18s;font-size:0.95rem;}
+    .option:hover:not(.disabled){border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.05);}.option.selected{border-color:var(--gold);background:rgba(245,200,66,0.08);}
+    .opt-letter{width:32px;height:32px;border-radius:8px;background:var(--black4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:900;font-size:0.78rem;flex-shrink:0;color:var(--muted);}
+    .option.selected .opt-letter{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+    .btn{padding:12px 26px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:0.9rem;cursor:pointer;border:none;transition:all .2s;}
+    .btn-gold{background:var(--gold);color:var(--black);}.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border2);}.btn-outline:hover{border-color:rgba(245,200,66,0.3);}
+    .btn-red{background:rgba(255,82,82,0.15);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+    .ad-col{padding:24px 16px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:16px;}
+    .ad-box{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:10px;padding:6px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ad-label{font-size:0.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+    #result-section{display:none;padding:50px 32px;max-width:860px;}
+    .result-top{display:flex;align-items:center;gap:32px;background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;flex-wrap:wrap;}
+    .score-circle{width:130px;height:130px;border-radius:50%;border:5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,200,66,0.07);flex-shrink:0;}
+    .score-num{font-family:var(--font);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;}
+    .score-lab{font-size:0.72rem;color:var(--muted);font-family:var(--font);font-weight:700;}
+    .result-info h2{font-family:var(--font);font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+    .result-info p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    .r-card{background:rgba(17,17,17,0.9);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center;}
+    .r-val{font-family:var(--font);font-size:1.8rem;font-weight:900;}.r-lab{font-size:0.78rem;color:var(--muted);margin-top:4px;font-family:var(--font);}
+    .green{color:var(--green);}.red{color:var(--red);}.gold{color:var(--gold);}
+    .review-section{margin-top:28px;}.review-title{font-family:var(--font);font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--gold);}
+    .review-item{background:rgba(17,17,17,0.88);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px;}
+    .review-item.r-correct{border-left:3px solid var(--green);}.review-item.r-wrong{border-left:3px solid var(--red);}.review-item.r-skipped{border-left:3px solid var(--muted);}
+    .review-q{font-size:0.92rem;font-weight:500;margin-bottom:10px;line-height:1.6;}
+    .review-answers{display:flex;flex-direction:column;gap:5px;font-size:0.83rem;}
+    .r-answer{display:flex;align-items:center;gap:8px;}
+    .r-answer .tag{font-family:var(--font);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+    .tag-correct{background:rgba(76,175,130,0.15);color:var(--green);}.tag-wrong{background:rgba(255,82,82,0.15);color:var(--red);}.tag-skipped{background:rgba(154,138,96,0.15);color:var(--muted);}
+    .review-exp{margin-top:8px;font-size:0.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+    @media(max-width:900px){.app-layout{grid-template-columns:1fr;}.sidebar{display:none;}.ad-col{display:none;}.main-content{padding:20px 18px;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Boyo<span>Prep</span></a>
+  <a href="index.html" class="back-btn">← Back to Subjects</a>
+  <span class="subject-badge">🌍 Geography</span>
+</nav>
+<div class="app-layout">
+  <div class="sidebar">
+    <div class="sidebar-title">Questions</div>
+    <div class="question-nav" id="q-nav"></div>
+    <div class="sidebar-stats">
+      <div class="stat-row"><span class="label">Answered</span><span class="val" id="stat-answered">0/100</span></div>
+      <div class="stat-row"><span class="label">Remaining</span><span class="val" id="stat-remaining">100</span></div>
+      <div class="stat-row"><span class="label">Time Left</span><span class="val" id="stat-time">30:00</span></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title">🌍 Geography</div>
+        <div class="timer-box" id="timer-box">⏱ <span id="timer">30:00</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span id="q-counter">Question 1 of 100</span><span id="q-answered-info">0 answered</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:1%"></div></div>
+      </div>
+      <div class="question-card">
+        <div class="q-number" id="q-number">Question 1</div>
+        <div class="q-text" id="q-text"></div>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-outline" onclick="prevQ()" id="prev-btn">← Previous</button>
+        <button class="btn btn-red" onclick="confirmSubmit()">Submit Test</button>
+        <button class="btn btn-gold" onclick="nextQ()" id="next-btn">Next →</button>
+      </div>
+    </div>
+    <div id="result-section">
+      <div class="result-top">
+        <div class="score-circle"><div class="score-num" id="r-score">0%</div><div class="score-lab">Score</div></div>
+        <div class="result-info">
+          <h2 id="r-title">Test Complete!</h2><p id="r-msg"></p>
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="restartQuiz()">Try Again 🔄</button>
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">← All Subjects</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="r-card"><div class="r-val green" id="r-correct">0</div><div class="r-lab">Correct ✅</div></div>
+        <div class="r-card"><div class="r-val red" id="r-wrong">0</div><div class="r-lab">Wrong ❌</div></div>
+        <div class="r-card"><div class="r-val gold" id="r-skipped">0</div><div class="r-lab">Skipped ⏭️</div></div>
+      </div>
+      <div class="review-section"><div class="review-title">📋 Answer Review</div><div id="review-list"></div></div>
+    </div>
+  </div>
+  <div class="ad-col">
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-box"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block;width:180px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  </div>
+</div>
+<script>
+const allQuestions=[
+  // PHYSICAL GEOGRAPHY
+  {q:"The rotation of the Earth causes:",opts:["Seasons","Day and night","Tides","Eclipses"],ans:1,exp:"The Earth's rotation on its own axis causes day and night — one complete rotation takes approximately 24 hours."},
+  {q:"The revolution of the Earth around the Sun causes:",opts:["Day and night","Time zones","Seasons","Tides"],ans:2,exp:"The Earth's revolution around the Sun (taking 365¼ days) causes the seasons due to the tilt of Earth's axis."},
+  {q:"The shape of the Earth is best described as:",opts:["A perfect sphere","An oblate spheroid","A flat disc","A cube"],ans:1,exp:"The Earth is an oblate spheroid — slightly flattened at the poles and bulging at the equator."},
+  {q:"The layer of the atmosphere closest to the Earth's surface is the:",opts:["Stratosphere","Mesosphere","Troposphere","Thermosphere"],ans:2,exp:"The troposphere is the lowest layer of the atmosphere where weather occurs — extending about 12km above Earth."},
+  {q:"The ozone layer is found in the:",opts:["Troposphere","Stratosphere","Mesosphere","Thermosphere"],ans:1,exp:"The ozone layer is located in the stratosphere, about 15-35km above Earth's surface."},
+  {q:"Lines of latitude run:",opts:["From pole to pole","East to west parallel to the equator","Diagonally","From equator to poles"],ans:1,exp:"Lines of latitude (parallels) run east-west, parallel to the equator, measuring distance north or south of the equator."},
+  {q:"Lines of longitude run:",opts:["East to west","North to south from pole to pole","Parallel to equator","Diagonally across Earth"],ans:1,exp:"Lines of longitude (meridians) run north-south from the North Pole to the South Pole."},
+  {q:"The Prime Meridian (0° longitude) passes through:",opts:["Paris","Rome","Greenwich, London","New York"],ans:2,exp:"The Prime Meridian (0° longitude) passes through Greenwich, London, UK — established in 1884."},
+  {q:"The Tropic of Cancer is at:",opts:["0°","23½°N","23½°S","66½°N"],ans:1,exp:"The Tropic of Cancer is at latitude 23½°N — the northernmost point where the Sun appears directly overhead."},
+  {q:"The Tropic of Capricorn is at:",opts:["0°","23½°N","23½°S","66½°S"],ans:2,exp:"The Tropic of Capricorn is at latitude 23½°S — the southernmost point where the Sun appears directly overhead."},
+  // GEOMORPHOLOGY
+  {q:"The process by which rocks are broken down in situ is called:",opts:["Erosion","Weathering","Deposition","Transportation"],ans:1,exp:"Weathering is the breakdown of rocks in their original position (in situ) by physical, chemical, or biological processes."},
+  {q:"A river deposits its load when:",opts:["Velocity increases","Gradient increases","Velocity decreases","It rains heavily"],ans:2,exp:"A river deposits sediment when its velocity decreases — it loses energy needed to carry its load."},
+  {q:"The mouth of a river is where it:",opts:["Starts","Enters the sea or lake","Is fastest","Has a waterfall"],ans:1,exp:"The mouth of a river is where it empties into a larger body of water such as a sea, ocean, or lake."},
+  {q:"A delta is formed when:",opts:["A river erodes its bed","A river deposits sediment at its mouth","Two rivers meet","A river changes course"],ans:1,exp:"A delta forms when a river deposits sediment at its mouth (where it meets a sea or lake), creating a fan-shaped landform."},
+  {q:"The Niger Delta in Nigeria is an example of a:",opts:["Waterfall","Lake","River delta","Plateau"],ans:2,exp:"The Niger Delta is one of the world's largest river deltas, formed by the deposition of sediment by the Niger River."},
+  {q:"Fold mountains are formed by:",opts:["Volcanic activity","Movement of tectonic plates compressing rocks","River erosion","Wind deposition"],ans:1,exp:"Fold mountains form when tectonic plates collide and compress rock layers, folding them upward — e.g., the Alps, Himalayas."},
+  {q:"The highest mountain in Africa is:",opts:["Mount Kenya","Table Mountain","Mount Kilimanjaro","Mount Cameroon"],ans:2,exp:"Mount Kilimanjaro in Tanzania is Africa's highest mountain at 5,895 metres above sea level."},
+  {q:"An earthquake is measured using the:",opts:["Barometer","Richter scale","Seismograph","Thermometer"],ans:1,exp:"The Richter scale measures the magnitude (energy released) of an earthquake. A seismograph records the seismic waves."},
+  {q:"The point on the Earth's surface directly above the focus of an earthquake is called the:",opts:["Epicentre","Fault","Seismic zone","Crater"],ans:0,exp:"The epicentre is the point on the Earth's surface directly above where the earthquake originates (the focus/hypocentre)."},
+  {q:"A plateau is:",opts:["A low-lying flat area","A high flat-topped elevated landform","A mountain peak","A valley"],ans:1,exp:"A plateau is an elevated, flat-topped landform — also called a tableland. E.g., Jos Plateau in Nigeria."},
+  // CLIMATE & WEATHER
+  {q:"Weather refers to:",opts:["Long-term atmospheric conditions","Short-term atmospheric conditions at a specific place and time","Ocean temperatures","Soil conditions"],ans:1,exp:"Weather is the short-term state of the atmosphere at a specific place and time — temperature, rainfall, wind, etc."},
+  {q:"Climate refers to:",opts:["Daily weather","Short-term atmospheric changes","Average weather conditions of an area over 30+ years","Ocean currents"],ans:2,exp:"Climate is the average weather conditions of a region over a long period (typically 30 years or more)."},
+  {q:"The instrument used to measure rainfall is:",opts:["Barometer","Thermometer","Rain gauge","Hygrometer"],ans:2,exp:"A rain gauge (pluviometer) measures the amount of precipitation (rainfall) in millimetres."},
+  {q:"The instrument used to measure temperature is:",opts:["Barometer","Thermometer","Rain gauge","Anemometer"],ans:1,exp:"A thermometer measures temperature. Maximum-minimum thermometers record highest and lowest temperatures."},
+  {q:"The instrument used to measure wind speed is:",opts:["Barometer","Thermometer","Wind vane","Anemometer"],ans:3,exp:"An anemometer measures wind speed. A wind vane measures wind direction."},
+  {q:"The equatorial climate is characterised by:",opts:["Cold temperatures and low rainfall","High temperatures and heavy rainfall throughout the year","Dry conditions","Seasonal rainfall"],ans:1,exp:"Equatorial climate has high temperatures (26-28°C) and heavy rainfall (over 2000mm) throughout the year — found near the equator."},
+  {q:"The savanna climate in West Africa is characterised by:",opts:["Rainfall all year round","Distinct wet and dry seasons","No rainfall","Cold temperatures"],ans:1,exp:"The savanna (tropical wet and dry) climate has distinct wet and dry seasons — wet summer and dry winter."},
+  {q:"Harmattan is a:",opts:["Warm moist wind","Dry dusty wind from the Sahara","Cold polar wind","Sea breeze"],ans:1,exp:"The Harmattan is a dry, dusty northeasterly wind that blows from the Sahara Desert across West Africa, especially November-March."},
+  {q:"The monsoon refers to:",opts:["Permanent wind direction","Seasonal reversal of wind direction","Trade winds","Local sea breeze"],ans:1,exp:"Monsoon is the seasonal reversal of wind direction — bringing heavy rainfall in summer and dry conditions in winter."},
+  {q:"Condensation occurs when:",opts:["Water vapour cools and turns to liquid","Water evaporates","Temperature rises","Wind increases"],ans:0,exp:"Condensation is the process by which water vapour cools and changes state to liquid water — forming clouds, dew, or fog."},
+  // NIGERIA GEOGRAPHY
+  {q:"Nigeria is located in:",opts:["East Africa","Southern Africa","West Africa","Central Africa"],ans:2,exp:"Nigeria is located in West Africa, bordered by Benin, Niger, Chad, and Cameroon."},
+  {q:"The largest river in Nigeria is:",opts:["Benue River","Cross River","Niger River","Kaduna River"],ans:2,exp:"The Niger River is the largest river in Nigeria and the third longest river in Africa."},
+  {q:"Lake Chad borders Nigeria to the:",opts:["South","West","North-East","North-West"],ans:2,exp:"Lake Chad borders Nigeria to the northeast, shared between Nigeria, Niger, Chad, and Cameroon."},
+  {q:"The Jos Plateau is located in:",opts:["Lagos State","Plateau State","Ogun State","Kano State"],ans:1,exp:"The Jos Plateau is located in Plateau State, central Nigeria — it is about 1,200 metres above sea level."},
+  {q:"The main vegetation zone in southern Nigeria is:",opts:["Sahel savanna","Guinea savanna","Tropical rainforest","Desert"],ans:2,exp:"Southern Nigeria is covered by tropical rainforest — characterised by dense tree cover and high rainfall."},
+  {q:"The Sahel zone in Nigeria is found in the:",opts:["South","Middle Belt","Far North","Southwest"],ans:2,exp:"The Sahel (semi-arid) zone is found in the far north of Nigeria — characterised by sparse vegetation and low rainfall."},
+  {q:"Which state in Nigeria has the largest population?",opts:["Lagos","Kano","Rivers","Kaduna"],ans:0,exp:"Lagos State has the largest population in Nigeria, with over 14 million people making it the most populous state."},
+  {q:"The Bight of Benin and Bight of Bonny are part of the:",opts:["Indian Ocean","Atlantic Ocean","Pacific Ocean","Mediterranean Sea"],ans:1,exp:"The Bight of Benin and Bight of Bonny are bays of the Atlantic Ocean along the coast of West Africa."},
+  {q:"Abuja became Nigeria's capital in:",opts:["1960","1975","1991","2000"],ans:2,exp:"Abuja officially became Nigeria's capital on December 12, 1991, replacing Lagos."},
+  {q:"The highest point in Nigeria is:",opts:["Jos Plateau","Chappal Waddi","Mandara Mountains","Obudu Plateau"],ans:1,exp:"Chappal Waddi (2,419m) in Taraba State is the highest point in Nigeria — also called 'Mountain of Death'."},
+  // POPULATION GEOGRAPHY
+  {q:"Population density refers to:",opts:["Total population of a country","Number of people per unit area","Rate of population growth","Birth rate minus death rate"],ans:1,exp:"Population density is the number of people per unit area (usually per km²) — it shows how crowded an area is."},
+  {q:"A population pyramid with a wide base indicates:",opts:["Aging population","High birth rate and young population","Low birth rate","Stable population"],ans:1,exp:"A wide-based population pyramid indicates a high birth rate, high death rate, and a young population — typical of developing countries."},
+  {q:"Rural-urban migration means:",opts:["Movement from city to village","Movement from village to city","International migration","Seasonal movement"],ans:1,exp:"Rural-urban migration is the movement of people from rural (village) areas to urban (city) areas — a major trend in Nigeria."},
+  {q:"The census is a:",opts:["Economic survey","Count of all persons in a country at a specific time","Political election","Agricultural survey"],ans:1,exp:"A census is an official count of all persons in a country at a specific time — used for planning and resource allocation."},
+  {q:"Nigeria's last official census was conducted in:",opts:["1991","2000","2006","2010"],ans:2,exp:"Nigeria's last official census was conducted in 2006, which put the population at approximately 140 million."},
+  // ECONOMIC GEOGRAPHY
+  {q:"Subsistence agriculture means farming primarily for:",opts:["Export","Sale at market","The farmer's own consumption","Industrial use"],ans:2,exp:"Subsistence agriculture produces mainly to feed the farmer's family with little or no surplus for sale."},
+  {q:"The main cash crop of northern Nigeria is:",opts:["Cocoa","Groundnut","Palm oil","Rubber"],ans:1,exp:"Groundnut (peanut) is the major cash crop of northern Nigeria, especially in Kano and Sokoto states."},
+  {q:"Petroleum is Nigeria's most important:",opts:["Agricultural export","Mineral resource and export earner","Tourist attraction","Manufacturing product"],ans:1,exp:"Petroleum (crude oil) is Nigeria's most important mineral resource, accounting for over 80% of government revenue."},
+  {q:"The Niger Delta region is important because of:",opts:["Agriculture","Tourism","Oil and gas production","Fishing only"],ans:2,exp:"The Niger Delta is Nigeria's main oil-producing region — it contains vast reserves of crude oil and natural gas."},
+  {q:"Deforestation leads to:",opts:["Increased rainfall","Soil erosion and desertification","More wildlife","Better farming"],ans:1,exp:"Deforestation removes tree cover leading to soil erosion, reduced rainfall, loss of biodiversity, and desertification."},
+  // WORLD GEOGRAPHY
+  {q:"The largest continent in the world is:",opts:["Africa","North America","Europe","Asia"],ans:3,exp:"Asia is the world's largest continent by both area (44.6 million km²) and population (over 4.7 billion people)."},
+  {q:"The largest country in the world by area is:",opts:["China","USA","Canada","Russia"],ans:3,exp:"Russia is the world's largest country by area at approximately 17.1 million km²."},
+  {q:"The longest river in the world is:",opts:["Amazon","Congo","Nile","Mississippi"],ans:2,exp:"The Nile River (6,650km) is generally considered the world's longest river, flowing through northeastern Africa."},
+  {q:"The Amazon rainforest is located in:",opts:["Africa","Asia","South America","Australia"],ans:2,exp:"The Amazon rainforest is located in South America, primarily in Brazil — it is the world's largest tropical rainforest."},
+  {q:"The Sahara Desert is located in:",opts:["Asia","North Africa","Southern Africa","Australia"],ans:1,exp:"The Sahara Desert in North Africa is the world's largest hot desert, covering about 9.2 million km²."},
+  {q:"Which ocean is the largest in the world?",opts:["Atlantic","Indian","Arctic","Pacific"],ans:3,exp:"The Pacific Ocean is the world's largest ocean, covering about 165 million km² — more than all land areas combined."},
+  {q:"The Greenwich Meridian divides the Earth into:",opts:["Northern and Southern hemispheres","Eastern and Western hemispheres","Tropical and temperate zones","Day and night zones"],ans:1,exp:"The Prime Meridian (0° longitude) divides the Earth into the Eastern and Western hemispheres."},
+  {q:"The equator divides the Earth into:",opts:["Eastern and Western hemispheres","Day and night","Northern and Southern hemispheres","Time zones"],ans:2,exp:"The equator (0° latitude) divides the Earth into the Northern and Southern hemispheres."},
+  {q:"The International Date Line is at approximately:",opts:["0° longitude","90°E longitude","180° longitude","90°W longitude"],ans:2,exp:"The International Date Line runs approximately along the 180° meridian — crossing it changes the calendar date."},
+  {q:"A contour line on a map connects points of:",opts:["Equal temperature","Equal rainfall","Equal altitude","Equal population"],ans:2,exp:"Contour lines on topographic maps connect all points at the same altitude (elevation) above sea level."},
+  // MAP READING
+  {q:"A large scale map shows:",opts:["A large area with little detail","A small area with great detail","The whole world","Only physical features"],ans:1,exp:"A large scale map (e.g., 1:10,000) shows a small area in great detail — useful for town planning or navigation."},
+  {q:"The scale 1:50,000 means:",opts:["1cm on map = 50,000km on ground","1cm on map = 50,000cm on ground","1km on map = 50,000km on ground","1m on map = 50,000m on ground"],ans:1,exp:"Scale 1:50,000 means 1 unit on the map equals 50,000 of the same units on the ground (1cm = 500m or 5km)."},
+  {q:"On a topographic map, closely spaced contour lines indicate:",opts:["Flat land","Gentle slope","Steep slope","A valley"],ans:2,exp:"Closely spaced contour lines indicate a steep slope — the closer the lines, the steeper the gradient."},
+  {q:"Which direction does a north arrow on a map point?",opts:["Toward the top of the map always","Toward true north","Toward the nearest city","It varies"],ans:1,exp:"A north arrow on a map points toward true (geographic) north — helping orientate the map to real-world directions."},
+  {q:"A key or legend on a map shows:",opts:["The title of the map","The scale of the map","The meaning of symbols used","The date the map was made"],ans:2,exp:"The key or legend explains the meaning of all symbols, colours, and patterns used on the map."},
+  // SOILS & VEGETATION
+  {q:"The most fertile soil is:",opts:["Sandy soil","Loamy soil","Clay soil","Rocky soil"],ans:1,exp:"Loamy soil (a mixture of sand, silt, and clay) is the most fertile — it has good drainage, aeration, and nutrient retention."},
+  {q:"Laterite soils are common in:",opts:["Temperate regions","Tropical regions","Arctic regions","Desert regions"],ans:1,exp:"Laterite (lateritic) soils are common in tropical regions — they are reddish-brown due to high iron and aluminium oxides."},
+  {q:"Mangrove forests are found in:",opts:["Desert areas","Mountain tops","Coastal swamps and tidal areas","Tropical rainforests"],ans:2,exp:"Mangrove forests grow in coastal swamps, tidal estuaries, and river deltas in tropical and subtropical regions."},
+  {q:"Desertification is the process by which:",opts:["Desert areas become fertile","Fertile land becomes desert-like","Forests expand","Rainfall increases"],ans:1,exp:"Desertification is the process by which fertile land becomes increasingly arid and desert-like due to drought, deforestation, and poor farming."},
+  {q:"The process of adding water to dry land for farming is:",opts:["Drainage","Irrigation","Leaching","Erosion"],ans:1,exp:"Irrigation is the artificial application of water to land or soil to assist in growing crops in dry conditions."},
+  // ENERGY & RESOURCES
+  {q:"Renewable energy sources include:",opts:["Coal and oil","Nuclear and coal","Solar and wind","Natural gas and coal"],ans:2,exp:"Renewable energy sources (solar, wind, hydro, geothermal) can be naturally replenished — unlike fossil fuels."},
+  {q:"The Kainji Dam in Nigeria is used for:",opts:["Irrigation only","Hydroelectric power generation","Fishing only","Tourism"],ans:1,exp:"The Kainji Dam on the Niger River is Nigeria's largest hydroelectric power station, generating electricity for the national grid."},
+  {q:"Coal is classified as a:",opts:["Renewable resource","Non-renewable resource","Inexhaustible resource","Living resource"],ans:1,exp:"Coal is a non-renewable fossil fuel — it takes millions of years to form and cannot be replenished at the rate it is consumed."},
+  {q:"Which of the following is a major environmental problem in the Niger Delta?",opts:["Flooding only","Oil pollution and gas flaring","Deforestation only","Soil erosion only"],ans:1,exp:"Oil pollution from spills and gas flaring are the major environmental problems in the Niger Delta, damaging ecosystems."},
+  {q:"Urbanisation refers to:",opts:["Movement to rural areas","Increase in proportion of people living in urban areas","Decline of cities","Agricultural development"],ans:1,exp:"Urbanisation is the increasing proportion of a population living in urban (city) areas — a major global trend."},
+  // MIXED TOPICS
+  {q:"A fjord is:",opts:["A flat coastal plain","A narrow inlet of the sea between cliffs","A river delta","A sand dune"],ans:1,exp:"A fjord is a long, narrow, deep inlet of the sea between steep cliffs — formed by glacial erosion. Common in Norway."},
+  {q:"The process by which water vapour rises and cools to form clouds is:",opts:["Condensation","Evaporation","Precipitation","Transpiration"],ans:0,exp:"As water vapour rises, it cools and condenses around dust particles to form clouds — the process is condensation."},
+  {q:"A glacier is:",opts:["A fast-flowing river","A slow-moving mass of ice","A coastal cliff","A hot spring"],ans:1,exp:"A glacier is a large, slow-moving mass of ice that forms from compacted snow in mountainous or polar regions."},
+  {q:"The continental shelf is:",opts:["The deepest part of the ocean","The shallow submerged extension of a continent","A mountain range","The ocean floor"],ans:1,exp:"The continental shelf is the gently sloping submerged edge of a continent — it extends from the coastline to the continental slope."},
+  {q:"Longshore drift is a process that occurs:",opts:["In rivers","Along coastlines","In deserts","In mountains"],ans:1,exp:"Longshore drift is the movement of sediment (sand and pebbles) along a coastline by wave action at an angle."},
+  {q:"The greenhouse effect occurs when:",opts:["Sunlight warms greenhouses","Atmospheric gases trap heat from Earth's surface","Ozone blocks sunlight","Oceans absorb CO₂"],ans:1,exp:"The greenhouse effect occurs when greenhouse gases (CO₂, methane) trap infrared radiation from Earth's surface, warming the atmosphere."},
+  {q:"Acid rain is caused by:",opts:["CO₂ and O₂","SO₂ and NOₓ dissolving in rainwater","Heavy rainfall","Volcanic eruptions only"],ans:1,exp:"Acid rain forms when sulphur dioxide (SO₂) and nitrogen oxides (NOₓ) from burning fossil fuels dissolve in rainwater."},
+  {q:"The International Date Line is significant because:",opts:["It marks the equator","A day is gained or lost when crossing it","It marks the Prime Meridian","It divides north and south"],ans:1,exp:"Crossing the International Date Line (180° meridian) eastward gains a day; crossing westward loses a day."},
+  {q:"A rain shadow is:",opts:["An area of heavy rainfall","A dry area on the leeward side of a mountain","A type of cloud","A coastal area"],ans:1,exp:"A rain shadow is the dry area on the leeward (sheltered) side of a mountain — the mountain blocks moisture-laden winds."},
+  {q:"The term 'biodiversity' refers to:",opts:["Number of humans in an area","Variety of plant and animal life in an area","Soil quality","Water resources"],ans:1,exp:"Biodiversity refers to the variety of plant, animal, and microbial life in a particular habitat, ecosystem, or on Earth."},
+];
+let questions=[],userAnswers=[],currentQ=0,timerInterval,secondsLeft=30*60;
+function shuffle(arr){return[...arr].sort(()=>Math.random()-0.5);}
+function initQuiz(){questions=shuffle(allQuestions).slice(0,100);userAnswers=new Array(questions.length).fill(null);currentQ=0;secondsLeft=30*60;buildNav();startTimer();renderQ();document.getElementById('quiz-section').style.display='block';document.getElementById('result-section').style.display='none';}
+function buildNav(){const nav=document.getElementById('q-nav');nav.innerHTML=questions.map((_,i)=>`<div class="q-dot" id="dot-${i}" onclick="goToQ(${i})">${i+1}</div>`).join('');}
+function updateNav(){questions.forEach((_,i)=>{const dot=document.getElementById(`dot-${i}`);dot.className='q-dot';if(i===currentQ)dot.classList.add('current');else if(userAnswers[i]!==null)dot.classList.add('answered');});const answered=userAnswers.filter(a=>a!==null).length;document.getElementById('stat-answered').textContent=`${answered}/${questions.length}`;document.getElementById('stat-remaining').textContent=questions.length-answered;}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const display=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('timer').textContent=display;document.getElementById('stat-time').textContent=display;if(secondsLeft<=300)document.getElementById('timer-box').classList.add('warning');if(secondsLeft<=0){clearInterval(timerInterval);submitQuiz();}},1000);}
+function renderQ(){const q=questions[currentQ];const letters=['A','B','C','D'];document.getElementById('q-number').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-counter').textContent=`Question ${currentQ+1} of ${questions.length}`;document.getElementById('q-answered-info').textContent=`${userAnswers.filter(a=>a!==null).length} answered`;document.getElementById('q-text').innerHTML=q.q;document.getElementById('progress-fill').style.width=`${((currentQ+1)/questions.length)*100}%`;document.getElementById('prev-btn').disabled=currentQ===0;document.getElementById('next-btn').textContent=currentQ===questions.length-1?'Submit →':'Next →';const list=document.getElementById('options-list');list.innerHTML=q.opts.map((opt,i)=>`<li class="option ${userAnswers[currentQ]===i?'selected':''}" onclick="selectOpt(${i})"><span class="opt-letter">${letters[i]}</span><span>${opt}</span></li>`).join('');updateNav();}
+function selectOpt(i){userAnswers[currentQ]=i;renderQ();}
+function goToQ(i){currentQ=i;renderQ();}
+function nextQ(){if(currentQ<questions.length-1){currentQ++;renderQ();}else confirmSubmit();}
+function prevQ(){if(currentQ>0){currentQ--;renderQ();}}
+function confirmSubmit(){const unanswered=userAnswers.filter(a=>a===null).length;if(unanswered>0){if(!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;}submitQuiz();}
+function submitQuiz(){clearInterval(timerInterval);let correct=0,wrong=0,skipped=0;questions.forEach((q,i)=>{if(userAnswers[i]===null)skipped++;else if(userAnswers[i]===q.ans)correct++;else wrong++;});const pct=Math.round((correct/questions.length)*100);document.getElementById('quiz-section').style.display='none';document.getElementById('result-section').style.display='block';document.getElementById('r-score').textContent=pct+'%';document.getElementById('r-correct').textContent=correct;document.getElementById('r-wrong').textContent=wrong;document.getElementById('r-skipped').textContent=skipped;document.getElementById('r-title').textContent=pct>=70?'🎉 Excellent!':pct>=50?'👍 Good Effort!':'📚 Keep Studying!';document.getElementById('r-msg').textContent=pct>=70?`You scored ${pct}% — great Geography performance!`:pct>=50?`You scored ${pct}% — review missed questions and try again.`:`You scored ${pct}% — go over your notes and practice more.`;const reviewList=document.getElementById('review-list');reviewList.innerHTML=questions.map((q,i)=>{const userAns=userAnswers[i];const isCorrect=userAns===q.ans;const isSkipped=userAns===null;const cls=isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';const letters=['A','B','C','D'];return`<div class="review-item ${cls}"><div class="review-q"><strong>Q${i+1}:</strong> ${q.q}</div><div class="review-answers">${!isSkipped?`<div class="r-answer"><span class="tag ${isCorrect?'tag-correct':'tag-wrong'}">${isCorrect?'Your Answer ✅':'Your Answer ❌'}</span> ${letters[userAns]}. ${q.opts[userAns]}</div>`:`<div class="r-answer"><span class="tag tag-skipped">Skipped</span></div>`}${!isCorrect?`<div class="r-answer"><span class="tag tag-correct">Correct Answer</span> ${letters[q.ans]}. ${q.opts[q.ans]}</div>`:''}</div><div class="review-exp">💡 ${q.exp}</div></div>`;}).join('');}
+function restartQuiz(){document.getElementById('result-section').style.display='none';initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>
